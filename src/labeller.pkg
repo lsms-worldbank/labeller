@@ -1,0 +1,31 @@
+* This package file is generated in the adodown workflow. Do not edit directly.
+*** version
+v 0.0
+*** name
+d labeller
+*** description
+d A packge with utility commands related to lables. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.
+d
+*** stata
+d Version: Stata 14.1
+d
+*** author
+d Author: LSMS Worldbank
+*** contact
+d Contact: lsms@worldbank.org
+*** url
+d URL: https://github.com/lsms-worldbank/labeller
+d
+*** date
+d Distribution-Date: 20231109
+d
+*** adofiles
+f ado/labeller.ado
+
+*** helpfiles
+f sthlp/labeller.sthlp
+
+*** ancillaryfiles
+
+*** end
+e

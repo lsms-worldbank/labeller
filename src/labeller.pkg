@@ -20,9 +20,11 @@ d
 d Distribution-Date: 20231109
 d
 *** adofiles
+f ado/lab_pipe.ado
 f ado/labeller.ado
 
 *** helpfiles
+f sthlp/lab_pipe.sthlp
 f sthlp/labeller.sthlp
 
 *** ancillaryfiles

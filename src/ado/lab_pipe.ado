@@ -4,18 +4,28 @@ cap program drop   lab_pipe
     * Update the syntax. This is only a placeholder to make the command run
     syntax , [ ///
       ignorepipes(string) varignore(string) pipevalues(string) ///
-      verbose veryverbose ///
+      outputlevel(string) truncate(string)                     ///
       ]
 
-    * Handle output level
-    local output_level "minimal"
-    if !missing("`verbose'")     local output_level "verbose"
-    if !missing("`veryverbose'") local output_level "veryverbose"
+    * Set defaults
+    if missing("`outputlevel'") local outputlevel "verbose"
+    if missing("`truncate'")    local truncate    "error"
 
-    * Initiate pipes local
-    local pipes_found      ""
+    if !(inlist("`outputlevel'","minimal","verbose","veryverbose")) {
+      noi di as error "{pstd}The value [`outputlevel'] in option {opt:outputlevel(`outputlevel')} is not a valid value. It may only be either minimal, verbose, or veryverbose.{p_end}"
+      error 198
+    }
+
+    if !(inlist("`truncate'","error","warning","prompt")) {
+      noi di as error "{pstd}The value [`truncate'] in option {opt:truncate(`truncate')} is not a valid value. It may only be either error, warning, or prompt.{p_end}"
+      error 198
+    }
+
+    * Initiate locals
+    local pipes_found     ""
     local pipes_replaced  ""
     local pipes_remaining ""
+    local truncate_all    "FALSE"
 
     **************************************************
     * Search for pipes
@@ -108,6 +118,51 @@ cap program drop   lab_pipe
           local lab : variable label `var'
           local newlab = subinstr("`lab'","%`pipe'%","`v_`pipe''",.)
 
+          * Handle too long variable label
+          if (strlen("`newlab'")>80) {
+
+            local newlab = substr("`newlab'",1,80)
+            local lblstr "The new label for variable {opt `var'} will be longer than the max length of 80 characters when replacing the pipe {opt %`pipe'%} with value {opt `v_`pipe''}."
+            local oldlblstr "{pmore}Old label: {it:`lab'}{p_end}"
+            local newlblstr "{pmore}New label: {it:`newlab'}{p_end}"
+
+            if ("`truncate'"=="error") {
+              noi di as error "{pstd}`lblstr' Either pick another shorter value for this pipe or see the options in option {opt truncate()}.{p_end}"
+              noi di as res "`oldlblstr'"
+              noi di as res "`oldlblstr'"
+              error 99
+            }
+            else if ("`truncate'"=="warning") {
+
+              noi di as res "{pstd}{red:Warning:} `lblstr' The label will be truncated to 80 characters.{p_end}"
+              noi di as res "`oldlblstr'"
+              noi di as res "`oldlblstr'"
+            }
+            else if ("`truncate'"=="prompt") {
+              if ("`truncate_all'" == "FALSE") {
+
+                noi di as res "{pstd}{red:Warning:} `lblstr' Please confirm that this is ok.{p_end}"
+                noi di as res "`oldlblstr'"
+                noi di as res "`oldlblstr'"
+
+                global adinp_confirmation ""
+                while (!inlist(upper("${adinp_confirmation}"),"YES","YESALL", "BREAK")) {
+                  noi di as txt `"{pstd}Enter "Yes" to confirm that the label can be truncated, enter "Yesall" to answer yes for all cases, or enter "BREAK" to abort."', _request(adinp_confirmation)
+                }
+                if upper("${adinp_confirmation}") == "YESALL" {
+                  local truncate_all    "TRUE"
+                }
+                if upper("${adinp_confirmation}") == "BREAK" {
+                  noi di as txt "{pstd}Package template creation aborted - nothing was created.{p_end}"
+                  error 1
+                  exit
+                }
+              }
+            }
+            * Error to catch incorrect truncate option
+            else error 98
+          }
+          * Apply the new label
           label variable `var' "`newlab'"
 
         }
@@ -128,7 +183,7 @@ cap program drop   lab_pipe
         title("{ul:Pipes to be replaced:}") ///
         values("`pipes_used'")
 
-      if ("`output_level'" != "minimal") {
+      if ("`outputlevel'" != "minimal") {
         output_verbose, ///
           title("{ul:Pipes found but ignored in ignorepipes():}") ///
           values("`ignorepipes'")
@@ -148,13 +203,13 @@ cap program drop   lab_pipe
 
           local title "{it:Pipe {bf:%`pipe'%} replaced with: {bf:`v_`pipe''}}"
 
-          if ("`output_level'" == "minimal") {
+          if ("`outputlevel'" == "minimal") {
             output_minimal, title("`title'")
           }
-          else if ("`output_level'" == "verbose") {
+          else if ("`outputlevel'" == "verbose") {
             output_verbose, title("`title'") values("`p_`pipe''")
           }
-          else if ("`output_level'" == "veryverbose") {
+          else if ("`outputlevel'" == "veryverbose") {
             output_veryverbose, title("`title'") vars("`p_`pipe''") ///
               ttitle1("Variable") ttitle2("Variable label")
           }
@@ -162,7 +217,7 @@ cap program drop   lab_pipe
         }
         * Add spacing between sections if minimal output level where
         * spaces are not added withing the sub-commands
-        if ("`output_level'" == "minimal") noi di as text ""
+        if ("`outputlevel'" == "minimal") noi di as text ""
       }
 
       ******************************************
@@ -179,13 +234,13 @@ cap program drop   lab_pipe
 
           local title "{it:Pipe {bf:%`pipe'%} left as is.}"
 
-          if ("`output_level'" == "minimal") {
+          if ("`outputlevel'" == "minimal") {
             output_minimal, title("`title'")
           }
-          else if ("`output_level'" == "verbose") {
+          else if ("`outputlevel'" == "verbose") {
             output_verbose, title("`title'") values("`p_`pipe''")
           }
-          else if ("`output_level'" == "veryverbose") {
+          else if ("`outputlevel'" == "veryverbose") {
             output_veryverbose, title("`title'") vars("`p_`pipe''") ///
               ttitle1("Variable") ttitle2("Variable label")
           }

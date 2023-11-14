@@ -3,8 +3,8 @@ cap program drop   lab_pipe
 
     * Update the syntax. This is only a placeholder to make the command run
     syntax , [ ///
-      ignorepipes(string) varignore(string) pipevalues(string) ///
-      outputlevel(string) truncate(string)                     ///
+      PIPEValues(string) ignorepipes(string)  ///
+      outputlevel(string) truncate(string)   ///
       ]
 
     * Set defaults
@@ -197,12 +197,8 @@ cap program drop   lab_pipe
       if !missing("`pipes_replaced'") {
         noi di as res "{pstd}{ul:{bf:Pipes where labels was updated with values:}}{p_end}" _n
 
-
-
         foreach pipe of local pipes_replaced {
-
-          local title "{it:Pipe {bf:%`pipe'%} replaced with: {bf:`v_`pipe''}}"
-
+          local title "{it:Pipe {bf:%`pipe'%} replaced with: {bf:`v_`pipe''} in variable(s):}"
           if ("`outputlevel'" == "minimal") {
             output_minimal, title("`title'")
           }
@@ -232,7 +228,7 @@ cap program drop   lab_pipe
 
         foreach pipe of local pipes_remaining {
 
-          local title "{it:Pipe {bf:%`pipe'%} left as is.}"
+          local title "{it:Pipe {bf:%`pipe'%} left as is in variable(s):}"
 
           if ("`outputlevel'" == "minimal") {
             output_minimal, title("`title'")

@@ -2,15 +2,24 @@ cap program drop   lab_pipe
     program define lab_pipe
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , [ignorepipes(string) varignore(string) pipevalues(string)]
+    syntax , [ ///
+      ignorepipes(string) varignore(string) pipevalues(string) ///
+      verbose veryverbose ///
+      ]
+
+    * Handle output level
+    local output_level "minimal"
+    if !missing("`verbose'")     local output_level "verbose"
+    if !missing("`veryverbose'") local output_level "veryverbose"
 
     * Initiate pipes local
-    local pipes_used      ""
+    local pipes_found      ""
     local pipes_replaced  ""
     local pipes_remaining ""
 
     **************************************************
-    * Identify pipes used
+    * Search for pipes
+    **************************************************
 
     * Loop over all variables to list all pipes and all vars each are used for
     foreach var of varlist _all {
@@ -36,7 +45,7 @@ cap program drop   lab_pipe
             * Test that pipe is a valid pipe - otherwise it is liekly not a pipe
             local valid_pipe = regexm("`this_pipe'","^([a-z])([a-z0-9_]+)$")
             if (`valid_pipe') {
-              local pipes_used : list pipes_used | this_pipe
+              local pipes_found : list pipes_found | this_pipe
               local p_`this_pipe' "`p_`this_pipe'' `var'"
             }
             * Rest this_pipe
@@ -58,92 +67,196 @@ cap program drop   lab_pipe
     * Handle ignorepipes poption
 
     * Warn is pipes in ignore pipes are not founds
-    local miss_ignored_pipes : list ignorepipes - pipes_used
+    local miss_ignored_pipes : list ignorepipes - pipes_found
     if !missing("`miss_ignored_pipes'") {
       noi di as smcl "{pstd}{err:Warning}: The pipe(s) to ignore [`miss_ignored_pipes'] was/were not used in any variable label{p_end}"
     }
 
     * Ignore pipes
-    local pipes_used : list pipes_used - ignorepipes
-
-
+    local pipes_used : list pipes_found - ignorepipes
 
     **************************************************
-    * Display pipes
-
-    noi di as smcl "{dlgtab: Pipes found:}"
-    noi di "{pmore}- `pipes_used'{p_end}" _n
-    foreach pipe of local pipes {
-      * Clean duplicates - happens when pipe occurs twice in a var label
-      local p_`pipe' : list uniq p_`pipe'
-    }
-
-
+    * Replace pipes
     **************************************************
-    * Replace pipes with string values
 
-    * Copy all pipes to pipes remaining
-    local pipes_remaining "`pipes_used'"
+    * Handle case of no outputs found
+    if missing("`pipes_found'") noi di as res _n "{pstd}No pipes were found in this dataset.{p_end}"
+    else {
 
-    foreach pipevalue of local pipevalues {
-      local pipe : word 1 of `pipevalue'
-      local value = subinstr("`pipevalue'", "`pipe' ", "", 1)
-
-      local missing_pipes : list pipe - pipes_used
-      if !missing("`missing_pipes'") {
-        noi di as error "{pstd}The pipe [`missing_pipes'] with value [`value'] was not used in any variable label.{p_end}"
-        error 99
+      **************************************************
+      * Replace pipes with string values
+      foreach pipe of local pipes {
+        * Clean duplicates - happens when pipe occurs twice in a var label
+        local p_`pipe' : list uniq p_`pipe'
       }
 
-      * Update variable label
-      foreach var of local p_`pipe' {
-        local lab : variable label `var'
-        local newlab = subinstr("`lab'","`pipe'","`value'",.)
-        label variable `var' "`newlab'"
-        // TODO : handle too long label
+      * Copy all pipes to pipes remaining
+      local pipes_remaining "`pipes_used'"
+
+      foreach pipevalue of local pipevalues {
+        local pipe : word 1 of `pipevalue'
+        local v_`pipe' = subinstr("`pipevalue'", "`pipe' ", "", 1)
+
+        local missing_pipes : list pipe - pipes_used
+        if !missing("`missing_pipes'") {
+          noi di as error "{pstd}The pipe [`missing_pipes'] with value [`v_`pipe''] was not used in any variable label.{p_end}"
+          error 99
+        }
+
+        * Update variable label
+        foreach var of local p_`pipe' {
+          local lab : variable label `var'
+          local newlab = subinstr("`lab'","%`pipe'%","`v_`pipe''",.)
+
+          label variable `var' "`newlab'"
+
+        }
+
+        * Update replaced and remaining locals
+        local pipes_replaced  "`pipes_replaced' `pipe'"
+        local pipes_remaining : list pipes_remaining - pipe
       }
 
-      * Update replaced and remaining locals
-      local pipes_replaced  "`pipes_replaced' `pipe'"
-      local pipes_remaining : list pipes_remaining - pipe
-    }
+      **************************************************
+      * Outputs
+      **************************************************
 
-    ******************************************
-    * Output replaced pipes
+      **************************************************
+      * Display pipes
+      noi di as res _n "{pstd}{ul:{bf:Pipes found:}}{p_end}" _n
+      output_verbose, ///
+        title("{ul:Pipes to be replaced:}") ///
+        values("`pipes_used'")
 
-    if !missing("`pipes_replaced'") {
-      noi di as res "{dlgtab: Pipes where labels was updated with values}"
-    }
-    foreach pipe of local pipes_replaced {
-      noi di as smcl "{hline}"
-      noi di as smcl "Pipe [`pipe']:"
-      noi di as smcl "{hline}"
-      noi di "{pmore}- `p_`pipe''{p_end}" _n
-      noi di as smcl "{hline}"
-    }
+      if ("`output_level'" != "minimal") {
+        output_verbose, ///
+          title("{ul:Pipes found but ignored in ignorepipes():}") ///
+          values("`ignorepipes'")
+      }
 
-    ******************************************
-    * Output replaced pipes
 
-    if !missing("`pipes_remaining'") {
-      noi di as res "{dlgtab: Pipes where labels were not yet updated with values}"
-      noi di as res "{pstd}{it:Use option }{cmd:pipevalues()}{it: to update pipes with values.}{p_end}"
-    }
-    foreach pipe of local pipes_remaining {
-      noi di as smcl "{hline}" _n "Pipe [`pipe']:" _n "{hline}"
-      noi di "{pmore}- `p_`pipe''{p_end}" _n
-      noi di as smcl "{hline}"
-    }
+
+      ******************************************
+      * Output replaced pipes
+
+      if !missing("`pipes_replaced'") {
+        noi di as res "{pstd}{ul:{bf:Pipes where labels was updated with values:}}{p_end}" _n
+
+
+
+        foreach pipe of local pipes_replaced {
+
+          local title "{it:Pipe {bf:%`pipe'%} replaced with: {bf:`v_`pipe''}}"
+
+          if ("`output_level'" == "minimal") {
+            output_minimal, title("`title'")
+          }
+          else if ("`output_level'" == "verbose") {
+            output_verbose, title("`title'") values("`p_`pipe''")
+          }
+          else if ("`output_level'" == "veryverbose") {
+            output_veryverbose, title("`title'") vars("`p_`pipe''") ///
+              ttitle1("Variable") ttitle2("Variable label")
+          }
+          else error 98
+        }
+        * Add spacing between sections if minimal output level where
+        * spaces are not added withing the sub-commands
+        if ("`output_level'" == "minimal") noi di as text ""
+      }
+
+      ******************************************
+      * Output replaced pipes
+
+      if !missing("`pipes_remaining'") {
+
+        noi di as res "{pstd}{ul:{bf:Pipes where labels were not replaced with values:}}{p_end}"
+        noi di as text "{pstd}{it:Use option }{cmd:pipevalues()}{it: to replace these pipes with values.}{p_end}" _n
+
+        //noi di as text "{hline}" _n
+
+        foreach pipe of local pipes_remaining {
+
+          local title "{it:Pipe {bf:%`pipe'%} left as is.}"
+
+          if ("`output_level'" == "minimal") {
+            output_minimal, title("`title'")
+          }
+          else if ("`output_level'" == "verbose") {
+            output_verbose, title("`title'") values("`p_`pipe''")
+          }
+          else if ("`output_level'" == "veryverbose") {
+            output_veryverbose, title("`title'") vars("`p_`pipe''") ///
+              ttitle1("Variable") ttitle2("Variable label")
+          }
+          else error 98
+        }
+      }
+  }
 
 
 end
 
-// cap program drop   pipeval_parse
-//     program define pipeval_parse
-//
-//     args anything
-//
-//     noi di `"`0'"'
-//     noi di `"`1'"'
-//     noi di `"`2'"'
-// end
+cap program drop   output_minimal
+    program define output_minimal
+
+    syntax, title(string)
+
+    noi di as text "{phang}`title'{p_end}"
+end
+
+cap program drop   output_verbose
+    program define output_verbose
+
+    syntax, title(string) [values(string)]
+
+    * Prepare output list
+    if missing("`values'") local vlist "{it:N/A}"
+    else {
+      * Comma seperate the list
+      local vcount : word count `values'
+      local vlist  = "{bf:`: word 1 of `values''}"
+      forvalues i = 2/`vcount' {
+          local vlist "`vlist', {bf:`: word `i' of `values''}"
+      }
+    }
+
+    * Output the list
+    noi di as text "{phang}`title'{p_end}"
+    noi di as text "{phang} - `vlist'{p_end}" _n
+
+end
+
+cap program drop   output_veryverbose
+    program define output_veryverbose
+
+    syntax, title(string) ttitle1(string) ttitle2(string) [vars(varlist)]
+
+    noi di as text "{pstd}`title'{p_end}"
+
+    * Calculate longest string in col 1
+    local maxvarlen = strlen("`ttitle1'")
+    foreach varname of local vars {
+        local maxvarlen = max(`maxvarlen',strlen("`varname'"))
+    }
+
+    * Set column locals
+    local lind 5
+    local rind `lind'
+    local col2 = `maxvarlen' + `lind' + 1
+    local col2_hang = `col2' + 4
+    local p2_all  "`lind' `col2' `col2_hang' `rind'"
+
+    * Write table title
+    noi di as smcl "{p2colset `p2_all'}"
+    noi di as text "{p2col `p2_all':{it:{ul:`ttitle1'}}} {it:{ul:`ttitle2'}}" _n
+
+    * Write each label
+    foreach varname of local vars {
+       local varlab : variable label `varname'
+       noi di as text "{p2col `p2_all':{bf:`varname'}} {text:`varlab'}" _n
+    }
+
+    noi di as text "{p2line}" _n
+
+end

@@ -16,8 +16,8 @@ __lab_pipe__ , [__**pipev**alues__(_string_) __**ignorep**ipes__(_string_) __**o
 # Description
 
 This command detects SurveySolution (SuSo) pipes in variable labels.
-Data collected with SuSo commonly have pipes on the format `%pipename%`
-in the variable label.
+Data collected with SuSo commonly have pipes
+on the format `%pipename%` in the variable label.
 This is a value that during the SuSo data collection replaced on the screen
 for the enumerator during the survey with a value from a previous question.
 This command detects such pipes and offer the user to replace
@@ -25,15 +25,21 @@ the pipe with a more human friendly value.
 
 # Options
 
-__**pipev**alues__(_string_) is the option where the user provide the values that the pipe should be replaced with. The string in this option must be on this format of a compounded string. See example below. Pipes are always one word but the value may have several words. The value may not include a double quote (`"`).
+__**pipev**alues__(_string_) is the option where the user provide the values that the pipe should be replaced with. The string in this option must be on this format of a compounded string. See example below. Pipes are always one word but the value may have several words. The value may not include quote signs.
 
 ```
 lab_pipe, pipevalues(`" "<pipe1> <value1>" "<pipe2> <value2>" "')
 ```
 
-__**ignorep**ipes__(_string_) is an option where the user can list pipes that should be ignored. List the pipe names in a single string on this format: `"pipe1 pipe2"`
+__**ignorep**ipes__(_string_) is an option where the user
+can list pipes that should be ignored.
+List the pipe names in a single string on this format:
 
-__**out**putlevel__(_string_) is an option that allows the user to set how verbose the output should be. The valid values this option takes is `minimal`, `verbose` and `veryverbose`. The default is `verbose`
+```
+lab_pipe, ignorepipes("pipe1 pipe2")
+```
+
+__**out**putlevel__(_string_) is an option that allows the user to set how verbose the output should be. The valid values this option takes is `minimal`, `verbose` and `veryverbose`. The default is `verbose`.
 
 __**trun**cate__(_string_) is an option that let the user decide what should happen if a label is too long after the pipe has been replaced with the new value. The options are `error` (the commands throws an error and exits), `warning` (the command outputs a warning and continues) and `prompt` (the command askes the user to interactively confirm each case).
 
@@ -41,8 +47,9 @@ __**trun**cate__(_string_) is an option that let the user decide what should hap
 
 ## Example 1
 
-This simple example creates a data set and shows how `lab_pipe`
-detects the pipe in the variable `mpg`
+This simple example creates a data set and shows
+how `lab_pipe` detects the pipe in the variable `mpg`.
+
 ```
 * Create example data
 sysuse auto, clear

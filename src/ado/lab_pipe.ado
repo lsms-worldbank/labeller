@@ -52,8 +52,12 @@ cap program drop   lab_pipe
           local is_pipe = !`is_pipe'
           *If no longer pipe, save this pipe and rest
           if !(`is_pipe') {
-            * Test that pipe is a valid pipe - otherwise it is liekly not a pipe
-            local valid_pipe = regexm("`this_pipe'","^([a-z])([a-z0-9_]+)$")
+            * Test that pipe is a valid pipe - otherwise it is likely not a pipe
+            * pipes, as variable names, must:
+            * - start with a letter
+            * - contain letters, numbers, and underscore
+            * See more here: https://docs.mysurvey.solutions/questionnaire-designer/components/variable-names/
+            local valid_pipe = regexm("`this_pipe'","^([A-Za-z])([A-Za-z0-9_]+)$")
             if (`valid_pipe') {
               local pipes_found : list pipes_found | this_pipe
               local p_`this_pipe' "`p_`this_pipe'' `var'"

@@ -38,7 +38,7 @@ cap program drop   lab_pipe
       local is_pipe 0
       local this_pipe ""
 
-      * Get this var's var labal and its length
+      * Get this var's var label and its length
       local lab : variable label `var'
       local lablen = strlen("`lab'")
 
@@ -62,7 +62,7 @@ cap program drop   lab_pipe
             local this_pipe ""
           }
         }
-        * Space means its nver a pipe as in "what is 20% of 20%?"
+        * Space means its never a pipe as in "what is 20% of 20%?"
         else if ("`c'" == " ") {
           local is_pipe   = 0
           local this_pipe ""

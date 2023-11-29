@@ -17,20 +17,21 @@
     
     cap net uninstall labeller
     net install labeller, from("${src_fldr}") replace
-    
-
-
+        
     * Create example data
     sysuse auto, clear
     label variable mpg "Mileage (%unit%)"
     
-    * Basic run
-    lab_pipe
+    label variable price "Cost of car (%unit%)"
     
-    lab_pipe, outputlevel(minimal)
+    label variable foreign "Is (%country%)"
     
-    lab_pipe, outputlevel(veryverbose)
-
-    * List the pipes in the data
-    lab_pipe, pipevalues(`" "unit miles per galleon" "') ///
-        outputlevel(veryverbose)
+    * List pipes
+    lbl_list_pipes, outputlevel(veryverbose)
+    
+    * Replace a pipe
+    lbl_replace_pipe, pipe("%unit%") truncate(warning) ///
+        replacement("miles per gallon") outputlevel(veryverbose)
+       
+    lbl_assert_no_pipes, outputlevel(veryverbose) ///
+        ignorepipes(country)

@@ -20,10 +20,16 @@ d
 d Distribution-Date: 20231109
 d
 *** adofiles
+f ado/lbl_assert_no_pipes.ado
+f ado/lbl_replace_pipes.ado
+f ado/lbl_list_pipes.ado
 f ado/lab_pipe.ado
 f ado/labeller.ado
 
 *** helpfiles
+f sthlp/lbl_assert_no_pipes.sthlp
+f sthlp/lbl_replace_pipes.sthlp
+f sthlp/lbl_list_pipes.sthlp
 f sthlp/lab_pipe.sthlp
 f sthlp/labeller.sthlp
 

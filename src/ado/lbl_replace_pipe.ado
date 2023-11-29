@@ -4,7 +4,7 @@ cap program drop   lbl_replace_pipe
     program define lbl_replace_pipe, rclass
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , pipe(string) replacement(string) [truncate(string) missingok]
+    syntax , pipe(string) replacement(string) [truncate(string) outputlevel(string) missingok]
 
     * Set defaults
     if missing("`truncate'")    local truncate    "error"
@@ -13,7 +13,19 @@ cap program drop   lbl_replace_pipe
       error 198
     }
 
-    local truncate_all    "FALSE"
+    * Set defaults
+    if missing("`outputlevel'") local outputlevel "verbose"
+    if !(inlist("`outputlevel'","minimal","verbose","veryverbose")) {
+      noi di as error "{pstd}The value [`outputlevel'] in option {opt:outputlevel(`outputlevel')} is not a valid value. It may only be either minimal, verbose, or veryverbose.{p_end}"
+      error 198
+    }
+
+    * Initiate local
+    local truncate_yesall    "FALSE"
+
+    **************************************************
+    * Test valid pipe
+    **************************************************
 
     * Get the list of pipes used and the vars they are used for
     qui lbl_list_pipes, outputlevel(minimal)
@@ -22,6 +34,7 @@ cap program drop   lbl_replace_pipe
 
     * Test that the pipe to be replaced was found
     if !(`: list pipe in pipes_found') {
+      * Pipe not found - throw error unless missingok is used
       if missing("`missingok'") {
         noi di as error "{pstd}The pipe [`pipe'] was not used by any veraibles in the dataset. Use the option {opt:missingok} to surpress this error.{p_end}"
         error 198
@@ -31,17 +44,18 @@ cap program drop   lbl_replace_pipe
       }
     }
 
-    * Pipe was found and will now be replaced
-    else {
-      di "pipe: `pipe'"
-      di "vars: `vars'"
+    **************************************************
+    * Replace pipe
+    **************************************************
 
+    else {
+
+      * Loop over each label this pipe is used for
       foreach var of local vars {
+
+        * Constructthe new label
         local lab : variable label `var'
         local newlab = subinstr("`lab'","%`pipe'%","`replacement'",.)
-        // noi di _n "var: `var'"
-        // noi di "old label: `lab'"
-        // noi di "new label: `newlab'"
 
         * Handle too long variable label
         if (strlen("`newlab'")>80) {
@@ -65,7 +79,7 @@ cap program drop   lbl_replace_pipe
             noi di as res "`newlblstr'"
           }
           else if ("`truncate'"=="prompt") {
-            if ("`truncate_all'" == "FALSE") {
+            if ("`truncate_yesall'" == "FALSE") {
 
               noi di as res "{pstd}{red:Warning:} `lblstr' Please confirm that this is ok.{p_end}"
               noi di as res "`oldlblstr'"
@@ -89,10 +103,32 @@ cap program drop   lbl_replace_pipe
           else error 98
         }
 
-        
         * Apply the new label
         label variable `var' "`newlab'"
 
+      }
+
+      **************************************************
+      * Output result
+      **************************************************
+
+      noi di ""
+      if ("`outputlevel'" == "minimal") {
+        noi di as text "{pstd}Pipes successfully replaced{p_end}"
+      }
+      else {
+        local title "{ul:{bf:Pipe %`pipe'% replaced in variable(s):}}"
+        if ("`outputlevel'" == "verbose") {
+          //noi di `"output_verbose, title("`title'") values("``pipe'_v'")"'
+          labeller output_verbose title("`title'") values("`vars'")
+        }
+        else if ("`outputlevel'" == "veryverbose") {
+          labeller output_veryverbose title("`title'") vars("`vars'") ///
+            ttitle1("Variable") ttitle2("New variable label")
+          noi di as text "{p2line}" _n
+        }
+      }
+      else if ("`outputlevel'" == "veryverbose") {
 
       }
     }

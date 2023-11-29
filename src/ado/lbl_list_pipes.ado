@@ -8,12 +8,12 @@ cap program drop   lbl_list_pipes
 
     * Set defaults
     if missing("`outputlevel'") local outputlevel "verbose"
-
     if !(inlist("`outputlevel'","minimal","verbose","veryverbose")) {
       noi di as error "{pstd}The value [`outputlevel'] in option {opt:outputlevel(`outputlevel')} is not a valid value. It may only be either minimal, verbose, or veryverbose.{p_end}"
       error 198
     }
 
+    * Initiate locals
     local pipes_found     ""
 
     **************************************************

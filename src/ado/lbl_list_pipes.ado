@@ -74,7 +74,7 @@ cap program drop   lbl_list_pipes
 
     * Display pipes
     noi di ""
-    output_verbose, ///
+    labeller output_verbose ///
       title("{ul:{bf:Pipes found in dataset:}}") ///
       values("`pipes_found'")
 
@@ -87,10 +87,10 @@ cap program drop   lbl_list_pipes
 
         if ("`outputlevel'" == "verbose") {
           //noi di `"output_verbose, title("`title'") values("``pipe'_v'")"'
-          output_verbose, title("`title'") values("``pipe'_v'")
+          labeller output_verbose title("`title'") values("``pipe'_v'")
         }
         else if ("`outputlevel'" == "veryverbose") {
-          output_veryverbose, title("`title'") vars("``pipe'_v'") ///
+          labeller output_veryverbose title("`title'") vars("``pipe'_v'") ///
             ttitle1("Variable") ttitle2("Variable label")
           noi di as text "{p2line}" _n
         }
@@ -109,63 +109,5 @@ cap program drop   lbl_list_pipes
 
     * Output the pipes found
     return local pipes "`pipes_found'"
-
-end
-
-
-
-
-
-cap program drop   output_verbose
-    program define output_verbose
-
-    syntax, title(string) [values(string)]
-
-    * Prepare output list
-    if missing("`values'") local vlist "{it:N/A}"
-    else {
-      * Comma seperate the list
-      local vcount : word count `values'
-      local vlist  = "{bf:`: word 1 of `values''}"
-      forvalues i = 2/`vcount' {
-          local vlist "`vlist', {bf:`: word `i' of `values''}"
-      }
-    }
-
-    * Output the list
-    noi di as text "{phang}`title'{p_end}"
-    noi di as text "{phang} - `vlist'{p_end}" _n
-
-end
-
-cap program drop   output_veryverbose
-    program define output_veryverbose
-
-    syntax, title(string) ttitle1(string) ttitle2(string) [vars(varlist)]
-
-    noi di as text "{pstd}`title'{p_end}"
-
-    * Calculate longest string in col 1
-    local maxvarlen = strlen("`ttitle1'")
-    foreach varname of local vars {
-        local maxvarlen = max(`maxvarlen',strlen("`varname'"))
-    }
-
-    * Set column locals
-    local lind 5
-    local rind `lind'
-    local col2 = `maxvarlen' + `lind' + 1
-    local col2_hang = `col2' + 4
-    local p2_all  "`lind' `col2' `col2_hang' `rind'"
-
-    * Write table title
-    noi di as smcl "{p2colset `p2_all'}"
-    noi di as text "{p2col `p2_all':{it:{ul:`ttitle1'}}} {it:{ul:`ttitle2'}}" _n
-
-    * Write each label
-    foreach varname of local vars {
-       local varlab : variable label `varname'
-       noi di as text "{p2col `p2_all':{bf:`varname'}} {text:`varlab'}" _n
-    }
 
 end

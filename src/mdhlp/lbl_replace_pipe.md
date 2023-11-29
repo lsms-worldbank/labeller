@@ -1,10 +1,10 @@
 # Title
 
-__lbl_replace_pipes__ - This command is used for short description.
+__lbl_replace_pipe__ - This command is used for short description.
 
 # Syntax
 
-__lbl_replace_pipes__ , __**opt**ion1__(_string_)
+__lbl_replace_pipe__ , __**opt**ion1__(_string_)
 
 | _options_ | Description |
 |-----------|-------------|

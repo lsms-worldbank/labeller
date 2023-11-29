@@ -1,17 +1,17 @@
 {smcl}
 {* 01 Jan 1960}{...}
 {hline}
-{pstd}help file for {hi:lbl_replace_pipes}{p_end}
+{pstd}help file for {hi:lbl_replace_pipe}{p_end}
 {hline}
 
 {title:Title}
 
-{phang}{bf:lbl_replace_pipes} - This command is used for short description.
+{phang}{bf:lbl_replace_pipe} - This command is used for short description.
 {p_end}
 
 {title:Syntax}
 
-{phang}{bf:lbl_replace_pipes} , {bf:{ul:opt}ion1}({it:string})
+{phang}{bf:lbl_replace_pipe} , {bf:{ul:opt}ion1}({it:string})
 {p_end}
 
 {synoptset 15}{...}

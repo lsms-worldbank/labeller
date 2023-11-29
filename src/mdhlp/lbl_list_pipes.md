@@ -1,29 +1,60 @@
 # Title
 
-__lbl_list_pipes__ - This command is used for short description.
+__lbl_list_pipes__ - Lists pipes in variable labels from SurveySolution
 
 # Syntax
 
-__lbl_list_pipes__ , __**opt**ion1__(_string_)
+__lbl_list_pipes__ , [__**ig**norepipes__(_string_) __**out**putlevel__(_string_)]
 
 | _options_ | Description |
 |-----------|-------------|
-| __**opt**ion1__(_string_)   | Short description of option1  |
+| __**ig**norepipes__(_string_) | List of pipe names to be ignored |
+| __**out**putlevel__(_string_) | Toggle verbosity level in output  |
 
 # Description
-<!-- Longer description of the intended use of the command and best practices related to the usage. -->
+
+Data collected with SurveySolution (SuSo) commonly have pipes
+on the format `%pipename%` in the variable label.
+This command detects SuSo pipes in variable labels and outputs them.
+The pipes can then be replaced with the `lbl_replace_pipe` command
+that is also a part of the `labeller` package.
 
 # Options
-<!-- Longer description (paragraph length) of all options, their intended use case and best practices related to them. -->
 
-__**opt**ion1__(_string_) is used for xyz. Longer description (paragraph length) of all options, their intended use case and best practices related to them.
+__**ig**norepipes__(_string_) is an option where the user
+can list pipes that should not be included in the output.
+List the pipe names in a single string on this format:
+
+```
+lab_pipe, ignorepipes("pipe1 pipe2")
+```
+
+__**out**putlevel__(_string_) is an option that allows the user to set how verbose the output should be. The valid values this option takes is `minimal`, `verbose` and `veryverbose`. The default is `verbose`.
 
 # Examples
-<!-- A couple of examples to help the user get started and a short explanation of each of them. -->
+
+This simple example first creates a data set where the pipe `%unit%` is
+added to the variable label of the variable `mpg`.
+Then the command `lbl_list_pipes` is used to detect and output this pipe.
+
+```
+* Create example data
+sysuse auto, clear
+label variable mpg "Mileage (%unit%)"
+
+* List the pipes in the data
+lbl_list_pipes, outputlevel(veryverbose)
+
+```
 
 # Feedback, bug reports and contributions
-<!-- A couple of examples to help the user get started and a short explanation of each of them. -->
+
+Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.
+
+Please provide any feed back by opening and issue at https://github.com/lsms-worldbank/labeller/issues.
+
+PRs with suggestions for improvements are also greatly appreciated.
 
 # Authors
 
-TODO: Populate this field from .pkg file
+LSMS Team, The World Bank lsms@worldbank.org

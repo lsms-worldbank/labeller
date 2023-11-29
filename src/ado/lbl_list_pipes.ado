@@ -4,7 +4,7 @@ cap program drop   lbl_list_pipes
     program define lbl_list_pipes, rclass
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , [ignorepipes(string) outputlevel(string)]
+    syntax , [IGnorepipes(string) OUTputlevel(string)]
 
     * Set defaults
     if missing("`outputlevel'") local outputlevel "verbose"

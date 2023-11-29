@@ -4,7 +4,7 @@ cap program drop   lbl_replace_pipe
     program define lbl_replace_pipe, rclass
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , pipe(string) replacement(string) [truncate(string) outputlevel(string) missingok]
+    syntax , pipe(string) REPlacement(string) [TRUNcate(string) OUputlevel(string) missingok]
 
     * Set defaults
     if missing("`truncate'")    local truncate    "error"
@@ -26,6 +26,9 @@ cap program drop   lbl_replace_pipe
     **************************************************
     * Test valid pipe
     **************************************************
+
+    * Remove % symbol if used in pipe
+    local pipe = subinstr("`pipe'","%","",.)
 
     * Get the list of pipes used and the vars they are used for
     qui lbl_list_pipes, outputlevel(minimal)

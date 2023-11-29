@@ -24,22 +24,26 @@
 {title:Description}
 
 {pstd}Data collected with SurveySolution (SuSo) commonly have pipes
-on the format {inp:%pipename%} in the variable label.
+in the format {inp:%pipename%} in the variable label.
 This command detects SuSo pipes in variable labels and outputs them.
-The pipes can then be replaced with the {inp:lbl_replace_pipe} command
-that is also a part of the {inp:labeller} package.
+The pipes can then be replaced with the {inp:lbl_replace_pipe} command that
+is also a part of the {inp:labeller} package.
 {p_end}
 
 {title:Options}
 
-{pstd}{bf:{ul:ig}norepipes}({it:string}) is an option where the user
-can list pipes that should not be included in the output.
-List the pipe names in a single string on this format:
+{pstd}{bf:{ul:ig}norepipes}({it:string}) is an option where the user can list pipes
+that should not be included in the output.
+List the pipe names in a single string in this format:
 {p_end}
 
 {input}{space 8}lab_pipe, ignorepipes("pipe1 pipe2")
 {text}
-{pstd}{bf:{ul:out}putlevel}({it:string}) is an option that allows the user to set how verbose the output should be. The valid values this option takes is {inp:minimal}, {inp:verbose} and {inp:veryverbose}. The default is {inp:verbose}.
+{pstd}{bf:{ul:out}putlevel}({it:string}) is an option that allows the user to
+set how verbose the output should be.
+The valid values for this option are
+{inp:minimal}, {inp:verbose}, and {inp:veryverbose}.
+The default is {inp:verbose}.
 {p_end}
 
 {title:Examples}
@@ -57,12 +61,12 @@ Then the command {inp:lbl_list_pipes} is used to detect and output this pipe.
 {space 8}lbl_list_pipes, outputlevel(veryverbose)
 {space 8}
 {text}
-{title:Feedback, bug reports and contributions}
+{title:Feedback, Bug Reports, and Contributions}
 
 {pstd}Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.
 {p_end}
 
-{pstd}Please provide any feed back by opening and issue at https://github.com/lsms-worldbank/labeller/issues.
+{pstd}Please provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.
 {p_end}
 
 {pstd}PRs with suggestions for improvements are also greatly appreciated.

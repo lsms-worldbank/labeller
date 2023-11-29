@@ -4,7 +4,7 @@ cap program drop   lbl_replace_pipe
     program define lbl_replace_pipe, rclass
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , pipe(string) REPlacement(string) [TRUNcate(string) OUputlevel(string) missingok]
+    syntax , pipe(string) REPlacement(string) [TRUNcate(string) OUTputlevel(string) missingok]
 
     * Set defaults
     if missing("`truncate'")    local truncate    "error"

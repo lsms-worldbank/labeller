@@ -17,7 +17,7 @@ cap program drop   labeller
 
       * Display output
       noi di ""
-      local cmd    "repkit"
+      local cmd    "labeller"
       local vtitle "This version of {inp:`cmd'} installed is version:"
       local btitle "This version of {inp:`cmd'} was released on:"
       local col2 = max(strlen("`vtitle'"),strlen("`btitle'"))

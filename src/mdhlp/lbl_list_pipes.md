@@ -1,6 +1,6 @@
 # Title
 
-__lbl_list_pipes__ - Lists pipes in variable labels from SurveySolution
+__lbl_list_pipes__ - Lists pipes in variable labels from Survey Solutions
 
 # Syntax
 
@@ -13,7 +13,7 @@ __lbl_list_pipes__ , [__**ig**norepipes__(_string_) __**out**putlevel__(_string_
 
 # Description
 
-Data collected with SurveySolution (SuSo) commonly have pipes
+Data collected with Survey Solutions (SuSo) commonly have pipes
 in the format `%pipename%` in the variable label.
 This command detects SuSo pipes in variable labels and outputs them.
 The pipes can then be replaced with the `lbl_replace_pipe` command that

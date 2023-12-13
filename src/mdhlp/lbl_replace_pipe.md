@@ -16,7 +16,7 @@ __lbl_replace_pipe__ , __pipe__(_string_) __**rep**lacement__(_string_) [__**tru
 
 # Description
 
-Data collected with SurveySolution (SuSo) commonly have pipes in
+Data collected with Survey Solutions (SuSo) commonly have pipes in
 the format `%pipename%` in the variable label.
 This command can be used to replace such pipes with a value provided by the user.
 

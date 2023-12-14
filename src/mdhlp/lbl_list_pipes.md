@@ -26,7 +26,7 @@ that should not be included in the output.
 List the pipe names in a single string in this format:
 
 ```
-lab_pipe, ignorepipes("pipe1 pipe2")
+lbl_list_pipes, ignorepipes("pipe1 pipe2")
 ```
 
 __**out**putlevel__(_string_) is an option that allows the user to

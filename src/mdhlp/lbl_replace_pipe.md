@@ -50,6 +50,7 @@ the pipe has been replaced with the new value.
 The options are `error` (the command throws an error and exits),
 `warning` (the command outputs a warning and continues), and
 `prompt` (the command asks the user to interactively confirm each case).
+The default is `error`.
 
 __**out**putlevel__(_string_) is an option that allows the user to
 set how verbose the output should be.

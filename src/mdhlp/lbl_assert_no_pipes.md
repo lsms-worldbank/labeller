@@ -1,6 +1,6 @@
 # Title
 
-__lbl_assert_no_pipes__ - Testing that no variable labels have any pipes
+__lbl_assert_no_pipes__ - Asserts that no variable labels have any pipes
 
 # Syntax
 
@@ -17,7 +17,7 @@ Data collected with SurveySolution (SuSo) commonly have pipes
 in the format `%pipename%` in the variable label.
 This command tests if there are any such pipes
 in any labels in the dataset.
-If there are any pipes, then this command throws an error.
+If there are any pipes, then this command throws an error and lists those remaining pipes.
 
 This command is intended to be used in a workflow with the commands
 `lbl_list_pipes` and `lbl_replace_pipe` (both also in the `labeller` package).

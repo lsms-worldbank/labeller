@@ -46,8 +46,11 @@
 # Stata
 !/**/*.do
 !/**/*.ado
+!/**/sthlp/*.sthlp
 !src/stata.toc
 !src/*.pkg
 
 # Markdown
 !/**/*.md
+
+/src/tests/plus-ado/

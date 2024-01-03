@@ -43,13 +43,13 @@ label variable var4 "Fourth label"
 * ==============================================================================
 
 * find variables whose label contains "First"
-lbl_var_lbl_matches "First"
+lbl_list_matching_vars "First"
 local first_vars = r(varlist)
 local first_vars : list clean first_vars
 
 * test
 capture assert "`first_vars'" == "var1"
-di as result "lbl_var_lbl_matches selects variables without regex"
+di as result "lbl_list_matching_vars selects variables without regex"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -63,13 +63,13 @@ else {
 * ==============================================================================
 
 * find variables whose labels start with a number
-lbl_var_lbl_matches "^[0-9]"
+lbl_list_matching_vars "^[0-9]"
 local have_num_labels = r(varlist)
 local have_num_labels : list clean have_num_labels
 
 * test
 capture assert "`have_num_labels'" == "var2 var3"
-di as result "lbl_var_lbl_matches selects variables with regex"
+di as result "lbl_list_matching_vars selects variables with regex"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -83,13 +83,13 @@ else {
 * ==============================================================================
 
 * find variables whose label starts with "F" in `var1 - var3`
-lbl_var_lbl_matches "^F", varlist(var1 - var3)
+lbl_list_matching_vars "^F", varlist(var1 - var3)
 local matches_in_varlist = r(varlist)
 local matches_in_varlist : list clean matches_in_varlist
 
 * test
 capture assert "`matches_in_varlist'" == "var1"
-di as result "lbl_var_lbl_matches selects variables in varlist"
+di as result "lbl_list_matching_vars selects variables in varlist"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -103,13 +103,13 @@ else {
 * ==============================================================================
 
 * find variables whose labels do NOT start with a number
-lbl_var_lbl_matches "^[0-9]", negate
+lbl_list_matching_vars "^[0-9]", negate
 local does_not_match = r(varlist)
 local does_not_match : list clean does_not_match
 
 * test
 capture assert "`does_not_match'" == "var1 var4"
-di as result "lbl_var_lbl_matches selects variables whose labels do not match"
+di as result "lbl_list_matching_vars selects variables whose labels do not match"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0

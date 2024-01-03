@@ -1,5 +1,5 @@
-capture program drop    lbl_var_lbl_matches
-        program define  lbl_var_lbl_matches, rclass 
+capture program drop    lbl_list_matching_vars
+        program define  lbl_list_matching_vars, rclass 
 
 qui {
 

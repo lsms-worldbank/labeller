@@ -1,10 +1,10 @@
 # Title
 
-__lbl_var_lbl_matches__ - Identify variables whose label matches a pattern.
+__lbl_list_matching_vars__ - Identify variables whose label matches a pattern.
 
 # Syntax
 
-__lbl_var_lbl_matches__ _regex_string_, [__varlist(varlist)__] [__**neg**ate__]
+__lbl_list_matching_vars__ _regex_string_, [__varlist(varlist)__] [__**neg**ate__]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -26,7 +26,7 @@ This function to fill the gap the following gaps:
 
 __**neg**ate__ inverts the match. Rather than return variables with matching variable labels, this option returns variables whose variable label do not match.
 
-__varlist__ restricts the scope of the search to the user-provided variable list. By default, `lbl_var_lbl_matches` searches for matches in all variables in memory. With __varlist__, the scope of the search can be narrowed.
+__varlist__ restricts the scope of the search to the user-provided variable list. By default, `lbl_list_matching_vars` searches for matches in all variables in memory. With __varlist__, the scope of the search can be narrowed.
 
 # Examples
 
@@ -46,28 +46,28 @@ label variable var3 "3. label"
 label variable var4 "Fourth label"
 
 * find variables whose label contains "First"
-lbl_var_lbl_matches "First"
+lbl_list_matching_vars "First"
 ```
 
 ## Example 2: Regex search
 
 ```
 * find variables whose labels start with a number
-lbl_var_lbl_matches "^[0-9]"
+lbl_list_matching_vars "^[0-9]"
 ```
 
 ## Example 3: Restrict search to a variable list
 
 ```
 * find variables whose label starts with "F" in `var1 - var3`
-lbl_var_lbl_matches "^F", varlist(var1 - var3)
+lbl_list_matching_vars "^F", varlist(var1 - var3)
 ```
 
 ## Example 4: Return variables whose labels do not match
 
 ```
 * find variables whose labels do NOT start with a number
-lbl_var_lbl_matches "^[0-9]", negate
+lbl_list_matching_vars "^[0-9]", negate
 ```
 
 # Feedback, bug reports and contributions

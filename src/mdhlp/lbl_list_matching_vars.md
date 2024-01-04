@@ -9,7 +9,7 @@ __lbl_list_matching_vars__ _regex_string_, [__varlist(varlist)__] [__**neg**ate_
 | _options_ | Description |
 |-----------|-------------|
 | __varlist(varlist)__  | Restricts the scope of search to a variable list |
-| __**neg**ate__        | Returns variables whose label does **not** match  | 
+| __**neg**ate__        | Returns variables whose label does **not** match  |
 
 # Description
 
@@ -59,7 +59,7 @@ lbl_list_matching_vars "^[0-9]"
 ## Example 3: Restrict search to a variable list
 
 ```
-* find variables whose label starts with "F" in `var1 - var3`
+* find variables whose label starts with "F" in var1 - var3
 lbl_list_matching_vars "^F", varlist(var1 - var3)
 ```
 

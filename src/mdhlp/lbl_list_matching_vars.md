@@ -13,7 +13,7 @@ __lbl_list_matching_vars__ _regex_string_, [__varlist(varlist)__] [__**neg**ate_
 
 # Description
 
-Stata provides relatively few and mostly imperfect tools for searching variable labels for a matching string. The [`label`](https://www.stata.com/manuals13/dlabel.pdf) tools to not offer any methods for querying the variable labels. The [`lookfor`](https://www.stata.com/manuals/dlookfor.pdf) command, while the nearest match, falls short in a few ways. First, it searches over both variable names and variable labels. Second, it does not provide a means for restricting the scope of search to a variable list. And third, it fails to provide a means for inverting the search (i.e., returning everything that does not match).
+Stata provides relatively few and mostly imperfect tools for searching variable labels for a matching string. The [label](https://www.stata.com/manuals13/dlabel.pdf) tools to not offer any methods for querying the variable labels. The [lookfor](https://www.stata.com/manuals/dlookfor.pdf) command, while the nearest match, falls short in a few ways. First, it searches over both variable names and variable labels. Second, it does not provide a means for restricting the scope of search to a variable list. And third, it fails to provide a means for inverting the search (i.e., returning everything that does not match).
 
 This function to fill the gap the following gaps:
 
@@ -71,13 +71,8 @@ lbl_list_matching_vars "^[0-9]", negate
 ```
 
 # Feedback, bug reports and contributions
-<!-- A couple of examples to help the user get started and a short explanation of each of them. -->
 
-Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.
-
-Please provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.
-
-PRs with suggestions for improvements are also greatly appreciated.
+Read more about these commands on [this repo](https://github.com/lsms-worldbank/labeller) where this package is developed. Please provide any feedback by [opening an issue](https://github.com/lsms-worldbank/labeller/issues). PRs with suggestions for improvements are also greatly appreciated.
 
 # Authors
 

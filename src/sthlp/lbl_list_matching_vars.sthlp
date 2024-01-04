@@ -11,14 +11,14 @@
 
 {title:Syntax}
 
-{phang}{bf:lbl_list_matching_vars} {it:regex}string{it:, [{bf:varlist(varlist)}] [{bf:{ul:neg}ate}]
+{phang}{bf:lbl_list_matching_vars} {it:regexstring}, [{bf:varlist(varlist)} {bf:{ul:neg}ate}]
 {p_end}
 
 {synoptset 16}{...}
 {synopthdr:options}
 {synoptline}
 {synopt: {bf:varlist(varlist)}}Restricts the scope of search to a variable list{p_end}
-{synopt: {bf:{ul:neg}ate}}Returns variables whose label does **not** match{p_end}
+{synopt: {bf:{ul:neg}ate}}Returns variables whose label does {bf:not} match{p_end}
 {synoptline}
 
 {title:Description}

@@ -4,12 +4,12 @@ __lbl_list_matching_vars__ - Identify variables whose label matches a pattern.
 
 # Syntax
 
-__lbl_list_matching_vars__ _regex_string_, [__varlist(varlist)__] [__**neg**ate__]
+__lbl_list_matching_vars__ _regexstring_, [__varlist(varlist)__ __**neg**ate__]
 
 | _options_ | Description |
 |-----------|-------------|
 | __varlist(varlist)__  | Restricts the scope of search to a variable list |
-| __**neg**ate__        | Returns variables whose label does **not** match  |
+| __**neg**ate__        | Returns variables whose label does __not__ match  |
 
 # Description
 

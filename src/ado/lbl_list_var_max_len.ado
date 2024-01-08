@@ -1,0 +1,53 @@
+*! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
+
+cap program drop   lbl_list_var_max_len
+    program define lbl_list_var_max_len, rclass
+
+  version 14
+
+  syntax [varlist], [MAXlen(integer 80)]
+
+  qui {
+
+    * get list of all variables
+    ds `varlist', has(varlabel)
+    local vars = r(varlist)
+
+    * initialize list of variables with labels that are too long
+    local vars_lbl_too_long ""
+
+    * populate list of variables
+    foreach var of local vars {
+
+      * extract variable label
+      local var_lbl : variable label `var'
+
+      * compute length of label, which might include Unicode characters
+      local var_lbl_len : ustrlen local var_lbl
+
+      * if length is greater than max, put in list
+      if (`var_lbl_len' >= `maxlen') {
+        local vars_lbl_too_long "`vars_lbl_too_long' `var'"
+      }
+
+    }
+
+    * compute the number of matches
+    local n_matches : list sizeof vars_lbl_too_long
+
+    * return the varlist and count of matches
+    return local varlist = "`vars_lbl_too_long'"
+    return local count_matches = "`n_matches'"
+
+    * message about outcome
+    if (`n_matches' >= 1) {
+      noi di as result "Variables with labels longer than `maxlen' characters found (`n_matches' variables) :"
+      noi di as result "`vars_lbl_too_long'"
+    }
+    else if (`n_matches' == 0) {
+      noi di as result "No variables found with a label >= `maxlen' characters found"
+    }
+
+  }
+
+end

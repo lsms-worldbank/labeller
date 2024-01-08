@@ -20,9 +20,13 @@ d
 d Distribution-Date: 20231109
 d
 *** adofiles
+f ado/lbl_assert_no_var_max_len.ado
+f ado/lbl_list_var_max_len.ado
 f ado/labeller.ado
 
 *** helpfiles
+f sthlp/lbl_assert_no_var_max_len.sthlp
+f sthlp/lbl_list_var_max_len.sthlp
 f sthlp/labeller.sthlp
 
 *** ancillaryfiles

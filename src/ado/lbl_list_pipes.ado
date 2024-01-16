@@ -73,11 +73,17 @@ cap program drop   lbl_list_pipes
     * Output results
     **************************************************
 
+    * Add % % to pipes to always display the pipes as %pipe%
+    local formatted_pipes = ""
+    foreach pipe of local pipes_found {
+      local formatted_pipes "`formatted_pipes' %`pipe'%"
+    }
+
     * Display pipes
     noi di ""
     labeller output_verbose ///
       title("{ul:{bf:Pipes found in dataset:}}") ///
-      values("`pipes_found'")
+      values("`formatted_pipes'")
 
     if ("`output_level'" != "minimal") & !missing("`pipes_found'") {
 

@@ -4,15 +4,15 @@ __lbl_replace_pipe__ - Replaces pipes in variable labels with user-provided valu
 
 # Syntax
 
-__lbl_replace_pipe__ , __pipe__(_string_) __**rep**lacement__(_string_) [__**trun**cate__(_string_) __**out**putlevel__(_string_) __missingok__]
+__lbl_replace_pipe__ , __pipe__(_string_) __**rep**lacement__(_string_) [__**trun**cate__(_string_) __**out**put_level__(_string_) __missing_ok__]
 
 | _options_ | Description |
 |-----------|-------------|
 | __pipe__(_string_) | The name of the pipe to be replaced |
 | __**rep**lacement__(_string_) | The value the pipe should be replaced with |
 | __**trun**cate__(_string_) | Toggle behavior when the new label is too long |
-| __**out**putlevel__(_string_) | Toggle verbosity level in output |
-| __missingok__ | Suppresses error when the pipe does not exist in any variable label  |
+| __**out**put_level__(_string_) | Toggle verbosity level in output |
+| __missing_ok__ | Suppresses error when the pipe does not exist in any variable label  |
 
 # Description
 
@@ -52,13 +52,13 @@ The options are `error` (the command throws an error and exits),
 `prompt` (the command asks the user to interactively confirm each case).
 The default is `error`.
 
-__**out**putlevel__(_string_) is an option that allows the user to
+__**out**put_level__(_string_) is an option that allows the user to
 set how verbose the output should be.
 The valid values for this option are
 `minimal`, `verbose`, and `veryverbose`.
 The default is `verbose`.
 
-__missingok__ suppresses the error thrown if a pipe the user is trying to
+__missing_ok__ suppresses the error thrown if a pipe the user is trying to
 replace does not exist in any variable label in the dataset.
 The default behavior is that the code is interrupted
 with an error if the pipe does not exist.
@@ -77,7 +77,7 @@ label variable mpg "Mileage (%unit%)"
 
 *Replace the unit pipe
 lbl_replace_pipe, pipe("unit") replacement("miles per gallon") ///
-   outputlevel(veryverbose)
+   output_level(veryverbose)
 
 ```
 

@@ -30,11 +30,11 @@
     label variable foreign "Is (%country%)"
     
     * List pipes
-    lbl_list_pipes, outputlevel(veryverbose)
+    lbl_list_pipes, output_level(veryverbose)
     
     * Replace a pipe
     lbl_replace_pipe, pipe("%unit%") truncate(warning) ///
-        replacement("miles per gallon") outputlevel(veryverbose)
+        replacement("miles per gallon") output_level(veryverbose)
        
-    lbl_assert_no_pipes, outputlevel(veryverbose) ///
-        ignorepipes(country)
+    lbl_assert_no_pipes, output_level(veryverbose) ///
+        ignore_pipes(country)

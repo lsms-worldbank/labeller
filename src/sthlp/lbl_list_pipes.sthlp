@@ -6,24 +6,24 @@
 
 {title:Title}
 
-{phang}{bf:lbl_list_pipes} - Lists pipes in variable labels from SurveySolution
+{phang}{bf:lbl_list_pipes} - Lists pipes in variable labels from Survey Solutions
 {p_end}
 
 {title:Syntax}
 
-{phang}{bf:lbl_list_pipes} , [{bf:{ul:ig}norepipes}({it:string}) {bf:{ul:out}putlevel}({it:string})]
+{phang}{bf:lbl_list_pipes} , [{bf:{ul:ig}nore_pipes}({it:string}) {bf:{ul:out}put_level}({it:string})]
 {p_end}
 
-{synoptset 19}{...}
+{synoptset 20}{...}
 {synopthdr:options}
 {synoptline}
-{synopt: {bf:{ul:ig}norepipes}({it:string})}List of pipe names to be ignored{p_end}
-{synopt: {bf:{ul:out}putlevel}({it:string})}Toggle verbosity level in output{p_end}
+{synopt: {bf:{ul:ig}nore_pipes}({it:string})}List of pipe names to be ignored{p_end}
+{synopt: {bf:{ul:out}put_level}({it:string})}Toggle verbosity level in output{p_end}
 {synoptline}
 
 {title:Description}
 
-{pstd}Data collected with SurveySolution (SuSo) commonly have pipes
+{pstd}Data collected with Survey Solutions (SuSo) commonly have pipes
 in the format {inp:%pipename%} in the variable label.
 This command detects SuSo pipes in variable labels and outputs them.
 The pipes can then be replaced with the {inp:lbl_replace_pipe} command that
@@ -32,14 +32,14 @@ is also a part of the {inp:labeller} package.
 
 {title:Options}
 
-{pstd}{bf:{ul:ig}norepipes}({it:string}) is an option where the user can list pipes
+{pstd}{bf:{ul:ig}nore_pipes}({it:string}) is an option where the user can list pipes
 that should not be included in the output.
 List the pipe names in a single string in this format:
 {p_end}
 
-{input}{space 8}lab_pipe, ignorepipes("pipe1 pipe2")
+{input}{space 8}lbl_list_pipes, ignore_pipes("pipe1 pipe2")
 {text}
-{pstd}{bf:{ul:out}putlevel}({it:string}) is an option that allows the user to
+{pstd}{bf:{ul:out}put_level}({it:string}) is an option that allows the user to
 set how verbose the output should be.
 The valid values for this option are
 {inp:minimal}, {inp:verbose}, and {inp:veryverbose}.
@@ -58,7 +58,7 @@ Then the command {inp:lbl_list_pipes} is used to detect and output this pipe.
 {space 8}label variable mpg "Mileage (%unit%)"
 {space 8}
 {space 8}* List the pipes in the data
-{space 8}lbl_list_pipes, outputlevel(veryverbose)
+{space 8}lbl_list_pipes, output_level(veryverbose)
 {space 8}
 {text}
 {title:Feedback, Bug Reports, and Contributions}

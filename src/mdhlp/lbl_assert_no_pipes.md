@@ -4,12 +4,12 @@ __lbl_assert_no_pipes__ - Asserts that no variable labels have any pipes
 
 # Syntax
 
-__lbl_assert_no_pipes__ , [__**ig**norepipes__(_string_) __**out**putlevel__(_string_)]
+__lbl_assert_no_pipes__ , [__**ig**nore_pipes__(_string_) __**out**put_level__(_string_)]
 
 | _options_ | Description |
 |-----------|-------------|
-| __**ig**norepipes__(_string_) | List of pipe names to be ignored |
-| __**out**putlevel__(_string_) | Toggle verbosity level in output  |
+| __**ig**nore_pipes__(_string_) | List of pipe names to be ignored |
+| __**out**put_level__(_string_) | Toggle verbosity level in output  |
 
 # Description
 
@@ -28,7 +28,7 @@ have been addressed.
 
 # Options
 
-__**ig**norepipes__(_string_) is an option where the user can
+__**ig**nore_pipes__(_string_) is an option where the user can
 list pipes that should not be ignored
 even if they are found in the dataset.
 This command will not throw an error if all pipes currently
@@ -36,10 +36,10 @@ in the dataset are listed in this option.
 List the pipe names in a single string in this format:
 
 ```
-lab_pipe, ignorepipes("pipe1 pipe2")
+lab_pipe, ignore_pipes("pipe1 pipe2")
 ```
 
-__**out**putlevel__(_string_) is an option that allows the user to
+__**out**put_level__(_string_) is an option that allows the user to
 set how verbose the output should be.
 The valid values for this option are
 `minimal`, `verbose`, and `veryverbose`. The default is `verbose`.

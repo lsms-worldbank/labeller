@@ -4,7 +4,7 @@ cap program drop   lbl_replace_pipe
     program define lbl_replace_pipe, rclass
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , pipe(string) REPlacement(string) [TRUNcate(string) OUTputlevel(string) missingok]
+    syntax , pipe(string) REPlacement(string) [TRUNcate(string) OUTput_level(string) missing_ok]
 
     * Set defaults
     if missing("`truncate'")    local truncate    "error"
@@ -14,9 +14,9 @@ cap program drop   lbl_replace_pipe
     }
 
     * Set defaults
-    if missing("`outputlevel'") local outputlevel "verbose"
-    if !(inlist("`outputlevel'","minimal","verbose","veryverbose")) {
-      noi di as error "{pstd}The value [`outputlevel'] in option {opt:outputlevel(`outputlevel')} is not a valid value. It may only be either minimal, verbose, or veryverbose.{p_end}"
+    if missing("`output_level'") local output_level "verbose"
+    if !(inlist("`output_level'","minimal","verbose","veryverbose")) {
+      noi di as error "{pstd}The value [`output_level'] in option {opt:output_level(`output_level')} is not a valid value. It may only be either minimal, verbose, or veryverbose.{p_end}"
       error 198
     }
 
@@ -31,15 +31,15 @@ cap program drop   lbl_replace_pipe
     local pipe = subinstr("`pipe'","%","",.)
 
     * Get the list of pipes used and the vars they are used for
-    qui lbl_list_pipes, outputlevel(minimal)
+    qui lbl_list_pipes, output_level(minimal)
     local pipes_found "`r(pipes)'"
     local vars        "`r(`pipe'_v)'"
 
     * Test that the pipe to be replaced was found
     if !(`: list pipe in pipes_found') {
-      * Pipe not found - throw error unless missingok is used
-      if missing("`missingok'") {
-        noi di as error "{pstd}The pipe [`pipe'] was not used by any veraibles in the dataset. Use the option {opt:missingok} to surpress this error.{p_end}"
+      * Pipe not found - throw error unless missing_ok is used
+      if missing("`missing_ok'") {
+        noi di as error "{pstd}The pipe [`pipe'] was not used by any veraibles in the dataset. Use the option {opt:missing_ok} to surpress this error.{p_end}"
         error 198
       }
       else {
@@ -116,22 +116,22 @@ cap program drop   lbl_replace_pipe
       **************************************************
 
       noi di ""
-      if ("`outputlevel'" == "minimal") {
+      if ("`output_level'" == "minimal") {
         noi di as text "{pstd}Pipes successfully replaced{p_end}"
       }
       else {
         local title "{ul:{bf:Pipe %`pipe'% replaced in variable(s):}}"
-        if ("`outputlevel'" == "verbose") {
+        if ("`output_level'" == "verbose") {
           //noi di `"output_verbose, title("`title'") values("``pipe'_v'")"'
           labeller output_verbose title("`title'") values("`vars'")
         }
-        else if ("`outputlevel'" == "veryverbose") {
+        else if ("`output_level'" == "veryverbose") {
           labeller output_veryverbose title("`title'") vars("`vars'") ///
             ttitle1("Variable") ttitle2("New variable label")
           noi di as text "{p2line}" _n
         }
       }
-      else if ("`outputlevel'" == "veryverbose") {
+      else if ("`output_level'" == "veryverbose") {
 
       }
     }

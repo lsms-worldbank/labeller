@@ -4,12 +4,12 @@ cap program drop   lbl_list_pipes
     program define lbl_list_pipes, rclass
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , [IGnorepipes(string) OUTputlevel(string)]
+    syntax , [IGnore_pipes(string) OUTput_level(string)]
 
     * Set defaults
-    if missing("`outputlevel'") local outputlevel "verbose"
-    if !(inlist("`outputlevel'","minimal","verbose","veryverbose")) {
-      noi di as error "{pstd}The value [`outputlevel'] in option {opt:outputlevel(`outputlevel')} is not a valid value. It may only be either minimal, verbose, or veryverbose.{p_end}"
+    if missing("`output_level'") local output_level "verbose"
+    if !(inlist("`output_level'","minimal","verbose","veryverbose")) {
+      noi di as error "{pstd}The value [`output_level'] in option {opt:output_level(`output_level')} is not a valid value. It may only be either minimal, verbose, or veryverbose.{p_end}"
       error 198
     }
 
@@ -66,7 +66,7 @@ cap program drop   lbl_list_pipes
     }
 
     * Ignore pipes
-    local pipes_found : list pipes_found - ignorepipes
+    local pipes_found : list pipes_found - ignore_pipes
 
     **************************************************
     * Output results
@@ -78,18 +78,18 @@ cap program drop   lbl_list_pipes
       title("{ul:{bf:Pipes found in dataset:}}") ///
       values("`pipes_found'")
 
-    if ("`outputlevel'" != "minimal") & !missing("`pipes_found'") {
+    if ("`output_level'" != "minimal") & !missing("`pipes_found'") {
 
       noi di as text "{p2line}" _n
 
       foreach pipe of local pipes_found {
         local title "{ul:{bf:Pipe %`pipe'% used in variable(s):}}"
 
-        if ("`outputlevel'" == "verbose") {
+        if ("`output_level'" == "verbose") {
           //noi di `"output_verbose, title("`title'") values("``pipe'_v'")"'
           labeller output_verbose title("`title'") values("``pipe'_v'")
         }
-        else if ("`outputlevel'" == "veryverbose") {
+        else if ("`output_level'" == "veryverbose") {
           labeller output_veryverbose title("`title'") vars("``pipe'_v'") ///
             ttitle1("Variable") ttitle2("Variable label")
           noi di as text "{p2line}" _n

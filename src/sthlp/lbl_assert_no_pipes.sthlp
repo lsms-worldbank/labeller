@@ -6,19 +6,19 @@
 
 {title:Title}
 
-{phang}{bf:lbl_assert_no_pipes} - Testing that no variable labels have any pipes
+{phang}{bf:lbl_assert_no_pipes} - Asserts that no variable labels have any pipes
 {p_end}
 
 {title:Syntax}
 
-{phang}{bf:lbl_assert_no_pipes} , [{bf:{ul:ig}norepipes}({it:string}) {bf:{ul:out}putlevel}({it:string})]
+{phang}{bf:lbl_assert_no_pipes} , [{bf:{ul:ig}nore_pipes}({it:string}) {bf:{ul:out}put_level}({it:string})]
 {p_end}
 
-{synoptset 19}{...}
+{synoptset 20}{...}
 {synopthdr:options}
 {synoptline}
-{synopt: {bf:{ul:ig}norepipes}({it:string})}List of pipe names to be ignored{p_end}
-{synopt: {bf:{ul:out}putlevel}({it:string})}Toggle verbosity level in output{p_end}
+{synopt: {bf:{ul:ig}nore_pipes}({it:string})}List of pipe names to be ignored{p_end}
+{synopt: {bf:{ul:out}put_level}({it:string})}Toggle verbosity level in output{p_end}
 {synoptline}
 
 {title:Description}
@@ -27,7 +27,7 @@
 in the format {inp:%pipename%} in the variable label.
 This command tests if there are any such pipes
 in any labels in the dataset.
-If there are any pipes, then this command throws an error.
+If there are any pipes, then this command throws an error and lists those remaining pipes.
 {p_end}
 
 {pstd}This command is intended to be used in a workflow with the commands
@@ -40,7 +40,7 @@ have been addressed.
 
 {title:Options}
 
-{pstd}{bf:{ul:ig}norepipes}({it:string}) is an option where the user can
+{pstd}{bf:{ul:ig}nore_pipes}({it:string}) is an option where the user can
 list pipes that should not be ignored
 even if they are found in the dataset.
 This command will not throw an error if all pipes currently
@@ -48,9 +48,9 @@ in the dataset are listed in this option.
 List the pipe names in a single string in this format:
 {p_end}
 
-{input}{space 8}lab_pipe, ignorepipes("pipe1 pipe2")
+{input}{space 8}lab_pipe, ignore_pipes("pipe1 pipe2")
 {text}
-{pstd}{bf:{ul:out}putlevel}({it:string}) is an option that allows the user to
+{pstd}{bf:{ul:out}put_level}({it:string}) is an option that allows the user to
 set how verbose the output should be.
 The valid values for this option are
 {inp:minimal}, {inp:verbose}, and {inp:veryverbose}. The default is {inp:verbose}.

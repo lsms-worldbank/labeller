@@ -11,22 +11,22 @@
 
 {title:Syntax}
 
-{phang}{bf:lbl_replace_pipe} , {bf:pipe}({it:string}) {bf:{ul:rep}lacement}({it:string}) [{bf:{ul:trun}cate}({it:string}) {bf:{ul:out}putlevel}({it:string}) {bf:missingok}]
+{phang}{bf:lbl_replace_pipe} , {bf:pipe}({it:string}) {bf:{ul:rep}lacement}({it:string}) [{bf:{ul:trun}cate}({it:string}) {bf:{ul:out}put_level}({it:string}) {bf:missing_ok}]
 {p_end}
 
-{synoptset 19}{...}
+{synoptset 20}{...}
 {synopthdr:options}
 {synoptline}
 {synopt: {bf:pipe}({it:string})}The name of the pipe to be replaced{p_end}
 {synopt: {bf:{ul:rep}lacement}({it:string})}The value the pipe should be replaced with{p_end}
 {synopt: {bf:{ul:trun}cate}({it:string})}Toggle behavior when the new label is too long{p_end}
-{synopt: {bf:{ul:out}putlevel}({it:string})}Toggle verbosity level in output{p_end}
-{synopt: {bf:missingok}}Suppresses error when the pipe does not exist in any variable label{p_end}
+{synopt: {bf:{ul:out}put_level}({it:string})}Toggle verbosity level in output{p_end}
+{synopt: {bf:missing_ok}}Suppresses error when the pipe does not exist in any variable label{p_end}
 {synoptline}
 
 {title:Description}
 
-{pstd}Data collected with SurveySolution (SuSo) commonly have pipes in
+{pstd}Data collected with Survey Solutions (SuSo) commonly have pipes in
 the format {inp:%pipename%} in the variable label.
 This command can be used to replace such pipes with a value provided by the user.
 {p_end}
@@ -65,16 +65,17 @@ the pipe has been replaced with the new value.
 The options are {inp:error} (the command throws an error and exits),
 {inp:warning} (the command outputs a warning and continues), and
 {inp:prompt} (the command asks the user to interactively confirm each case).
+The default is {inp:error}.
 {p_end}
 
-{pstd}{bf:{ul:out}putlevel}({it:string}) is an option that allows the user to
+{pstd}{bf:{ul:out}put_level}({it:string}) is an option that allows the user to
 set how verbose the output should be.
 The valid values for this option are
 {inp:minimal}, {inp:verbose}, and {inp:veryverbose}.
 The default is {inp:verbose}.
 {p_end}
 
-{pstd}{bf:missingok} suppresses the error thrown if a pipe the user is trying to
+{pstd}{bf:missing_ok} suppresses the error thrown if a pipe the user is trying to
 replace does not exist in any variable label in the dataset.
 The default behavior is that the code is interrupted
 with an error if the pipe does not exist.
@@ -94,7 +95,7 @@ with the value {inp:miles per gallon}.
 {space 8}
 {space 8}*Replace the unit pipe
 {space 8}lbl_replace_pipe, pipe("unit") replacement("miles per gallon") ///
-{space 8}   outputlevel(veryverbose)
+{space 8}   output_level(veryverbose)
 {space 8}
 {text}
 {title:Feedback, Bug Reports, and Contributions}

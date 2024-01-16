@@ -52,3 +52,5 @@
 
 # Markdown
 !/**/*.md
+
+/src/tests/plus-ado/

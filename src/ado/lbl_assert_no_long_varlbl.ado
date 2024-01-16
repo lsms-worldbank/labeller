@@ -1,5 +1,5 @@
-cap program drop   lbl_assert_no_var_max_len
-    program define lbl_assert_no_var_max_len, rclass
+cap program drop   lbl_assert_no_long_varlbl
+    program define lbl_assert_no_long_varlbl, rclass
 
   version 14
 
@@ -8,7 +8,7 @@ cap program drop   lbl_assert_no_var_max_len
   qui {
 
     * look for variables whose labels >= max length
-    lbl_list_var_max_len `varlist', maxlen(`maxlen')
+    lbl_list_long_varlbl `varlist', maxlen(`maxlen')
     local any_max_len = (`r(count_matches)' > 0)
     local which_max_len "`r(varlist)'"
 

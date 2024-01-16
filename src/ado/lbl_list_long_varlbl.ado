@@ -1,7 +1,7 @@
 *! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
 
-cap program drop   lbl_list_var_max_len
-    program define lbl_list_var_max_len, rclass
+cap program drop   lbl_list_long_varlbl
+    program define lbl_list_long_varlbl, rclass
 
   version 14
 

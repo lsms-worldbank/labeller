@@ -1,10 +1,10 @@
 # Title
 
-__lbl_list_var_max_len__ - List variables whose variable label is longer than the desired character length.
+__lbl_assert_no_long_varlbl__ - Assert that there is no variable in memory whose variable length exceeds the desired character length.
 
 # Syntax
 
-__lbl_list_var_max_len__ , __**max**len__(_integer_)
+__lbl_assert_no_long_varlbl__ , __**max**len__(_integer_)
 
 | _options_ | Description |
 |-----------|-------------|
@@ -12,19 +12,15 @@ __lbl_list_var_max_len__ , __**max**len__(_integer_)
 
 # Description
 
-When variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata's limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.
-
-To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., `local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl`).
-
-However, there is no base Stata operation for doing so in batch.
-
-This command provides just such a tool.
+This command assert that there is no variable in memory whose variable label length exceeds the desired character length.
 
 By default, the command take the maximum length to be Stata's maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the __**max**len__(_integer_) option.
 
+If there is at least one variable whose length exceeds the maximum length, the command will return an error and list the variables whose variable labels are too long.
+
 # Options
 
-__**max**len__(_integer_) sets the maximum length of variable labels, beyond which a variable is listed by this command.
+__**max**len__(_integer_) sets the maximum length of variable labels.
 
 # Examples
 
@@ -43,11 +39,11 @@ label variable var3 "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 label variable var4 "Another short label"
 label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 
-* list variables with longer than the default max length (80 characters)
-lbl_list_var_max_len
+* assert no variables with labels longer than default max length (80 characters)
+lbl_assert_no_long_varlbl
 
-* list variables with longer than the user-specified max length
-lbl_list_var_max_len, maxlen(12)
+* assert no variables with labels longer than user-specified max length (80 characters)
+lbl_assert_no_long_varlbl, maxlen(12)
 ```
 
 # Feedback, bug reports and contributions

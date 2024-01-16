@@ -1,6 +1,7 @@
 cap program drop   labeller
     program define labeller, rclass
 
+qui {
     version 14
 
     * UPDATE THESE LOCALS FOR EACH NEW VERSION PUBLISHED
@@ -37,9 +38,9 @@ cap program drop   labeller
         exit
       }
       * Run the subcommand
-      `subcommand', `parameters'
+      noi `subcommand', `parameters'
     }
-
+}
 end
 
 cap program drop   output_verbose

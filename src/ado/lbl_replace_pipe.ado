@@ -3,6 +3,10 @@
 cap program drop   lbl_replace_pipe
     program define lbl_replace_pipe, rclass
 
+qui {
+
+    version 14
+
     * Update the syntax. This is only a placeholder to make the command run
     syntax, pipe(string) REPlacement(string) [TRUNcate(string) OUTput_level(string) missing_ok Varlist(varlist)]
 
@@ -126,11 +130,11 @@ cap program drop   lbl_replace_pipe
       else {
         local title "{ul:{bf:Pipe %`pipe'% replaced in variable(s):}}"
         if ("`output_level'" == "verbose") {
-          //noi di `"output_verbose, title("`title'") values("``pipe'_v'")"'
-          labeller output_verbose title("`title'") values("`varlist'")
+          noi labeller output_verbose title("`title'") values("`varlist'")
         }
         else if ("`output_level'" == "veryverbose") {
-          labeller output_veryverbose title("`title'") varlist("`varlist'") ///
+          noi labeller output_veryverbose title("`title'") ///
+            varlist("`varlist'") ///
             ttitle1("Variable") ttitle2("New variable label")
           noi di as text "{p2line}" _n
         }
@@ -139,5 +143,5 @@ cap program drop   lbl_replace_pipe
 
       }
     }
-
+}
 end

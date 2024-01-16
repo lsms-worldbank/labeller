@@ -11,6 +11,7 @@ __lbl_list_matching_vals__ [varlist], __pattern__(_string_) [__**neg**ate__ __**
 | __pattern__(_string_)   | Pattern to find in an answer option. Provide either a substring or a regular expression.  |
 | __**neg**ate__   | Inverts the search, returning value labels that do __not__match the pattern.  |
 | __**v**erbose__   | Print out labels that match query. Output corresponds to `label list lblnames`.  |
+| __varlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 

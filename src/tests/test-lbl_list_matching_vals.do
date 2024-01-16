@@ -81,6 +81,40 @@ else {
 }
 
 * ------------------------------------------------------------------------------
+* Lists matching value labels and variables in varlist
+* ------------------------------------------------------------------------------
+
+* expect vars: var2
+* expect val lbls: var2_lbl
+lbl_list_matching_vals, pattern("[Oo]ui") varlist(var1 - var2)
+local vars_matched_in_varlist = r(varlist)
+local vars_matched_in_varlist : list clean vars_matched_in_varlist
+local val_lbls_matched = r(val_lbl_list)
+local val_lbls_matched : list clean val_lbls_matched
+
+* test variables
+capture assert "`vars_matched_in_varlist'" == "var2"
+di as result "Lists matching variables"
+if _rc != 0 {
+    di as error "❌ Test failed"
+    error 0
+}
+else {
+    di as result "✅ Test passed"
+}
+
+* test value labels
+capture assert "`val_lbls_matched'" == "var2_lbl"
+di as result "Lists matching value labels"
+if _rc != 0 {
+    di as error "❌ Test failed"
+    error 0
+}
+else {
+    di as result "✅ Test passed"
+}
+
+* ------------------------------------------------------------------------------
 * Lists no matches when no matches found
 * ------------------------------------------------------------------------------
 
@@ -132,6 +166,44 @@ local val_lbls_matched : list clean val_lbls_matched
 
 * test variables
 capture assert "`vars_matched'" == "var1"
+di as result "Lists matching variables"
+if _rc != 0 {
+    di as error "❌ Test failed"
+    error 0
+}
+else {
+    di as result "✅ Test passed"
+}
+
+* test value labels
+capture assert "`val_lbls_matched'" == "var1_lbl"
+di as result "Lists matching value labels"
+if _rc != 0 {
+    di as error "❌ Test failed"
+    error 0
+}
+else {
+    di as result "✅ Test passed"
+}
+
+* ------------------------------------------------------------------------------
+* Inverts list of matches in varlist when negate specified
+* ------------------------------------------------------------------------------
+
+* add a variable with labels
+gen var5 = .
+label values var5 var1_lbl
+
+* expect variables: var1
+* expect values: var1_lbl
+lbl_list_matching_vals, pattern("[Oo]ui") negate varlist(var2 - var5)
+local vars_matched = r(varlist)
+local vars_matched : list clean vars_matched
+local val_lbls_matched = r(val_lbl_list)
+local val_lbls_matched : list clean val_lbls_matched
+
+* test variables
+capture assert "`vars_matched'" == "var5"
 di as result "Lists matching variables"
 if _rc != 0 {
     di as error "❌ Test failed"

@@ -26,6 +26,8 @@ labeller
 * Setup
 * ==============================================================================
 
+clear
+
 * create set of variables
 gen var1 = .
 gen var2 = .
@@ -230,3 +232,5 @@ else {
 * Teardown
 * ==============================================================================
 
+drop var1 - var5
+label drop var1_lbl var2_lbl var4_lbl

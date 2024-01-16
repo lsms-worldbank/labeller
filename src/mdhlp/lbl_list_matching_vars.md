@@ -4,12 +4,12 @@ __lbl_list_matching_vars__ - Identify variables whose label matches a pattern.
 
 # Syntax
 
-__lbl_list_matching_vars__ _regexstring_, [__varlist(varlist)__ __**neg**ate__]
+__lbl_list_matching_vars__ _regexstring_, [ __**neg**ate__ __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
-| __varlist(varlist)__  | Restricts the scope of search to a variable list |
 | __**neg**ate__        | Returns variables whose label does __not__ match  |
+| __**v**arlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 
@@ -26,7 +26,7 @@ This function to fill the gap the following gaps:
 
 __**neg**ate__ inverts the match. Rather than return variables with matching variable labels, this option returns variables whose variable label do not match.
 
-__varlist__ restricts the scope of the search to the user-provided variable list. By default, `lbl_list_matching_vars` searches for matches in all variables in memory. With __varlist__, the scope of the search can be narrowed.
+__**v**arlist__(_varlist_) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With __varlist__(), the scope of the search can be narrowed.
 
 # Examples
 

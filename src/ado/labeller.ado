@@ -1,7 +1,7 @@
 cap program drop   labeller
     program define labeller, rclass
 
-    version 13.0
+    version 14
 
     * UPDATE THESE LOCALS FOR EACH NEW VERSION PUBLISHED
   	local version "1.0"
@@ -68,7 +68,7 @@ end
 cap program drop   output_veryverbose
     program define output_veryverbose
 
-    syntax, title(string) ttitle1(string) ttitle2(string) [vars(varlist)]
+    syntax, title(string) ttitle1(string) ttitle2(string) [varlist(varlist)]
 
     noi di as text "{pstd}`title'{p_end}"
 
@@ -90,7 +90,7 @@ cap program drop   output_veryverbose
     noi di as text "{p2col `p2_all':{it:{ul:`ttitle1'}}} {it:{ul:`ttitle2'}}" _n
 
     * Write each label
-    foreach varname of local vars {
+    foreach varname of local varlist {
        local varlab : variable label `varname'
        noi di as text "{p2col `p2_all':{bf:`varname'}} {text:`varlab'}" _n
     }

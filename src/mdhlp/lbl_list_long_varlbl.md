@@ -4,11 +4,12 @@ __lbl_list_long_varlbl__ - List variables whose variable label is longer than th
 
 # Syntax
 
-__lbl_list_long_varlbl__ , __**max**len__(_integer_)
+__lbl_list_long_varlbl__ , [__**max**len__(_integer_) __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
 | __**max**len__(_integer_)   | Maximum character length allowed.
+| __**v**arlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 
@@ -25,6 +26,8 @@ By default, the command take the maximum length to be Stata's maximum length for
 # Options
 
 __**max**len__(_integer_) sets the maximum length of variable labels, beyond which a variable is listed by this command.
+
+__**v**arlist__(_varlist_) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With __varlist__(), the scope of the search can be narrowed.
 
 # Examples
 

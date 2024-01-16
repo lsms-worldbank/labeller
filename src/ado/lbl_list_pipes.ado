@@ -4,7 +4,11 @@ cap program drop   lbl_list_pipes
     program define lbl_list_pipes, rclass
 
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , [IGnore_pipes(string) OUTput_level(string)]
+    syntax, [IGnore_pipes(string) OUTput_level(string) Varlist(varlist)]
+
+    * Get all variables in varlist or get all variables
+    ds `varlist'
+    local varlist "`r(varlist)'"
 
     * Set defaults
     if missing("`output_level'") local output_level "verbose"
@@ -21,7 +25,7 @@ cap program drop   lbl_list_pipes
     **************************************************
 
     * Loop over all variables to list all pipes and all vars each are used for
-    foreach var of varlist _all {
+    foreach var of local varlist {
 
       * Reset locals used in serach
       local is_pipe 0

@@ -3,8 +3,14 @@
 cap program drop   lbl_assert_no_pipes
     program define lbl_assert_no_pipes
 
+    version 14
+
     * Update the syntax. This is only a placeholder to make the command run
-    syntax, [IGnore_pipes(string) OUTput_level(string)]
+    syntax, [IGnore_pipes(string) OUTput_level(string) Varlist(varlist)]
+
+    * Get all variables in varlist or get all variables
+    ds `varlist'
+    local varlist "`r(varlist)'"
 
     * Set defaults
     if missing("`output_level'") local output_level "verbose"
@@ -14,7 +20,7 @@ cap program drop   lbl_assert_no_pipes
     }
 
     * Get the list of pipes used and the vars they are used for
-    qui lbl_list_pipes, output_level(minimal)
+    qui lbl_list_pipes, output_level(minimal) varlist("`varlist'")
     local pipes_found "`r(pipes)'"
 
     * Add the vars with remaining pipes for each pipe
@@ -39,7 +45,7 @@ cap program drop   lbl_assert_no_pipes
             labeller output_verbose title("`title'") values("``pipe'_v'")
           }
           else if ("`output_level'" == "veryverbose") {
-            labeller output_veryverbose title("`title'") vars("``pipe'_v'") ///
+            labeller output_veryverbose title("`title'") varlist("``pipe'_v'") ///
               ttitle1("Variable") ttitle2("Variable label")
             noi di as text "{p2line}" _n
           }

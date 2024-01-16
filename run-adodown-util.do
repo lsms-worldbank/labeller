@@ -3,8 +3,9 @@
       global clone "C:/Users/wb462869/github/labeller"
   }
   else if "`c(username)'" == "wb393438" {
-      global clone "C:\Users\wb393438\stata_funs\labeller\labeller"
-  }
+      global clone "C:\Users\wb393438\stata_funs\labeller"
+  } 
+
 
   /*
   ad_setup, adf("${clone}")  ///

@@ -23,6 +23,7 @@ cap program drop   lbl_assert_no_pipes
     }
 
     * Ignore pipes
+    local ignore_pipes = subinstr("`ignore_pipes'","%","",.)
     local pipes_found : list pipes_found - ignore_pipes
 
     if !missing("`pipes_found'") {

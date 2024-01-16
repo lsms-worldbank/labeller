@@ -4,7 +4,7 @@ __lbl_list_matching_vars__ - Identify variables whose label matches a pattern.
 
 # Syntax
 
-__lbl_list_matching_vars__ _regexstring_, [ __**neg**ate__ __**v**arlist__(_varlist_)]
+__lbl_list_matching_vars__ _regexstring_, [__**neg**ate__ __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|

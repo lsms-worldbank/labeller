@@ -61,7 +61,7 @@ lbl_list_matching_vals, pattern("[Oo]ui")
 
 * find value labels and print out the contents of the label, for convenience
 * i.e., to avoid the next step that many users might logically make: 
-* `label list matching_lbl`
+* `label list matching_lbl` 
 lbl_list_matching_vals, pattern("[Oo]ui") verbose
 ```
 

@@ -1,9 +1,9 @@
 capture program drop    lbl_list_matching_vars
-        program define  lbl_list_matching_vars, rclass 
+        program define  lbl_list_matching_vars, rclass
 
 qui {
 
-  syntax anything (name=pattern), [varlist(varlist)] [NEGate]
+  syntax anything (name=pattern), [varlist(varlist) NEGate]
 
   version 14
 
@@ -46,7 +46,7 @@ qui {
   else if (`n_matches' == 0) {
       noi di as error "No matching variables found"
       noi di as result "If this result is unexpected, please check the regular expression provided."
-  }    
+  }
 
 }
 

@@ -45,13 +45,14 @@ label variable var4 "Another label"
 * ------------------------------------------------------------------------------
 
 * list variables without variable labels globally
-lbl_list_no_var_lbl
+lbl_list_no_varlbl
+
 local vars_wo_lbl = r(varlist)
 local vars_wo_lbl : list clean vars_wo_lbl
 
 * test
 capture assert "`vars_wo_lbl'" == "var2 var3"
-di as result "lbl_list_no_var_lbl lists variables without labels globally"
+di as result "lbl_list_no_varlbl lists variables without labels globally"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -65,7 +66,7 @@ else {
 * ------------------------------------------------------------------------------
 
 * list variables without a label in the varlist
-lbl_list_no_var_lbl var3 - var4
+lbl_list_no_varlbl, varlist(var3 - var4)
 local vars_wo_lbl_in_varlist = r(varlist)
 local vars_wo_lbl_in_varlist : list clean vars_wo_lbl_in_varlist
 

@@ -5,7 +5,7 @@ cap program drop   lbl_list_matching_vals
 
     version 17
 
-    syntax [varlist], pattern(string) [negate verbose]
+    syntax [varlist], pattern(string) [NEGate Verbose]
 
     qui {
 

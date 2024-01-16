@@ -90,7 +90,7 @@ else {
 * ------------------------------------------------------------------------------
 
 * assert that all variables have a label
-capture lbl_assert_var_have_lbl
+capture lbl_assert_varlbls
 
 * test
 di as result "lbl_assert_var_have_lbl errors if any var is without a label"

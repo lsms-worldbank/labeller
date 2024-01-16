@@ -1,16 +1,20 @@
 *! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
 
-cap program drop   lbl_assert_var_have_lbl
-    program define lbl_assert_var_have_lbl, rclass
+cap program drop   lbl_assert_have_varlbl
+    program define lbl_assert_have_varlbl, rclass
 
   version 13
 
-  syntax [varlist]
+  syntax , Varlist(varlist)
 
   qui {
 
+    * Get all variables in varlist or get all variables
+    ds `varlist'
+    local varlist "`r(varlist)'"
+
     * look for variables without a label
-    lbl_list_no_var_lbl `varlist'
+    lbl_list_no_varlbl, varlist(`varlist')
     local any_wo_var_lbl = (`r(count_matches)' > 0)
     local n_wo_var_lbl = "`r(count_matches)'"
     local which_no_var_lbl "`r(varlist)'"
@@ -29,7 +33,6 @@ cap program drop   lbl_assert_var_have_lbl
     else {
       di as result "{pstd}No variables found with a variable label.{p_end}"
     }
-
   }
 
 end

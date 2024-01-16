@@ -3,7 +3,7 @@ cap program drop   lbl_assert_no_long_varlbl
 
   version 14
 
-  syntax [varlist], [MAXlen(integer 80)]
+  syntax, [MAXlen(integer 80) Varlist(varlist)]
 
   qui {
 

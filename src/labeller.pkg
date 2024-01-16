@@ -7,7 +7,7 @@ d labeller
 d A packge with utility commands related to lables. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.
 d
 *** stata
-d Version: Stata 14.1
+d Version: Stata 14
 d
 *** author
 d Author: LSMS Worldbank
@@ -20,24 +20,27 @@ d
 d Distribution-Date: 20231109
 d
 *** adofiles
-f ado/lbl_assert_var_have_lbl.ado
-f ado/lbl_list_no_var_lbl.ado
+f ado/lbl_assert_varlbls.ado
+f ado/lbl_list_no_varlbl.ado
 f ado/lbl_replace_pipe.ado
 f ado/lbl_assert_no_pipes.ado
 f ado/lbl_list_pipes.ado
 f ado/labeller.ado
 f ado/lbl_assert_no_long_varlbl.ado
 f ado/lbl_list_long_varlbl.ado
+f ado/lbl_list_matching_vars.ado
 
 *** helpfiles
-f sthlp/lbl_assert_var_have_lbl.sthlp
-f sthlp/lbl_list_no_var_lbl.sthlp
+f sthlp/lbl_assert_varlbls.sthlp
+f sthlp/lbl_list_no_varlbl.sthlp
 f sthlp/lbl_assert_no_long_varlbl.sthlp
 f sthlp/lbl_list_long_varlbl.sthlp
 f sthlp/lbl_replace_pipe.sthlp
 f sthlp/lbl_assert_no_pipes.sthlp
 f sthlp/lbl_list_pipes.sthlp
 f sthlp/labeller.sthlp
+f sthlp/lbl_list_matching_vars.sthlp
+
 
 *** ancillaryfiles
 

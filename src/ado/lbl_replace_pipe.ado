@@ -3,8 +3,16 @@
 cap program drop   lbl_replace_pipe
     program define lbl_replace_pipe, rclass
 
+qui {
+
+    version 14
+
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , pipe(string) REPlacement(string) [TRUNcate(string) OUTput_level(string) missing_ok]
+    syntax, pipe(string) REPlacement(string) [TRUNcate(string) OUTput_level(string) missing_ok Varlist(varlist)]
+
+    * Get all variables in varlist or get all variables
+    ds `varlist'
+    local varlist "`r(varlist)'"
 
     * Set defaults
     if missing("`truncate'")    local truncate    "error"
@@ -30,10 +38,10 @@ cap program drop   lbl_replace_pipe
     * Remove % symbol if used in pipe
     local pipe = subinstr("`pipe'","%","",.)
 
-    * Get the list of pipes used and the vars they are used for
-    qui lbl_list_pipes, output_level(minimal)
+    * Get the list of pipes used and the varlist they are used for
+    qui lbl_list_pipes, output_level(minimal) varlist("`varlist'")
     local pipes_found "`r(pipes)'"
-    local vars        "`r(`pipe'_v)'"
+    local varlist     "`r(`pipe'_v)'"
 
     * Test that the pipe to be replaced was found
     if !(`: list pipe in pipes_found') {
@@ -54,7 +62,7 @@ cap program drop   lbl_replace_pipe
     else {
 
       * Loop over each label this pipe is used for
-      foreach var of local vars {
+      foreach var of local varlist {
 
         * Constructthe new label
         local lab : variable label `var'
@@ -122,11 +130,11 @@ cap program drop   lbl_replace_pipe
       else {
         local title "{ul:{bf:Pipe %`pipe'% replaced in variable(s):}}"
         if ("`output_level'" == "verbose") {
-          //noi di `"output_verbose, title("`title'") values("``pipe'_v'")"'
-          labeller output_verbose title("`title'") values("`vars'")
+          noi labeller output_verbose title("`title'") values("`varlist'")
         }
         else if ("`output_level'" == "veryverbose") {
-          labeller output_veryverbose title("`title'") vars("`vars'") ///
+          noi labeller output_veryverbose title("`title'") ///
+            varlist("`varlist'") ///
             ttitle1("Variable") ttitle2("New variable label")
           noi di as text "{p2line}" _n
         }
@@ -135,5 +143,5 @@ cap program drop   lbl_replace_pipe
 
       }
     }
-
+}
 end

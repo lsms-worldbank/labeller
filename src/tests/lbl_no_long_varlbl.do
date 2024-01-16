@@ -26,6 +26,8 @@ labeller
 * Setup
 * ==============================================================================
 
+clear
+
 * create set of variables
 gen var1 = .
 gen var2 = .
@@ -69,7 +71,7 @@ else {
 * ------------------------------------------------------------------------------
 
 * list variables with longer than max length
-lbl_list_long_varlbl var1 - var3
+lbl_list_long_varlbl, varlist(var1 - var3)
 local long_lbls_in_varlist = r(varlist)
 local long_lbls_in_varlist : list clean long_lbls_in_varlist
 

@@ -4,7 +4,7 @@
   }
   * Fill in your root path here
   if "`c(username)'" == "wb393438" {
-      global clone "C:\Users\wb393438\stata_funs\labeller"
+      global clone "C:\Users\wb393438\stata_funs\labeller\labeller"
   }
 
   // ad_setup, adf("${clone}")  ///

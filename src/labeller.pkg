@@ -23,10 +23,14 @@ d
 f ado/lbl_assert_var_have_lbl.ado
 f ado/lbl_list_no_var_lbl.ado
 f ado/labeller.ado
+f ado/lbl_assert_no_long_varlbl.ado
+f ado/lbl_list_long_varlbl.ado
 
 *** helpfiles
 f sthlp/lbl_assert_var_have_lbl.sthlp
 f sthlp/lbl_list_no_var_lbl.sthlp
+f sthlp/lbl_assert_no_long_varlbl.sthlp
+f sthlp/lbl_list_long_varlbl.sthlp
 f sthlp/labeller.sthlp
 
 *** ancillaryfiles

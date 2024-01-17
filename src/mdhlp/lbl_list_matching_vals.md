@@ -4,14 +4,14 @@ __lbl_list_matching_vals__ - List value labels whose labels match a pattern.
 
 # Syntax
 
-__lbl_list_matching_vals__ [varlist], __pattern__(_string_) [__**neg**ate__ __**v**erbose__]
+__lbl_list_matching_vals__, __pattern__(_string_) [__**neg**ate__ __**ver**bose__ __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
 | __pattern__(_string_)   | Pattern to find in an answer option. Provide either a substring or a regular expression.  |
 | __**neg**ate__   | Inverts the search, returning value labels that do __not__match the pattern.  |
-| __**v**erbose__   | Print out labels that match query. Output corresponds to `label list lblnames`.  |
-| __varlist__(_varlist_) | Restrict the scope of variables to consider |
+| __**ver**bose__   | Print out labels that match query. Output corresponds to `label list lblnames`.  |
+| __**v**arlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 
@@ -32,9 +32,11 @@ This command can be particularly useful for checking that variable do (not) cont
 
 __pattern__(_string_) provides the text pattern to find in the contents of value labels. Rather be the traitional Stata glob pattern, this pattern is a sub-string or a regular expression.
 
-__negate__ inverts the search, returning value labels that do __not__match the pattern. In isolation, `pattern("my_text")` looks for value labels containing `"my_text"`. With `negate`, `pattern("my_search")` search looks instead for value labels that do not contain `"my_text"`.
+__**neg**ate__ inverts the search, returning value labels that do __not__match the pattern. In isolation, `pattern("my_text")` looks for value labels containing `"my_text"`. With `negate`, `pattern("my_search")` search looks instead for value labels that do not contain `"my_text"`.
 
-__verbose__ manages the how much output is printed. If the `verbose` option is not provided, `lbl_list_matching_vals` reports on whether any matches were found--and, if so, how many value labels match and how many variables the matching value labels describe. If the `verbose` option is specified, the command will additionally print the contents of the matching value labels as a convenience.
+__**ver**bose__ manages the how much output is printed. If the `verbose` option is not provided, `lbl_list_matching_vals` reports on whether any matches were found--and, if so, how many value labels match and how many variables the matching value labels describe. If the `verbose` option is specified, the command will additionally print the contents of the matching value labels as a convenience.
+
+__**v**arlist__(_varlist_) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With __varlist__(), the scope of the search can be narrowed.
 
 # Examples
 
@@ -61,8 +63,8 @@ label values var4 var4_lbl
 lbl_list_matching_vals, pattern("[Oo]ui")
 
 * find value labels and print out the contents of the label, for convenience
-* i.e., to avoid the next step that many users might logically make: 
-* `label list matching_lbl` 
+* i.e., to avoid the next step that many users might logically make:
+* `label list matching_lbl`
 lbl_list_matching_vals, pattern("[Oo]ui") verbose
 ```
 
@@ -70,7 +72,7 @@ lbl_list_matching_vals, pattern("[Oo]ui") verbose
 
 ```
 * find value labels that do not contain a certain pattern
-* for example, no "Oui"/"oui" in yes/no labels from a French-language survey 
+* for example, no "Oui"/"oui" in yes/no labels from a French-language survey
 lbl_list_matching_vals, pattern("[Oo]ui") negate
 ```
 

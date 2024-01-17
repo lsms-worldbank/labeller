@@ -1,19 +1,19 @@
 capture program drop    lbl_list_matching_vars
-        program define  lbl_list_matching_vars, rclass 
+        program define  lbl_list_matching_vars, rclass
 
 qui {
 
-  syntax anything (name=pattern), [varlist(varlist)] [NEGate]
+  syntax anything (name=pattern), [varlist(varlist) NEGate]
 
   version 14
 
   * get list of all (matching) variables
   ds `varlist', has(varlabel)
-  local vars = r(varlist)
+  local varlist = r(varlist)
 
   local vars_w_match_lbl ""
 
-  foreach var of local vars {
+  foreach var of local varlist {
 
     * extract the variable label
     local var_label : variable label `var'
@@ -28,7 +28,6 @@ qui {
     else if (!mi("`negate'") & (`lbl_matches' == 0)) {
         local vars_w_match_lbl "`vars_w_match_lbl' `var'"
     }
-
   }
 
   * compute the number of matches
@@ -46,8 +45,7 @@ qui {
   else if (`n_matches' == 0) {
       noi di as error "No matching variables found"
       noi di as result "If this result is unexpected, please check the regular expression provided."
-  }    
-
+  }
 }
 
 end

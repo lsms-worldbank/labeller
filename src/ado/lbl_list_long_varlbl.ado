@@ -5,19 +5,19 @@ cap program drop   lbl_list_long_varlbl
 
   version 14
 
-  syntax [varlist], [MAXlen(integer 80)]
+  syntax, [MAXlen(integer 80) Varlist(varlist)]
 
   qui {
 
     * get list of all variables
     ds `varlist', has(varlabel)
-    local vars = r(varlist)
+    local varlist = r(varlist)
 
     * initialize list of variables with labels that are too long
     local vars_lbl_too_long ""
 
     * populate list of variables
-    foreach var of local vars {
+    foreach var of local varlist {
 
       * extract variable label
       local var_lbl : variable label `var'

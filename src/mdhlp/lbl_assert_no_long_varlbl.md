@@ -4,11 +4,12 @@ __lbl_assert_no_long_varlbl__ - Assert that there is no variable in memory whose
 
 # Syntax
 
-__lbl_assert_no_long_varlbl__ , __**max**len__(_integer_)
+__lbl_assert_no_long_varlbl__ , [__**max**len__(_integer_) __**v**arlist__(_varlist_) ]
 
 | _options_ | Description |
 |-----------|-------------|
 | __**max**len__(_integer_)   | Maximum character length allowed.
+| __**v**arlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 
@@ -21,6 +22,8 @@ If there is at least one variable whose length exceeds the maximum length, the c
 # Options
 
 __**max**len__(_integer_) sets the maximum length of variable labels.
+
+__**v**arlist__(_varlist_) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With __varlist__(), the scope of the search can be narrowed.
 
 # Examples
 

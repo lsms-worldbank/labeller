@@ -11,7 +11,7 @@
 
 {title:Syntax}
 
-{phang}{bf:lbl_assert_no_pipes} , [{bf:{ul:ig}nore_pipes}({it:string}) {bf:{ul:out}put_level}({it:string})]
+{phang}{bf:lbl_assert_no_pipes} , [{bf:{ul:ig}nore_pipes}({it:string}) {bf:{ul:out}put_level}({it:string}) {bf:{ul:v}arlist}({it:varlist})]
 {p_end}
 
 {synoptset 20}{...}
@@ -19,6 +19,7 @@
 {synoptline}
 {synopt: {bf:{ul:ig}nore_pipes}({it:string})}List of pipe names to be ignored{p_end}
 {synopt: {bf:{ul:out}put_level}({it:string})}Toggle verbosity level in output{p_end}
+{synopt: {bf:{ul:v}arlist}({it:varlist})}Restrict the scope of variables to consider{p_end}
 {synoptline}
 
 {title:Description}
@@ -54,6 +55,9 @@ List the pipe names in a single string in this format:
 set how verbose the output should be.
 The valid values for this option are
 {inp:minimal}, {inp:verbose}, and {inp:veryverbose}. The default is {inp:verbose}.
+{p_end}
+
+{pstd}{bf:{ul:v}arlist}({it:varlist}) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With {bf:varlist}(), the scope of the search can be narrowed.
 {p_end}
 
 {title:Examples}

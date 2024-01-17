@@ -4,12 +4,13 @@ __lbl_list_pipes__ - Lists pipes in variable labels from Survey Solutions
 
 # Syntax
 
-__lbl_list_pipes__ , [__**ig**nore_pipes__(_string_) __**out**put_level__(_string_)]
+__lbl_list_pipes__ , [__**ig**nore_pipes__(_string_) __**out**put_level__(_string_) __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
 | __**ig**nore_pipes__(_string_) | List of pipe names to be ignored |
 | __**out**put_level__(_string_) | Toggle verbosity level in output |
+| __**v**arlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 
@@ -34,6 +35,8 @@ set how verbose the output should be.
 The valid values for this option are
 `minimal`, `verbose`, and `veryverbose`.
 The default is `verbose`.
+
+__**v**arlist__(_varlist_) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With __varlist__(), the scope of the search can be narrowed.
 
 # Examples
 

@@ -26,6 +26,8 @@ labeller
 * Setup
 * ==============================================================================
 
+clear
+  
 * create set of variables
 gen var1 = .
 gen var2 = .

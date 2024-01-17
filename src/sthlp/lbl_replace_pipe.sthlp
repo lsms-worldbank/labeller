@@ -11,7 +11,7 @@
 
 {title:Syntax}
 
-{phang}{bf:lbl_replace_pipe} , {bf:pipe}({it:string}) {bf:{ul:rep}lacement}({it:string}) [{bf:{ul:trun}cate}({it:string}) {bf:{ul:out}put_level}({it:string}) {bf:missing_ok}]
+{phang}{bf:lbl_replace_pipe} , {bf:pipe}({it:string}) {bf:{ul:rep}lacement}({it:string}) [{bf:{ul:trun}cate}({it:string}) {bf:{ul:out}put_level}({it:string}) {bf:missing_ok} {bf:{ul:v}arlist}({it:varlist})]
 {p_end}
 
 {synoptset 20}{...}
@@ -22,6 +22,7 @@
 {synopt: {bf:{ul:trun}cate}({it:string})}Toggle behavior when the new label is too long{p_end}
 {synopt: {bf:{ul:out}put_level}({it:string})}Toggle verbosity level in output{p_end}
 {synopt: {bf:missing_ok}}Suppresses error when the pipe does not exist in any variable label{p_end}
+{synopt: {bf:{ul:v}arlist}({it:varlist})}Restrict the scope of variables to consider{p_end}
 {synoptline}
 
 {title:Description}
@@ -79,6 +80,9 @@ The default is {inp:verbose}.
 replace does not exist in any variable label in the dataset.
 The default behavior is that the code is interrupted
 with an error if the pipe does not exist.
+{p_end}
+
+{pstd}{bf:{ul:v}arlist}({it:varlist}) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With {bf:varlist}(), the scope of the search can be narrowed.
 {p_end}
 
 {title:Examples}

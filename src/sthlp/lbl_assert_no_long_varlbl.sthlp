@@ -11,13 +11,14 @@
 
 {title:Syntax}
 
-{phang}{bf:lbl_assert_no_long_varlbl} , {bf:{ul:max}len}({it:integer})
+{phang}{bf:lbl_assert_no_long_varlbl} , [{bf:{ul:max}len}({it:integer}) {bf:{ul:v}arlist}({it:varlist}) ]
 {p_end}
 
-{synoptset 15}{...}
+{synoptset 16}{...}
 {synopthdr:options}
 {synoptline}
 {synopt: {bf:{ul:max}len}({it:integer})}Maximum character length allowed.{p_end}
+{synopt: {bf:{ul:v}arlist}({it:varlist})}Restrict the scope of variables to consider{p_end}
 {synoptline}
 
 {title:Description}
@@ -34,6 +35,9 @@
 {title:Options}
 
 {pstd}{bf:{ul:max}len}({it:integer}) sets the maximum length of variable labels.
+{p_end}
+
+{pstd}{bf:{ul:v}arlist}({it:varlist}) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With {bf:varlist}(), the scope of the search can be narrowed.
 {p_end}
 
 {title:Examples}

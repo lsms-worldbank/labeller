@@ -1,26 +1,23 @@
 *! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
 
-cap program drop   lbl_list_no_var_lbl
-    program define lbl_list_no_var_lbl, rclass
+cap program drop   lbl_list_no_varlbl
+    program define lbl_list_no_varlbl, rclass
 
-  version 13
+  version 14
 
-  syntax [varlist]
+  syntax, [Varlist(varlist)]
 
   qui {
 
     * get all variables that lack a variable label
     ds `varlist', not(varlabel)
-    local vars "`r(varlist)'"
-
-    * reset varlist to avoid collision with varlist in syntax
-    local varlist ""
+    local varlist "`r(varlist)'"
 
     * compute the number of matches
-    local n_matches : list sizeof vars
+    local n_matches : list sizeof varlist
 
     * return the varlist and count of matches
-    return local varlist "`vars'"
+    return local varlist "`varlist'"
     return local count_matches "`n_matches'"
 
     * message about outcome
@@ -31,7 +28,6 @@ cap program drop   lbl_list_no_var_lbl
     else if (`n_matches' == 0) {
       noi di as result "{pstd}No variables found without a label{p_end}"
     }
-
   }
 
 end

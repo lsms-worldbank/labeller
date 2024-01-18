@@ -3,8 +3,16 @@
 cap program drop   lbl_list_pipes
     program define lbl_list_pipes, rclass
 
+qui {
+
+    version 14
+
     * Update the syntax. This is only a placeholder to make the command run
-    syntax , [IGnore_pipes(string) OUTput_level(string)]
+    syntax, [IGnore_pipes(string) OUTput_level(string) Varlist(varlist)]
+
+    * Get all variables in varlist or get all variables
+    ds `varlist'
+    local varlist "`r(varlist)'"
 
     * Set defaults
     if missing("`output_level'") local output_level "verbose"
@@ -21,7 +29,7 @@ cap program drop   lbl_list_pipes
     **************************************************
 
     * Loop over all variables to list all pipes and all vars each are used for
-    foreach var of varlist _all {
+    foreach var of local varlist {
 
       * Reset locals used in serach
       local is_pipe 0
@@ -94,10 +102,10 @@ cap program drop   lbl_list_pipes
 
         if ("`output_level'" == "verbose") {
           //noi di `"output_verbose, title("`title'") values("``pipe'_v'")"'
-          labeller output_verbose title("`title'") values("``pipe'_v'")
+          noi labeller output_verbose title("`title'") values("``pipe'_v'")
         }
         else if ("`output_level'" == "veryverbose") {
-          labeller output_veryverbose title("`title'") vars("``pipe'_v'") ///
+          noi labeller output_veryverbose title("`title'") varlist("``pipe'_v'") ///
             ttitle1("Variable") ttitle2("Variable label")
           noi di as text "{p2line}" _n
         }
@@ -116,5 +124,5 @@ cap program drop   lbl_list_pipes
 
     * Output the pipes found
     return local pipes "`pipes_found'"
-
+}
 end

@@ -4,15 +4,21 @@ __lbl_assert_var_have_lbl__ - List variables without a variable label.
 
 # Syntax
 
-__lbl_assert_var_have_lbl__ [varlist]
+__lbl_assert_var_have_lbl__, [__**v**arlist__(_varlist_)]
+
+| _options_ | Description |
+|-----------|-------------|
+| __**v**arlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 
-For small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label. 
+For small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.
 
 This command does that. If any variables without variable labels are found, it returns and error and lists which variables are missing variable labels. If all variables have variable labels, it reports this fact. In this way, the user knows whether action is needed, and for which variables.
 
-By default, the command combs over all variables in memory when compiling a list. By providing a variable list, users can restrict the scope of the search to the user-specified range.
+# Options
+
+__**v**arlist__(_varlist_) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With __varlist__(), the scope of the search can be narrowed.
 
 # Examples
 

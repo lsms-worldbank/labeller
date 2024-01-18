@@ -4,7 +4,7 @@ __lbl_replace_pipe__ - Replaces pipes in variable labels with user-provided valu
 
 # Syntax
 
-__lbl_replace_pipe__ , __pipe__(_string_) __**rep**lacement__(_string_) [__**trun**cate__(_string_) __**out**put_level__(_string_) __missing_ok__]
+__lbl_replace_pipe__ , __pipe__(_string_) __**rep**lacement__(_string_) [__**trun**cate__(_string_) __**out**put_level__(_string_) __missing_ok__ __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -13,6 +13,7 @@ __lbl_replace_pipe__ , __pipe__(_string_) __**rep**lacement__(_string_) [__**tru
 | __**trun**cate__(_string_) | Toggle behavior when the new label is too long |
 | __**out**put_level__(_string_) | Toggle verbosity level in output |
 | __missing_ok__ | Suppresses error when the pipe does not exist in any variable label  |
+| __**v**arlist__(_varlist_) | Restrict the scope of variables to consider |
 
 # Description
 
@@ -62,6 +63,8 @@ __missing_ok__ suppresses the error thrown if a pipe the user is trying to
 replace does not exist in any variable label in the dataset.
 The default behavior is that the code is interrupted
 with an error if the pipe does not exist.
+
+__**v**arlist__(_varlist_) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With __varlist__(), the scope of the search can be narrowed.
 
 # Examples
 

@@ -1,0 +1,247 @@
+[
+  {
+    "objectID": "reference/lbl_assert_varlbls.html",
+    "href": "reference/lbl_assert_varlbls.html",
+    "title": "lbl_assert_varlbls.md",
+    "section": "",
+    "text": "Syntax\nlbl_assert_var_have_lbl, [varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nFor small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.\nThis command does that. If any variables without variable labels are found, it returns and error and lists which variables are missing variable labels. If all variables have variable labels, it reports this fact. In this way, the user knows whether action is needed, and for which variables.\n\n\nOptions\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* apply variable labels to only some variables\nlabel variable var1 \"Some label\"\nlabel variable var4 \"Another label\"\n\n* assert that all variables have variable labels, globally\nlbl_assert_var_have_lbl\n\n* assert that all variables have variable labels, in the varlist\nlbl_assert_var_have_lbl var3 - var4\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "reference/lbl_list_no_varlbl.html",
+    "href": "reference/lbl_list_no_varlbl.html",
+    "title": "lbl_list_no_varlbl.md",
+    "section": "",
+    "text": "Syntax\nlbl_list_no_varlbl, [varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nFor small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.\nThis command does that. If any variables without variable labels are found, it lists them. If all variables have variable labels, it says so. That way, the user knows whether action is needed, and for which variables.\n\n\nOptions\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* apply variable labels to only some variables\nlabel variable var1 \"Some label\"\nlabel variable var4 \"Another label\"\n\n* list variables without variable labels globally\nlbl_list_no_varlbl\n\n* list variables without a label in the varlist\nlbl_list_no_varlbl, varlist(var3 - var4)\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "reference/lbl_assert_no_long_varlbl.html",
+    "href": "reference/lbl_assert_no_long_varlbl.html",
+    "title": "lbl_assert_no_long_varlbl.md",
+    "section": "",
+    "text": "Syntax\nlbl_assert_no_long_varlbl , [maxlen(integer) varlist(varlist) ]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nmaxlen(integer)\nMaximum character length allowed.\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nThis command assert that there is no variable in memory whose variable label length exceeds the desired character length.\nBy default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the maxlen(integer) option.\nIf there is at least one variable whose length exceeds the maximum length, the command will return an error and list the variables whose variable labels are too long.\n\n\nOptions\nmaxlen(integer) sets the maximum length of variable labels.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\ngen var5 = .\n\n* apply variables\nlabel variable var1 \"Short label\"\nlabel variable var2 \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\nlabel variable var3 \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"\nlabel variable var4 \"Another short label\"\nlabel variable var5 \"你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好\"\n\n* assert no variables with labels longer than default max length (80 characters)\nlbl_assert_no_long_varlbl\n\n* assert no variables with labels longer than user-specified max length (80 characters)\nlbl_assert_no_long_varlbl, maxlen(12)\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
+    "section": "",
+    "text": "Functions\nDescription\n\n\n\n\nlabeller\nPackage command with utilities for the rest of the package\n\n\nlbl_assert_no_long_varlbl\nAssert that there is no variable in memory whose variable length exceeds the desired character length.\n\n\nlbl_assert_no_pipes\nAsserts that no variable labels have any pipes\n\n\nlbl_assert_varlbls\nList variables without a variable label.\n\n\nlbl_list_long_varlbl\nList variables whose variable label is longer than the desired character length.\n\n\nlbl_list_matching_vals\nList value labels whose labels match a pattern.\n\n\nlbl_list_matching_vars\nIdentify variables whose label matches a pattern.\n\n\nlbl_list_no_varlbl\nList variables without a variable label.\n\n\nlbl_list_pipes\nLists pipes in variable labels from Survey Solutions\n\n\nlbl_replace_pipe\nReplaces pipes in variable labels with user-provided value"
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vals.html",
+    "href": "reference/lbl_list_matching_vals.html",
+    "title": "lbl_list_matching_vals.md",
+    "section": "",
+    "text": "lbl_list_matching_vals - List value labels whose labels match a pattern."
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vals.html#example-1-contain-a-pattern",
+    "href": "reference/lbl_list_matching_vals.html#example-1-contain-a-pattern",
+    "title": "lbl_list_matching_vals.md",
+    "section": "Example 1: contain a pattern",
+    "text": "Example 1: contain a pattern\n* create some fake data\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* create some value labels\nlabel define var1_lbl 1 \"Yes\" 2 \"No\"\nlabel define var2_lbl 1 \"Oui\" 2 \"Non\" 3 \"Oui, oui\"\nlabel define var4_lbl 1 \"Oui\" 2 \"Non\"\n\n* apply those labels to some, but not all, variables\nlabel values var1 var1_lbl\nlabel values var2 var2_lbl\nlabel values var4 var4_lbl\n\n* find value labels with \"Oui\" and/or \"oui\" in at least one constituent label\nlbl_list_matching_vals, pattern(\"[Oo]ui\")\n\n* find value labels and print out the contents of the label, for convenience\n* i.e., to avoid the next step that many users might logically make:\n* `label list matching_lbl`\nlbl_list_matching_vals, pattern(\"[Oo]ui\") verbose"
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vals.html#example-2-do-not-contain-a-pattern",
+    "href": "reference/lbl_list_matching_vals.html#example-2-do-not-contain-a-pattern",
+    "title": "lbl_list_matching_vals.md",
+    "section": "Example 2: do not contain a pattern",
+    "text": "Example 2: do not contain a pattern\n* find value labels that do not contain a certain pattern\n* for example, no \"Oui\"/\"oui\" in yes/no labels from a French-language survey\nlbl_list_matching_vals, pattern(\"[Oo]ui\") negate"
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vals.html#example-3-contain-only-a-certain-set-of-characters",
+    "href": "reference/lbl_list_matching_vals.html#example-3-contain-only-a-certain-set-of-characters",
+    "title": "lbl_list_matching_vals.md",
+    "section": "Example 3: contain only a certain set of characters",
+    "text": "Example 3: contain only a certain set of characters\n* create some value labels\nlabel drop _all\n* var1_lbl var2_lbl var4_lbl\nlabel define var1_lbl 1 \"YES\" 2 \"NO\"\nlabel define var2_lbl 1 \"Yes\" 2 \"No\"\nlabel define var3_lbl 1 \"yes\" 2 \"no\"\nlabel define var4_lbl 1 \"Où\" 2 \"Là\"\n\n* attach them to variables created above\nlabel values var1 var1_lbl\nlabel values var2 var2_lbl\nlabel values var3 var3_lbl\nlabel values var4 var4_lbl\n\n* contains no lower-case characters\nlbl_list_matching_vals, pattern(\"[:lower:]\") negate\n\n* contains no French characters\nlbl_list_matching_vals, pattern(\"[àâäÀÂÄéèêëÉÈÊËîïôöÔÖùûüçÇ]\") negate"
+  },
+  {
+    "objectID": "reference/lbl_replace_pipe.html",
+    "href": "reference/lbl_replace_pipe.html",
+    "title": "lbl_replace_pipe.md",
+    "section": "",
+    "text": "Syntax\nlbl_replace_pipe , pipe(string) replacement(string) [truncate(string) output_level(string) missing_ok varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\npipe(string)\nThe name of the pipe to be replaced\n\n\nreplacement(string)\nThe value the pipe should be replaced with\n\n\ntruncate(string)\nToggle behavior when the new label is too long\n\n\noutput_level(string)\nToggle verbosity level in output\n\n\nmissing_ok\nSuppresses error when the pipe does not exist in any variable label\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nData collected with Survey Solutions (SuSo) commonly have pipes in the format %pipename% in the variable label. This command can be used to replace such pipes with a value provided by the user.\nThis command is intended to be used together with the command lbl_list_pipes (also in the labeller package). The lbl_list_pipes command can be used to list which pipes exist in the dataset, and then lbl_replace_pipe can be used to replace the pipes.\nlbl_replace_pipe can only replace one pipe at a time. When more than one pipe exists in a dataset, then this command is intended to be repeated once per pipe.\n\n\nOptions\npipe(string) is the option that indicates which pipe should be replaced. This option only allows exactly one pipe at a time. It is optional to include the % tags, so the pipe can either be included as %pipename% or pipename.\nreplacement(string) is the value that the pipe should be replaced with. It can be any string allowed in a variable label. However, since variable labels in Stata are not allowed to be longer than 80 characters, the replacement value should not be too long.\ntruncate(string) is an option that lets the user decide what should happen if a label is too long after the pipe has been replaced with the new value. The options are error (the command throws an error and exits), warning (the command outputs a warning and continues), and prompt (the command asks the user to interactively confirm each case). The default is error.\noutput_level(string) is an option that allows the user to set how verbose the output should be. The valid values for this option are minimal, verbose, and veryverbose. The default is verbose.\nmissing_ok suppresses the error thrown if a pipe the user is trying to replace does not exist in any variable label in the dataset. The default behavior is that the code is interrupted with an error if the pipe does not exist.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\nThis simple example first creates a data set where the pipe %unit% is added to the variable label of the variable mpg. Then lbl_replace_pipe is used to replace %unit% in the label with the value miles per gallon.\n*Create example data\nsysuse auto, clear\nlabel variable mpg \"Mileage (%unit%)\"\n\n*Replace the unit pipe\nlbl_replace_pipe, pipe(\"unit\") replacement(\"miles per gallon\") ///\n   output_level(veryverbose)\n\n\n\nFeedback, Bug Reports, and Contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "reference/lbl_assert_no_pipes.html",
+    "href": "reference/lbl_assert_no_pipes.html",
+    "title": "lbl_assert_no_pipes.md",
+    "section": "",
+    "text": "Syntax\nlbl_assert_no_pipes , [ignore_pipes(string) output_level(string) varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nignore_pipes(string)\nList of pipe names to be ignored\n\n\noutput_level(string)\nToggle verbosity level in output\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nData collected with SurveySolution (SuSo) commonly have pipes in the format %pipename% in the variable label. This command tests if there are any such pipes in any labels in the dataset. If there are any pipes, then this command throws an error and lists those remaining pipes.\nThis command is intended to be used in a workflow with the commands lbl_list_pipes and lbl_replace_pipe (both also in the labeller package). After using lbl_replace_pipe to replace pipes that were identified using lbl_replace_pipe, lbl_assert_no_pipes can be used to test that all pipes have been addressed.\n\n\nOptions\nignore_pipes(string) is an option where the user can list pipes that should not be ignored even if they are found in the dataset. This command will not throw an error if all pipes currently in the dataset are listed in this option. List the pipe names in a single string in this format:\nlab_pipe, ignore_pipes(\"pipe1 pipe2\")\noutput_level(string) is an option that allows the user to set how verbose the output should be. The valid values for this option are minimal, verbose, and veryverbose. The default is verbose.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\nThis simple example first creates a data set where the pipe %unit% is added to the variable label of the variable mpg. Then lbl_replace_pipe is used to replace %unit% in the label with the value miles per gallon. Finally, lbl_assert_no_pipes is used to confirm there are no more pipes in any of the variable labels in the dataset.\n* Create example data\nsysuse auto, clear\nlabel variable mpg \"Mileage (%unit%)\"\n\n* Replace the unit pipe\nlbl_replace_pipe, pipe(\"unit\") replacement(\"miles per gallon\")\n\n* Test that the dataset no longer has any pipes\nlbl_assert_no_pipes\n\n\nFeedback, Bug Reports, and Contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "reference/lbl_list_pipes.html",
+    "href": "reference/lbl_list_pipes.html",
+    "title": "lbl_list_pipes.md",
+    "section": "",
+    "text": "Syntax\nlbl_list_pipes , [ignore_pipes(string) output_level(string) varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nignore_pipes(string)\nList of pipe names to be ignored\n\n\noutput_level(string)\nToggle verbosity level in output\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nData collected with Survey Solutions (SuSo) commonly have pipes in the format %pipename% in the variable label. This command detects SuSo pipes in variable labels and outputs them. The pipes can then be replaced with the lbl_replace_pipe command that is also a part of the labeller package.\n\n\nOptions\nignore_pipes(string) is an option where the user can list pipes that should not be included in the output. List the pipe names in a single string in this format:\nlbl_list_pipes, ignore_pipes(\"pipe1 pipe2\")\noutput_level(string) is an option that allows the user to set how verbose the output should be. The valid values for this option are minimal, verbose, and veryverbose. The default is verbose.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\nThis simple example first creates a data set where the pipe %unit% is added to the variable label of the variable mpg. Then the command lbl_list_pipes is used to detect and output this pipe.\n* Create example data\nsysuse auto, clear\nlabel variable mpg \"Mileage (%unit%)\"\n\n* List the pipes in the data\nlbl_list_pipes, output_level(veryverbose)\n\n\n\nFeedback, Bug Reports, and Contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "reference/labeller.html",
+    "href": "reference/labeller.html",
+    "title": "labeller.md",
+    "section": "",
+    "text": "Syntax\nlabeller\n\n\nDescription\nThis command only returns the version number and version data to the user. This command has little application for the user. For packages installed on SSC it is important that a there is a command in the package that has the same name as the package. That is the main purpose of this command.\n\n\nOptions\nThis command has no options.\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feed back by opening and issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vars.html",
+    "href": "reference/lbl_list_matching_vars.html",
+    "title": "lbl_list_matching_vars.md",
+    "section": "",
+    "text": "lbl_list_matching_vars - Identify variables whose label matches a pattern."
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vars.html#example-1-simple-search",
+    "href": "reference/lbl_list_matching_vars.html#example-1-simple-search",
+    "title": "lbl_list_matching_vars.md",
+    "section": "Example 1: Simple search",
+    "text": "Example 1: Simple search\n* create a set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* apply variables\nlabel variable var1 \"First label\"\nlabel variable var2 \"2. label\"\nlabel variable var3 \"3. label\"\nlabel variable var4 \"Fourth label\"\n\n* find variables whose label contains \"First\"\nlbl_list_matching_vars \"First\""
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vars.html#example-2-regex-search",
+    "href": "reference/lbl_list_matching_vars.html#example-2-regex-search",
+    "title": "lbl_list_matching_vars.md",
+    "section": "Example 2: Regex search",
+    "text": "Example 2: Regex search\n* find variables whose labels start with a number\nlbl_list_matching_vars \"^[0-9]\""
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vars.html#example-3-restrict-search-to-a-variable-list",
+    "href": "reference/lbl_list_matching_vars.html#example-3-restrict-search-to-a-variable-list",
+    "title": "lbl_list_matching_vars.md",
+    "section": "Example 3: Restrict search to a variable list",
+    "text": "Example 3: Restrict search to a variable list\n* find variables whose label starts with \"F\" in var1 - var3\nlbl_list_matching_vars \"^F\", varlist(var1 - var3)"
+  },
+  {
+    "objectID": "reference/lbl_list_matching_vars.html#example-4-return-variables-whose-labels-do-not-match",
+    "href": "reference/lbl_list_matching_vars.html#example-4-return-variables-whose-labels-do-not-match",
+    "title": "lbl_list_matching_vars.md",
+    "section": "Example 4: Return variables whose labels do not match",
+    "text": "Example 4: Return variables whose labels do not match\n* find variables whose labels do NOT start with a number\nlbl_list_matching_vars \"^[0-9]\", negate"
+  },
+  {
+    "objectID": "reference/lbl_list_long_varlbl.html",
+    "href": "reference/lbl_list_long_varlbl.html",
+    "title": "lbl_list_long_varlbl.md",
+    "section": "",
+    "text": "Syntax\nlbl_list_long_varlbl , [maxlen(integer) varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nmaxlen(integer)\nMaximum character length allowed.\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nWhen variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata’s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.\nTo detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl).\nHowever, there is no base Stata operation for doing so in batch.\nThis command provides just such a tool.\nBy default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the maxlen(integer) option.\n\n\nOptions\nmaxlen(integer) sets the maximum length of variable labels, beyond which a variable is listed by this command.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\ngen var5 = .\n\n* apply variables\nlabel variable var1 \"Short label\"\nlabel variable var2 \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\nlabel variable var3 \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"\nlabel variable var4 \"Another short label\"\nlabel variable var5 \"你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好\"\n\n* list variables with longer than the default max length (80 characters)\nlbl_list_long_varlbl\n\n* list variables with longer than the user-specified max length\nlbl_list_long_varlbl, maxlen(12)\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_no_varlbl.html",
+    "href": "src/mdhlp/lbl_list_no_varlbl.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlbl_list_no_varlbl, [varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nFor small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.\nThis command does that. If any variables without variable labels are found, it lists them. If all variables have variable labels, it says so. That way, the user knows whether action is needed, and for which variables.\n\n\nOptions\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* apply variable labels to only some variables\nlabel variable var1 \"Some label\"\nlabel variable var4 \"Another label\"\n\n* list variables without variable labels globally\nlbl_list_no_varlbl\n\n* list variables without a label in the varlist\nlbl_list_no_varlbl, varlist(var3 - var4)\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_assert_no_long_varlbl.html",
+    "href": "src/mdhlp/lbl_assert_no_long_varlbl.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlbl_assert_no_long_varlbl , [maxlen(integer) varlist(varlist) ]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nmaxlen(integer)\nMaximum character length allowed.\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nThis command assert that there is no variable in memory whose variable label length exceeds the desired character length.\nBy default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the maxlen(integer) option.\nIf there is at least one variable whose length exceeds the maximum length, the command will return an error and list the variables whose variable labels are too long.\n\n\nOptions\nmaxlen(integer) sets the maximum length of variable labels.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\ngen var5 = .\n\n* apply variables\nlabel variable var1 \"Short label\"\nlabel variable var2 \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\nlabel variable var3 \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"\nlabel variable var4 \"Another short label\"\nlabel variable var5 \"你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好\"\n\n* assert no variables with labels longer than default max length (80 characters)\nlbl_assert_no_long_varlbl\n\n* assert no variables with labels longer than user-specified max length (80 characters)\nlbl_assert_no_long_varlbl, maxlen(12)\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vars.html",
+    "href": "src/mdhlp/lbl_list_matching_vars.html",
+    "title": "labeller",
+    "section": "",
+    "text": "lbl_list_matching_vars - Identify variables whose label matches a pattern."
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vars.html#example-1-simple-search",
+    "href": "src/mdhlp/lbl_list_matching_vars.html#example-1-simple-search",
+    "title": "labeller",
+    "section": "Example 1: Simple search",
+    "text": "Example 1: Simple search\n* create a set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* apply variables\nlabel variable var1 \"First label\"\nlabel variable var2 \"2. label\"\nlabel variable var3 \"3. label\"\nlabel variable var4 \"Fourth label\"\n\n* find variables whose label contains \"First\"\nlbl_list_matching_vars \"First\""
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vars.html#example-2-regex-search",
+    "href": "src/mdhlp/lbl_list_matching_vars.html#example-2-regex-search",
+    "title": "labeller",
+    "section": "Example 2: Regex search",
+    "text": "Example 2: Regex search\n* find variables whose labels start with a number\nlbl_list_matching_vars \"^[0-9]\""
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vars.html#example-3-restrict-search-to-a-variable-list",
+    "href": "src/mdhlp/lbl_list_matching_vars.html#example-3-restrict-search-to-a-variable-list",
+    "title": "labeller",
+    "section": "Example 3: Restrict search to a variable list",
+    "text": "Example 3: Restrict search to a variable list\n* find variables whose label starts with \"F\" in var1 - var3\nlbl_list_matching_vars \"^F\", varlist(var1 - var3)"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vars.html#example-4-return-variables-whose-labels-do-not-match",
+    "href": "src/mdhlp/lbl_list_matching_vars.html#example-4-return-variables-whose-labels-do-not-match",
+    "title": "labeller",
+    "section": "Example 4: Return variables whose labels do not match",
+    "text": "Example 4: Return variables whose labels do not match\n* find variables whose labels do NOT start with a number\nlbl_list_matching_vars \"^[0-9]\", negate"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_assert_varlbls.html",
+    "href": "src/mdhlp/lbl_assert_varlbls.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlbl_assert_var_have_lbl, [varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nFor small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.\nThis command does that. If any variables without variable labels are found, it returns and error and lists which variables are missing variable labels. If all variables have variable labels, it reports this fact. In this way, the user knows whether action is needed, and for which variables.\n\n\nOptions\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* apply variable labels to only some variables\nlabel variable var1 \"Some label\"\nlabel variable var4 \"Another label\"\n\n* assert that all variables have variable labels, globally\nlbl_assert_var_have_lbl\n\n* assert that all variables have variable labels, in the varlist\nlbl_assert_var_have_lbl var3 - var4\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_replace_pipe.html",
+    "href": "src/mdhlp/lbl_replace_pipe.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlbl_replace_pipe , pipe(string) replacement(string) [truncate(string) output_level(string) missing_ok varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\npipe(string)\nThe name of the pipe to be replaced\n\n\nreplacement(string)\nThe value the pipe should be replaced with\n\n\ntruncate(string)\nToggle behavior when the new label is too long\n\n\noutput_level(string)\nToggle verbosity level in output\n\n\nmissing_ok\nSuppresses error when the pipe does not exist in any variable label\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nData collected with Survey Solutions (SuSo) commonly have pipes in the format %pipename% in the variable label. This command can be used to replace such pipes with a value provided by the user.\nThis command is intended to be used together with the command lbl_list_pipes (also in the labeller package). The lbl_list_pipes command can be used to list which pipes exist in the dataset, and then lbl_replace_pipe can be used to replace the pipes.\nlbl_replace_pipe can only replace one pipe at a time. When more than one pipe exists in a dataset, then this command is intended to be repeated once per pipe.\n\n\nOptions\npipe(string) is the option that indicates which pipe should be replaced. This option only allows exactly one pipe at a time. It is optional to include the % tags, so the pipe can either be included as %pipename% or pipename.\nreplacement(string) is the value that the pipe should be replaced with. It can be any string allowed in a variable label. However, since variable labels in Stata are not allowed to be longer than 80 characters, the replacement value should not be too long.\ntruncate(string) is an option that lets the user decide what should happen if a label is too long after the pipe has been replaced with the new value. The options are error (the command throws an error and exits), warning (the command outputs a warning and continues), and prompt (the command asks the user to interactively confirm each case). The default is error.\noutput_level(string) is an option that allows the user to set how verbose the output should be. The valid values for this option are minimal, verbose, and veryverbose. The default is verbose.\nmissing_ok suppresses the error thrown if a pipe the user is trying to replace does not exist in any variable label in the dataset. The default behavior is that the code is interrupted with an error if the pipe does not exist.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\nThis simple example first creates a data set where the pipe %unit% is added to the variable label of the variable mpg. Then lbl_replace_pipe is used to replace %unit% in the label with the value miles per gallon.\n*Create example data\nsysuse auto, clear\nlabel variable mpg \"Mileage (%unit%)\"\n\n*Replace the unit pipe\nlbl_replace_pipe, pipe(\"unit\") replacement(\"miles per gallon\") ///\n   output_level(veryverbose)\n\n\n\nFeedback, Bug Reports, and Contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_pipes.html",
+    "href": "src/mdhlp/lbl_list_pipes.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlbl_list_pipes , [ignore_pipes(string) output_level(string) varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nignore_pipes(string)\nList of pipe names to be ignored\n\n\noutput_level(string)\nToggle verbosity level in output\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nData collected with Survey Solutions (SuSo) commonly have pipes in the format %pipename% in the variable label. This command detects SuSo pipes in variable labels and outputs them. The pipes can then be replaced with the lbl_replace_pipe command that is also a part of the labeller package.\n\n\nOptions\nignore_pipes(string) is an option where the user can list pipes that should not be included in the output. List the pipe names in a single string in this format:\nlbl_list_pipes, ignore_pipes(\"pipe1 pipe2\")\noutput_level(string) is an option that allows the user to set how verbose the output should be. The valid values for this option are minimal, verbose, and veryverbose. The default is verbose.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\nThis simple example first creates a data set where the pipe %unit% is added to the variable label of the variable mpg. Then the command lbl_list_pipes is used to detect and output this pipe.\n* Create example data\nsysuse auto, clear\nlabel variable mpg \"Mileage (%unit%)\"\n\n* List the pipes in the data\nlbl_list_pipes, output_level(veryverbose)\n\n\n\nFeedback, Bug Reports, and Contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_long_varlbl.html",
+    "href": "src/mdhlp/lbl_list_long_varlbl.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlbl_list_long_varlbl , [maxlen(integer) varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nmaxlen(integer)\nMaximum character length allowed.\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nWhen variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata’s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.\nTo detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl).\nHowever, there is no base Stata operation for doing so in batch.\nThis command provides just such a tool.\nBy default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the maxlen(integer) option.\n\n\nOptions\nmaxlen(integer) sets the maximum length of variable labels, beyond which a variable is listed by this command.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\n* create set of variables\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\ngen var5 = .\n\n* apply variables\nlabel variable var1 \"Short label\"\nlabel variable var2 \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\nlabel variable var3 \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"\nlabel variable var4 \"Another short label\"\nlabel variable var5 \"你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好\"\n\n* list variables with longer than the default max length (80 characters)\nlbl_list_long_varlbl\n\n* list variables with longer than the user-specified max length\nlbl_list_long_varlbl, maxlen(12)\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vals.html",
+    "href": "src/mdhlp/lbl_list_matching_vals.html",
+    "title": "labeller",
+    "section": "",
+    "text": "lbl_list_matching_vals - List value labels whose labels match a pattern."
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vals.html#example-1-contain-a-pattern",
+    "href": "src/mdhlp/lbl_list_matching_vals.html#example-1-contain-a-pattern",
+    "title": "labeller",
+    "section": "Example 1: contain a pattern",
+    "text": "Example 1: contain a pattern\n* create some fake data\ngen var1 = .\ngen var2 = .\ngen var3 = .\ngen var4 = .\n\n* create some value labels\nlabel define var1_lbl 1 \"Yes\" 2 \"No\"\nlabel define var2_lbl 1 \"Oui\" 2 \"Non\" 3 \"Oui, oui\"\nlabel define var4_lbl 1 \"Oui\" 2 \"Non\"\n\n* apply those labels to some, but not all, variables\nlabel values var1 var1_lbl\nlabel values var2 var2_lbl\nlabel values var4 var4_lbl\n\n* find value labels with \"Oui\" and/or \"oui\" in at least one constituent label\nlbl_list_matching_vals, pattern(\"[Oo]ui\")\n\n* find value labels and print out the contents of the label, for convenience\n* i.e., to avoid the next step that many users might logically make:\n* `label list matching_lbl`\nlbl_list_matching_vals, pattern(\"[Oo]ui\") verbose"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vals.html#example-2-do-not-contain-a-pattern",
+    "href": "src/mdhlp/lbl_list_matching_vals.html#example-2-do-not-contain-a-pattern",
+    "title": "labeller",
+    "section": "Example 2: do not contain a pattern",
+    "text": "Example 2: do not contain a pattern\n* find value labels that do not contain a certain pattern\n* for example, no \"Oui\"/\"oui\" in yes/no labels from a French-language survey\nlbl_list_matching_vals, pattern(\"[Oo]ui\") negate"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_list_matching_vals.html#example-3-contain-only-a-certain-set-of-characters",
+    "href": "src/mdhlp/lbl_list_matching_vals.html#example-3-contain-only-a-certain-set-of-characters",
+    "title": "labeller",
+    "section": "Example 3: contain only a certain set of characters",
+    "text": "Example 3: contain only a certain set of characters\n* create some value labels\nlabel drop _all\n* var1_lbl var2_lbl var4_lbl\nlabel define var1_lbl 1 \"YES\" 2 \"NO\"\nlabel define var2_lbl 1 \"Yes\" 2 \"No\"\nlabel define var3_lbl 1 \"yes\" 2 \"no\"\nlabel define var4_lbl 1 \"Où\" 2 \"Là\"\n\n* attach them to variables created above\nlabel values var1 var1_lbl\nlabel values var2 var2_lbl\nlabel values var3 var3_lbl\nlabel values var4 var4_lbl\n\n* contains no lower-case characters\nlbl_list_matching_vals, pattern(\"[:lower:]\") negate\n\n* contains no French characters\nlbl_list_matching_vals, pattern(\"[àâäÀÂÄéèêëÉÈÊËîïôöÔÖùûüçÇ]\") negate"
+  },
+  {
+    "objectID": "src/mdhlp/labeller.html",
+    "href": "src/mdhlp/labeller.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlabeller\n\n\nDescription\nThis command only returns the version number and version data to the user. This command has little application for the user. For packages installed on SSC it is important that a there is a command in the package that has the same name as the package. That is the main purpose of this command.\n\n\nOptions\nThis command has no options.\n\n\nFeedback, bug reports and contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feed back by opening and issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  },
+  {
+    "objectID": "src/mdhlp/lbl_assert_no_pipes.html",
+    "href": "src/mdhlp/lbl_assert_no_pipes.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Syntax\nlbl_assert_no_pipes , [ignore_pipes(string) output_level(string) varlist(varlist)]\n\n\n\n\n\n\n\noptions\nDescription\n\n\n\n\nignore_pipes(string)\nList of pipe names to be ignored\n\n\noutput_level(string)\nToggle verbosity level in output\n\n\nvarlist(varlist)\nRestrict the scope of variables to consider\n\n\n\n\n\nDescription\nData collected with SurveySolution (SuSo) commonly have pipes in the format %pipename% in the variable label. This command tests if there are any such pipes in any labels in the dataset. If there are any pipes, then this command throws an error and lists those remaining pipes.\nThis command is intended to be used in a workflow with the commands lbl_list_pipes and lbl_replace_pipe (both also in the labeller package). After using lbl_replace_pipe to replace pipes that were identified using lbl_replace_pipe, lbl_assert_no_pipes can be used to test that all pipes have been addressed.\n\n\nOptions\nignore_pipes(string) is an option where the user can list pipes that should not be ignored even if they are found in the dataset. This command will not throw an error if all pipes currently in the dataset are listed in this option. List the pipe names in a single string in this format:\nlab_pipe, ignore_pipes(\"pipe1 pipe2\")\noutput_level(string) is an option that allows the user to set how verbose the output should be. The valid values for this option are minimal, verbose, and veryverbose. The default is verbose.\nvarlist(varlist) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With varlist(), the scope of the search can be narrowed.\n\n\nExamples\nThis simple example first creates a data set where the pipe %unit% is added to the variable label of the variable mpg. Then lbl_replace_pipe is used to replace %unit% in the label with the value miles per gallon. Finally, lbl_assert_no_pipes is used to confirm there are no more pipes in any of the variable labels in the dataset.\n* Create example data\nsysuse auto, clear\nlabel variable mpg \"Mileage (%unit%)\"\n\n* Replace the unit pipe\nlbl_replace_pipe, pipe(\"unit\") replacement(\"miles per gallon\")\n\n* Test that the dataset no longer has any pipes\nlbl_assert_no_pipes\n\n\nFeedback, Bug Reports, and Contributions\nRead more about the commands in this package at https://github.com/lsms-worldbank/labeller.\nPlease provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.\nPRs with suggestions for improvements are also greatly appreciated.\n\n\nAuthors\nLSMS Team, The World Bank lsms@worldbank.org"
+  }
+]

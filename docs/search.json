@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "labeller",
+    "section": "",
+    "text": "Currently, this package has the following commands:\n\n\n\nCommand\nDescription\n\n\n\n\nlabeller\nPackage command with utilities for the rest of the package\n\n\nlbl_assert_no_long_varlbl\nAssert that there is no variable in memory whose variable length exceeds the desired character length.\n\n\nlbl_assert_no_pipes\nAsserts that no variable labels have any pipes\n\n\nlbl_assert_varlbls\nList variables without a variable label.\n\n\nlbl_list_long_varlbl\nList variables whose variable label is longer than the desired character length.\n\n\nlbl_list_matching_vars\nIdentify variables whose label matches a pattern.\n\n\nlbl_list_matching_vals\nList value labels whose labels match a pattern.\n\n\nlbl_list_no_varlbl\nList variables without a variable label.\n\n\nlbl_list_pipes\nLists pipes in variable labels from Survey Solutions.\n\n\nlbl_replace_pipe\nReplaces pipes in variable labels with user-provided value"
+  },
+  {
     "objectID": "reference/lbl_assert_varlbls.html",
     "href": "reference/lbl_assert_varlbls.html",
     "title": "lbl_assert_varlbls.md",

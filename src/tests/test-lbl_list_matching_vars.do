@@ -11,10 +11,9 @@ global src_fldr  "${clone}/src"
 global test_fldr "${src_fldr}/tests"
 global data_fldr "${test_fldr}/testdata"
 
-* Install the version of this package in
-* the plus-ado folder in the test folder
-cap mkdir "${test_fldr}/plus-ado"
-repado , adopath("${test_fldr}/plus-ado") mode(strict)
+* Set up a dev environement for testing locally
+cap mkdir    "${tests}/dev-env"
+repado using "${tests}/dev-env"
 
 cap net uninstall labeller
 net install labeller, from("${src_fldr}") replace
@@ -27,7 +26,7 @@ labeller
 * ==============================================================================
 
 clear
-  
+
 * create set of variables
 gen var1 = .
 gen var2 = .

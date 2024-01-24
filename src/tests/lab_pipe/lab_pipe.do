@@ -12,29 +12,27 @@
     global test_fldr "${src_fldr}/tests"
     global run_fldr  "${test_fldr}/lab_pipe"
 
+    * Set up a dev environement for testing locally
+    cap mkdir    "${tests}/dev-env"
+    repado using "${tests}/dev-env"
 
-    * Install the version of this package in 
-    * the plus-ado folder in the test folder
-    cap mkdir "${test_fldr}/plus-ado"
-    repado , adopath("${test_fldr}/plus-ado") mode(strict)
-    
     cap net uninstall labeller
     net install labeller, from("${src_fldr}") replace
-        
+
     * Create example data
     sysuse auto, clear
     label variable mpg "Mileage (%unit%)"
-    
+
     label variable price "Cost of car (%unit%)"
-    
+
     label variable foreign "Is (%country%)"
-    
+
     * List pipes
     lbl_list_pipes, output_level(veryverbose)
-    
+
     * Replace a pipe
     lbl_replace_pipe, pipe("%unit%") truncate(warning) ///
         replacement("miles per gallon") output_level(veryverbose)
-       
+
     lbl_assert_no_pipes, output_level(veryverbose) ///
         ignore_pipes(country)

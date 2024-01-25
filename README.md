@@ -14,3 +14,8 @@ Currently, this package has the following commands:
 | [lbl_list_no_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_varlbl.html) | List variables without a variable label. |
 | [lbl_list_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_list_pipes.html) | Lists pipes in variable labels from Survey Solutions. |
 | [lbl_replace_pipe](https://lsms-worldbank.github.io/labeller/reference/lbl_replace_pipe.html) | Replaces pipes in variable labels with user-provided value |
+
+# Contact
+
+LSMS Team, World Bank
+lsms@worldbank.org

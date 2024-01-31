@@ -12,7 +12,7 @@ qui {
     * get the names of all labels in memory
     label dir
     local val_lbls "`r(names)'"
-    
+
     * construct the list of unused value labels
     * checking to see if each label above is attached to a variable
     local unused_labels ""
@@ -25,19 +25,32 @@ qui {
       }
     }
 
-    * compute size of list
+    * Count unused labels
     local n_unused_labels : list sizeof unused_labels
 
+    ********************
     * report on findings
-    if (`n_unused_labels' == 0) {     
-      noi: di as result "{pstd}No unused value labels found.{p_end}"
+
+    * No value labels in the data set
+    if (`: list sizeof val_lbls' == 0) {
+      noi: di as text "{pstd}No value labels in data set.{p_end}"
     }
-    else if (`n_unused_labels' > 0) {
-      noi: di as result "{pstd}Unused value labels found:{p_end}"
-      noi: di as result "{phang}`unused_labels'{p_end}"
-      if (!mi("`verbose'")) {
-        noi: label list `unused_labels'
+
+    * No unused value labels in the data set
+    else if (`n_unused_labels' == 0) {
+      noi: di as text "{pstd}No unused value labels found.{p_end}"
+    }
+
+    * Unused value labels found
+    else {
+
+      noi di as text "{pstd}Unused value labels found:{p_end}"
+      * Display only a condensed list
+      if missing("`verbose'") {
+        noi di as result "{phang}`unused_labels'{p_end}"
       }
+      * Display each label and its value
+      else noi: label list `unused_labels'
     }
 
     * return results

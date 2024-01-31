@@ -9,12 +9,12 @@ qui {
 
   * Update the syntax. This is only a placeholder to make the command run
   syntax, ///
-  varlist(varlist)    ///
-  from_char(string)   ///
+  Varlist(varlist)    ///
+  FROM_char(string)   ///
   [                   ///
-    template(string)  ///
-    apply_to(string)  ///
-    all_missing_ok    ///
+    TEMplate(string)  ///
+    APPly_to(string)  ///
+    MISSing_ok    ///
   ]
 
   * Create a dummy that is one if multiple vars was passed in varlist()
@@ -37,7 +37,7 @@ qui {
 
 
   * Test that at least one variable had the char
-  if (missing("`varlist_with_char'") & missing("`all_missing_ok'")) {
+  if (missing("`varlist_with_char'") & missing("`missing_ok'")) {
     noi di as error "{pstd}No variable in {inp:varlist()} had the char {inp:`from_char'}.{p_end}"
     error 99
     exit

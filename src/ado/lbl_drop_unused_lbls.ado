@@ -50,7 +50,7 @@ qui {
 
           * Prompt until valid answer is given
           while (!inlist(upper("${lbl_unused_confirmation}"), "Y", "N", "ALL", "BREAK")) {
-            noi di as txt _n `"{pstd}Confirm removal of unused value label: {inp:`lbl'}. Enter "{inp:Y}" to confirm removal, "{inp:N}" to keep this label,  or "{inp:ALL}" to confirm removal of all remaining unused labels listed above not yet prompted about, or enter "{inp:BREAK" to exit this command with no action taken."', _request(lbl_unused_confirmation)
+            noi di as txt _n `"{pstd}Confirm removal of unused value label: {inp:`lbl'}. Enter "{inp:Y}" to confirm removal, "{inp:N}" to keep this label,  or "{inp:ALL}" to confirm removal of all remaining unused labels listed above not yet prompted about, or enter "{inp:BREAK}" to exit this command with no action taken."', _request(lbl_unused_confirmation)
           }
 
           if inlist(upper("${lbl_unused_confirmation}"), "Y", "ALL") {

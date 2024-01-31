@@ -12,8 +12,8 @@ global test_fldr "${src_fldr}/tests"
 global data_fldr "${test_fldr}/testdata"
 
 * Set up a dev environement for testing locally
-cap mkdir    "${tests}/dev-env"
-repado using "${tests}/dev-env"
+cap mkdir    "${test_fldr}/dev-env"
+repado using "${test_fldr}/dev-env"
 
 cap net uninstall labeller
 net install labeller, from("${src_fldr}") replace
@@ -24,6 +24,8 @@ labeller
 * ==============================================================================
 * Setup
 * ==============================================================================
+
+clear
 
 * create one variable
 gen v1 = .
@@ -36,12 +38,34 @@ label define v4 1 "evet" 2 "hayır", modify
 * attach one value label, but not the others
 label values v1 v1
 
+label list
+
+tempfile lbl_data
+save    `lbl_data', orphans
+
+
+* ==============================================================================
+* Base case
+* ==============================================================================
+
+use `lbl_data', clear
+
+* Show unused labels with and without verbose
+lbl_list_unused_lbls
+return list
+
+lbl_list_unused_lbls, verbose
+
 * drop the value labels not attached (aka unused)
 lbl_drop_unused_lbls
+label list
+
 
 * ==============================================================================
 * List
 * ==============================================================================
+
+use `lbl_data', clear
 
 * expected result
 local unused_expected "v4 v3"
@@ -64,6 +88,8 @@ else {
 * ==============================================================================
 * Drop
 * ==============================================================================
+
+use `lbl_data', clear
 
 * expected list of remaining labels
 local lbls_expected "v1"

@@ -11,7 +11,7 @@ cap program drop   lbl_list_unused_lbls
 
     * get the names of all labels in memory
     label dir
-    local val_lbls = r(names)
+    local val_lbls "`r(names)'"
     
     * construct the list of unused value labels
     * checking to see if each label above is attached to a variable
@@ -41,9 +41,8 @@ cap program drop   lbl_list_unused_lbls
     }
 
     * return results
-    return local names "`unused_labels'"
+    return local names = trim("`unused_labels'")
     return local count "`n_unused_labels'"
-
   }
 
 end

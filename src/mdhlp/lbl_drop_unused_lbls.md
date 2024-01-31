@@ -6,6 +6,10 @@ __lbl_drop_unused_lbls__ - Drop value labels not attached to any variable.
 
 __lbl_drop_unused_lbls__ , [__**c**onfirm__]
 
+| _options_ | Description |
+|-----------|-------------|
+| __**c**onfirm__ | Prompts user before removing any unused value labels  |
+
 # Description
 
 When attached to variables, value labels are an essential part of data documentation. Left unused, they create clutter and, potentially, confusion.

@@ -3,11 +3,11 @@
 cap program drop   lbl_list_unused_lbls
     program define lbl_list_unused_lbls, rclass
 
+qui {
+
   version /* ADD VERSION NUMBER HERE */
 
   syntax , [Verbose]
-
-  qui {
 
     * get the names of all labels in memory
     label dir

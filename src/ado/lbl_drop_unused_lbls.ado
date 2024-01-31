@@ -3,11 +3,11 @@
 cap program drop   lbl_drop_unused_lbls
     program define lbl_drop_unused_lbls
 
+qui {
+
   version /* ADD VERSION NUMBER HERE */
 
   syntax , [Confirm]
-
-  qui {
 
     lbl_list_unused_lbls
     

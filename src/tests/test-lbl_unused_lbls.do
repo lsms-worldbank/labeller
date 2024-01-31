@@ -68,7 +68,7 @@ label list
 use `lbl_data', clear
 
 * expected result
-local unused_expected "v4 v3"
+local unused_expected "v3 v4"
 
 * capture result
 lbl_list_unused_lbls

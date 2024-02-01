@@ -1,6 +1,6 @@
 # Title
 
-__lbl_use_meta__ - This command access sand uses meta data stored in chars
+__lbl_use_meta__ - This command accesses and uses metadata stored in chars
 
 # Syntax
 
@@ -16,7 +16,7 @@ __lbl_use_meta__ , __**v**arlist__(varlist) __**from**_char__(string) [ __**tem*
 
 # Description
 
-This command access meta data in stored in [chars](https://www.stata.com/manuals/pchar.pdf). This command is intended to be used in combination with [sel_add_metadata](https://lsms-worldbank.github.io/selector/reference/sel_add_metadata.html) but it will also work with any other `char`.
+This command accesses metadata stored in [chars](https://www.stata.com/manuals/pchar.pdf). This command is intended to be used in combination with [sel_add_metadata](https://lsms-worldbank.github.io/selector/reference/sel_add_metadata.html) but it will also work with any other `char`.
 
 In addition to accessing a char value and returning in an r-class variable, this command can also apply this value to a template provided in the option `template()`.
 
@@ -26,11 +26,11 @@ Finally, this command can also take the `char` value and apply to a variable lab
 
 __**v**arlist__(varlist) lists the variables this command should be applied to. It can either be a single variable or a list of variables.
 
-__**from**_char__(string) indicated the name of the [char](https://www.stata.com/manuals/pchar.pdf) that stores the relevant meta data the command should use.
+__**from**_char__(string) indicates the name of the [char](https://www.stata.com/manuals/pchar.pdf) that stores the relevant metadata the command should use.
 
-__**tem**plate__(string) allows the user to provide a template that the char meta value should be combined with. The template should be a single string. The string must include the placeholder `{meta}` that the char meta value will replace. See below for an example.
+__**tem**plate__(string) allows the user to provide a template that the `char` meta value should be combined with. The template should be a single string. The string must include the placeholder `{META}` that the `char` meta value will replace. See below for an example.
 
-__**app**ly_to__(string) indicates that the meta data should be applied to a variable label for that variable. If the option `template()` is used, then the value in combination with the template will be used. The only valid value this option accepts is `varlabel`. Future versions of this command might allow more options.
+__**app**ly_to__(string) indicates that the template should be applied to a variable label for that variable. If the option `template()` is used, then the value in combination with the template will be used. The only valid value this option accepts is `varlabel`. Future versions of this command might allow more options.
 
 __**miss**ing_ok__ suppresses the error thrown if no variable in varlist has any value in the `from_char()`.
 

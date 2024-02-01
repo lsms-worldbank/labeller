@@ -14,8 +14,8 @@
         global root "C:/Users/wb462869/github/labeller"
     }
     * Set all other user's root paths on this format
-    if "`c(username)'" == "" {
-        global root ""
+    if "`c(username)'" == "wb393438" {
+        global root "C:\Users\wb393438\stata_funs\labeller\labeller"
     }
 
     * Set global to the test folder

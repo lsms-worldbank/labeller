@@ -9,8 +9,8 @@ __lbl_use_meta__ , __**v**arlist__(varlist) __**from**_char__(string) [ __**tem*
 | _options_ | Description |
 |-----------|-------------|
 | __**v**arlist__(varlist) | Lists the variables this command should be applied to |
-| __**from**_char__(string) | The name of the `char` meta value the command should use |
-| __**tem**plate__(string) | A template that the meta value should be combined with |
+| __**from**_char__(string) | The name of the `char` value the command should use |
+| __**tem**plate__(string) | A template that the `char` value should be combined with |
 | __**app**ly_to__(string) | Indicate an action the command will do with the meta value |
 | __**miss**ing_ok__ | Suppresses the error thrown if no variable in varlist has any value in the `char` |
 
@@ -28,7 +28,7 @@ __**v**arlist__(varlist) lists the variables this command should be applied to. 
 
 __**from**_char__(string) indicates the name of the [char](https://www.stata.com/manuals/pchar.pdf) that stores the relevant metadata the command should use.
 
-__**tem**plate__(string) allows the user to provide a template that the `char` meta value should be combined with. The template should be a single string. The string must include the placeholder `{META}` that the `char` meta value will replace. See below for an example.
+__**tem**plate__(string) allows the user to provide a template that the `char` value should be combined with. The template should be a single string. The string must include the placeholder `{META}` that the `char` value will replace. See below for an example.
 
 __**app**ly_to__(string) indicates that the template should be applied to a variable label for that variable. If the option `template()` is used, then the value in combination with the template will be used. The only valid value this option accepts is `varlabel`. Future versions of this command might allow more options.
 

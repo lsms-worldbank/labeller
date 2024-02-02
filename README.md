@@ -15,7 +15,7 @@ To get the latest stable version, run the following two commands:
 
 ```
 local tag "main"
-net install repkit, ///
+net install labeller, ///
   from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src")
 ```
 
@@ -23,7 +23,7 @@ To target a particular release, set `tag` to your target release:
 
 ```
 local tag "v1.0"
-net install repkit, ///
+net install labeller, ///
   from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src")
 ```
 

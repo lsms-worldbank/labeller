@@ -89,14 +89,14 @@ cap program drop   apply_template
 
   syntax , template(string) value(string)
 
-  if (strpos(`"`template'"', "{META}") == 0) {
+  if (ustrpos(`"`template'"', "{META}") == 0) {
     noi di as error `"{pstd}The template in "{inp:`template'}" does not include the placeholder "{META}".{p_end}"'
     error 99
     exit
   }
 
   * Populate template and return it
-  local template = subinstr(`"`template'"',"{META}",`"`value'"', .)
+  local template = usubinstr(`"`template'"',"{META}",`"`value'"', .)
   return local template `"`template'"'
 
 end

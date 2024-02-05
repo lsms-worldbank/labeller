@@ -56,11 +56,13 @@ char region2[other] "something"
 char list
 ```
 
-## Example 1
+## Example 1: Retrieve a metadata value
 
 This example use the example data set up above. It takes the meta data value in `other` for the variable `region2` and stores it in a returned local.
 
 ```
+* retrieve the metadata name `other`
+* return it to a macro
 lbl_use_meta, varlist(region2) from_meta(other)
 return list
 ```
@@ -81,8 +83,11 @@ return list
 This example use the example data set up above. It takes the meta data value in `region` for each variable, and applies it to the template `Region: {META}`. And then it stores the respective result for each variable in its variable label.
 
 ```
+* retrieve the metadata named `region` and
+* apply it to the variable label for ALL variables matching `region?`
+* with a template
 lbl_use_meta, varlist(region?) from_meta(region) ///
-template("Region: {META}") apply_to("varlabel")
+  template("Region: {META}") apply_to("varlabel")
 return list
 describe
 ```

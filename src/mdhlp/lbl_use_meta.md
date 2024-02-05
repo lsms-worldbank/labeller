@@ -26,7 +26,7 @@ Finally, this command can also take the `char` value and apply to a variable lab
 
 __**v**arlist__(_varlist_) lists the variables this command should be applied to. It can either be a single variable or a list of variables.
 
-__**from**_char__(_string_) indicates the name of the meta data the command should use. This values for this meta data is expected to be saved in a  [char](https://www.stata.com/manuals/pchar.pdf) with the same name as the meta data. The command [sel_add_metadata](https://lsms-worldbank.github.io/selector/reference/sel_add_metadata.html) stores Survey Solution meta data this way.
+__**from**_meta__(_string_) indicates the name of the metadata the command should use. This metadata is expected to be saved in a [char](https://www.stata.com/manuals/pchar.pdf) with the same name as the metadata. The command [sel_add_metadata](https://lsms-worldbank.github.io/selector/reference/sel_add_metadata.html) stores Survey Solution metadata this way.
 
 __**tem**plate__(_string_) allows the user to provide a template that the meta data value should be combined with. The template should be a single string. The string must include the placeholder `{META}` that the meta data value will replace. See below for an example.
 

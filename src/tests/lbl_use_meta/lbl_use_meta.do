@@ -82,4 +82,6 @@
     template("Region: {META}.") apply_to("varlabel")
     return list
 
+    describe region*
+
     describe

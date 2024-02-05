@@ -1,4 +1,6 @@
-# `labeller` <img src='src/dev/assets/logo.png' align="right" height="139" />
+# `labeller`
+
+<img src='src/dev/assets/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 [![Lifecycle:

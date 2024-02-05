@@ -39,47 +39,47 @@
     * Install the latest version of labeller to the dev environment
     cap net uninstall labeller
     net install labeller, from("${src}") replace
-    
-    
+
+
     ***********************************************************
     * Set up test data
-    
+
     clear
-    
+
     gen region1 = .
     gen region2 = .
     gen region3 = .
     gen region4 = .
-    
+
     char region1[region] "North"
     char region2[region] "East"
     char region3[region] "South"
     char region4[region] "West"
-    
+
     char region2[other] "something"
-    
+
     char list
-    
+
     * Test basic case of the command lbl_use_meta
-    lbl_use_meta, varlist(region2) from_char(other) 
+    lbl_use_meta, varlist(region2) from_meta(other)
     return list
 
     * Test basic case of the command lbl_use_meta
-    lbl_use_meta, varlist(region2) from_char(other) ///
-    template("This char is {META}. Does it look correct?")
+    lbl_use_meta, varlist(region2) from_meta(other) ///
+    template("This meta value is {META}. Does it look correct?")
     return list
 
      * Test basic case of the command lbl_use_meta
-    lbl_use_meta, varlist(region2) from_char(other) ///
-    template("This char is {META}. Does it look correct?") ///
+    lbl_use_meta, varlist(region2) from_meta(other) ///
+    template("This meta value is {META}. Does it look correct?") ///
     apply_to("varlabel")
     return list
-    
+
     describe region2
 
-    
-    lbl_use_meta, varlist(region?) from_char(region) ///
+
+    lbl_use_meta, varlist(region?) from_meta(region) ///
     template("Region: {META}.") apply_to("varlabel")
     return list
-    
+
     describe

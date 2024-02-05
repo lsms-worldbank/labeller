@@ -10,7 +10,7 @@ qui {
   * Update the syntax. This is only a placeholder to make the command run
   syntax, ///
   Varlist(varlist)    ///
-  FROM_char(string)   ///
+  FROM_meta(string)   ///
   [                   ///
     TEMplate(string)  ///
     APPly_to(string)  ///
@@ -24,21 +24,21 @@ qui {
   * Check char on varlist
 
   * Test which variables that has the char
-  ds `varlist', has(char `from_char')
+  ds `varlist', has(char `from_meta')
   local varlist_with_char "`r(varlist)'"
 
   * List variables in varlist that did not have the char
   local varlist_without_char : list varlist - varlist_with_char
   * Out put a warning for variables that did not have
   if !missing("`varlist_without_char'") {
-    noi di as text "{pstd}{red: Warning}: No action will be taken on these variables included in {inp:varlist()} as they did not have the char {inp:`from_char'}:{p_end}"
+    noi di as text "{pstd}{red: Warning}: No action will be taken on these variables included in {inp:varlist()} as they did not have the meta data {inp:`from_meta'} stored in a {help char}:{p_end}"
     noi di as text "{phang}- `varlist_without_char'{p_end}"
   }
 
 
   * Test that at least one variable had the char
   if (missing("`varlist_with_char'") & missing("`missing_ok'")) {
-    noi di as error "{pstd}No variable in {inp:varlist()} had the char {inp:`from_char'}.{p_end}"
+    noi di as error "{pstd}No variable in {inp:varlist()} had the meta data {inp:`from_meta'} stored in a {help char}.{p_end}"
     error 99
     exit
   }
@@ -51,7 +51,7 @@ qui {
 
   foreach var of local varlist_with_char {
     * Get the char
-    local value : char `var'[`from_char']
+    local value : char `var'[`from_meta']
     * Call returned value different if one or several var in varlist
     if (`multi_varlist' == 0) return local char_value `"`value'"'
     else return local c_`var' `"`value'"'
@@ -78,8 +78,8 @@ qui {
   }
 
   if (`multi_varlist' != 0) {
-    return local varlist_with_char    "`varlist_with_char'"
-    return local varlist_without_char "`varlist_without_char'"
+    return local varlist_with_meta    "`varlist_with_char'"
+    return local varlist_without_meta "`varlist_without_char'"
   }
 }
 end

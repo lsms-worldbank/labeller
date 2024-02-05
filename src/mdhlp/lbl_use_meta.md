@@ -9,9 +9,9 @@ __lbl_use_meta__ , __**v**arlist__(_varlist_) __**from**_meta__(_string_) [ __**
 | _options_ | Description |
 |-----------|-------------|
 | __**v**arlist__(_varlist_) | Lists the variables this command should be applied to |
-| __**from**_meta__(_string_) | The name of the meta data the command should use |
-| __**tem**plate__(_string_) | A template that the meta data value should be combined with |
-| __**app**ly_to__(_string_) | Indicate an action the command will do with the meta value |
+| __**from**_meta__(_string_) | The name of the metadata the command should use |
+| __**tem**plate__(_string_) | A template that the metadata value should be combined with |
+| __**app**ly_to__(_string_) | Provide the name of the data attribute to which the template will be applied |
 | __**miss**ing_ok__ | Suppresses the error thrown if no variable in __varlist()__ has a `char` with the name used in __from_meta()__ |
 
 # Description

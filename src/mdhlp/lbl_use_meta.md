@@ -1,6 +1,6 @@
 # Title
 
-__lbl_use_meta__ - This command accesses and uses metadata stored in chars
+__lbl_use_meta__ - This command accesses metadata and, optionally, uses it to set the value of data attributes.
 
 # Syntax
 

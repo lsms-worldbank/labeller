@@ -67,7 +67,7 @@ lbl_use_meta, varlist(region2) from_meta(other)
 return list
 ```
 
-## Example 2: Set the variable label with a template
+## Example 2: Set the variable label of a single variable with a template
 
 ```
 * retrieve the metadata named `other` and
@@ -79,7 +79,7 @@ lbl_use_meta, varlist(region2) from_meta(other) ///
 return list
 ```
 
-## Example 3: Set the variable label in batch
+## Example 3: Set the variable label of multiple variables at once with a template
 This example use the example data set up above. It takes the meta data value in `region` for each variable, and applies it to the template `Region: {META}`. And then it stores the respective result for each variable in its variable label.
 
 ```

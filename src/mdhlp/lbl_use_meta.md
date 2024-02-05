@@ -65,7 +65,19 @@ lbl_use_meta, varlist(region2) from_meta(other)
 return list
 ```
 
-## Example 2
+## Example 2: Set the the variable label with a template
+
+```
+* retrieve the metadata named `other` and
+* apply it to the variable label for variable `region2`
+* with a template
+lbl_use_meta, varlist(region2) from_meta(other) ///
+  template("This meta value is {META}. Does it look correct?") ///
+  apply_to("varlabel")
+return list
+```
+
+## Example 3: Set the the variable label in batch
 This example use the example data set up above. It takes the meta data value in `region` for each variable, and applies it to the template `Region: {META}`. And then it stores the respective result for each variable in its variable label.
 
 ```

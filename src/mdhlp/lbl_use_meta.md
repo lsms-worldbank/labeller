@@ -28,9 +28,9 @@ __**v**arlist__(_varlist_) lists the variables this command should be applied to
 
 __**from**_meta__(_string_) indicates the name of the metadata the command should use. This metadata is expected to be saved in a [char](https://www.stata.com/manuals/pchar.pdf) with the same name as the metadata. The command [sel_add_metadata](https://lsms-worldbank.github.io/selector/reference/sel_add_metadata.html) stores Survey Solution metadata this way.
 
-__**tem**plate__(_string_) allows the user to provide a template that the meta data value should be combined with. The template should be a single string. The string must include the placeholder `{META}` that the meta data value will replace. See below for an example.
+__**tem**plate__(_string_) allows the user to provide a template describing how the metadata should be writen into the template. The template should be a single string and must include `{META}`, a placeholder indicating where that the metadata value will written. See below for an example.
 
-__**app**ly_to__(_string_) indicates that the template should be applied to a variable label for that variable. If the option `template()` is used, then the meta data value in combination with the template will be used. The only valid value this option accepts is `varlabel`. Future versions of this command might allow more options.
+__**app**ly_to__(_string_) indicates that the template should be applied to a variable label for that variable. If the option `template()` is used, then the metadata value in combination with the template will be used. The only valid value this option accepts is `varlabel`. Future versions of this command might allow more options.
 
 __**miss**ing_ok__ suppresses the error thrown if no variable in __varlist()__ has a `char` with the name used in __from_meta()__. Variables in __varlist()__ without the relevant `char` will be ignored by this command.
 

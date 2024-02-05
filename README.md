@@ -73,7 +73,7 @@ lbl_list_long_vallbl, max(100)
 lbl_list_matching_vals, pattern("[àâäÀÂÄéèêëÉÈÊËîïôöÔÖùûüçÇ]")
 ```
 
-## How
+### How
 
 Provides functions for the full data documentation workflow:
 
@@ -81,7 +81,7 @@ Provides functions for the full data documentation workflow:
 - [Fix](#fix) them
 - [Assert](#assert) everything has been addressed
 
-### List
+#### List
 
 Step 1: Take stock of the problem's scope
 
@@ -90,7 +90,7 @@ Step 1: Take stock of the problem's scope
 lbl_list_pipe
 ```
 
-### Fix
+#### Fix
 
 Step 2: Treat problems where they appear
 
@@ -101,7 +101,7 @@ lbl_replace_pipe, ///
   replacement("[NAME]")
 ```
 
-### Assert
+#### Assert
 
 Step 3: Confirm that all problems have been resolved
 

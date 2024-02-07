@@ -20,7 +20,7 @@ This command tackles two related tasks: first, accessing metadata (e.g., questio
 
 As a getter, this command retrieves metadata stored in [chars](https://www.stata.com/manuals/pchar.pdf). While intended to be used in combination with metadata added by the [sel_add_metadata](https://lsms-worldbank.github.io/selector/reference/sel_add_metadata.html), this command will work with any other `char` value as well.
 
-As a setter, this command can also set the value of data attributes using the the retrieved metadata. In the most basic case, it retrieves metadata and sets the value of a user-specified data attribute--for example, retrieving `question_text` for a variable and applying that string to the variable label. In other cases, it can retrieve metadata and set the value of a data attribute using a template (see the `template()` option below)--for example, retrieving the `answer_text` of a multi-select question and applying it to the variable label (e.g., `"Water source: {META}"`). And in still other cases, it can effortlessly perform this operation in batch--for example, identifying all questions derived from a multi-select question in Survey Solutions (through the `varlist(asset_owned*)` option), retrieving their `answer_text` metadata (through the `from_meta()` option), and applying that metadata to the variable label through sensible string template (via `apply_to("varlabel") template("Asset: {META}")`).
+As a setter, this command can also set the value of data attributes using the the retrieved metadata. In the most basic case, it retrieves metadata and sets the value of a user-specified data attribute -- for example, retrieving `question_text` for a variable and applying that string to the variable label. In other cases, it can retrieve metadata and set the value of a data attribute using a template (see the `template()` option below) -- for example, retrieving the `answer_text` of a multi-select question and applying it to the variable label (e.g., `"Water source: {META}"`). And in still other cases, it can effortlessly perform this operation in batch -- for example, identifying all questions derived from a multi-select question in Survey Solutions (through the `varlist(asset_owned*)` option), retrieving their `answer_text` metadata (through the `from_meta()` option), and applying that metadata to the variable label through sensible string template (via `apply_to("varlabel") template("Asset: {META}")`).
 
 # Options
 
@@ -80,6 +80,7 @@ return list
 ```
 
 ## Example 3: Set the variable label of multiple variables at once with a template
+
 This example use the example data set up above. It takes the meta data value in `region` for each variable, and applies it to the template `Region: {META}`. And then it stores the respective result for each variable in its variable label.
 
 ```

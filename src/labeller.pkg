@@ -20,6 +20,7 @@ d
 d Distribution-Date: 20231109
 d
 *** adofiles
+f ado/lbl_use_meta.ado
 f ado/lbl_drop_unused_lbls.ado
 f ado/lbl_list_unused_lbls.ado
 f ado/lbl_assert_varlbls.ado
@@ -34,6 +35,7 @@ f ado/lbl_list_long_varlbl.ado
 f ado/lbl_list_matching_vars.ado
 
 *** helpfiles
+f sthlp/lbl_use_meta.sthlp
 f sthlp/lbl_drop_unused_lbls.sthlp
 f sthlp/lbl_list_unused_lbls.sthlp
 f sthlp/lbl_list_matching_vals.sthlp

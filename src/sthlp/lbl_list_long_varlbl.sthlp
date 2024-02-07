@@ -26,7 +26,7 @@
 {pstd}When variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata{c 39}s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.
 {p_end}
 
-{pstd}To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., {inp:local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl}).
+{pstd}To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., {inp:local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl}). 
 {p_end}
 
 {pstd}However, there is no base Stata operation for doing so in batch.

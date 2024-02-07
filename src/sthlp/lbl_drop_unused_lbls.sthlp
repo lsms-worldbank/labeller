@@ -25,12 +25,12 @@
 {pstd}When attached to variables, value labels are an essential part of data documentation. Left unused, they create clutter and, potentially, confusion.
 {p_end}
 
-{pstd}To eliminate any unattached value labels, drop them with {inp:lbl_drop_unused_lbls}. To check for and inspect unattached value labels, use {inp:lbl_list_unused_lbls}.
+{pstd}To eliminate any unattached value labels, drop them with {inp:lbl_drop_unused_lbls}. To check for and inspect unattached value labels, use {inp:lbl_list_unused_lbls}. 
 {p_end}
 
 {title:Options}
 
-{pstd}{bf:{ul:c}onfirm} lists unused value labels and confirms whether the user indeed wants to drop them. When prompted, the user should type {inp:y} for yes or {inp:n} for no. With this response, the command will perform the appropriate action.
+{pstd}{bf:{ul:c}onfirm} lists unused value labels and confirms whether the user indeed wants to drop them. When prompted, the user should type {inp:y} for yes or {inp:n} for no. With this response, the command will perform the appropriate action. 
 {p_end}
 
 {title:Examples}

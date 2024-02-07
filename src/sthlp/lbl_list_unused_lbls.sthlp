@@ -26,12 +26,12 @@
 {p_end}
 
 {pstd}To tidy a data set, data producers should manage value label sets well. 
-But in order to tidy, one needs an inventory of the things that need tidying. To that end, {inp:lbl_list_unused_lbls} lists all value label sets that are unused--in other words, that need to be either attached to a variable or dropped.
+But in order to tidy, one needs an inventory of the things that need tidying. To that end, {inp:lbl_list_unused_lbls} lists all value label sets that are unused--in other words, that need to be either attached to a variable or dropped. 
 {p_end}
 
 {title:Options}
 
-{pstd}{bf:{ul:v}erbose} provides the user with more details on unused value labels by printing their contents with {inp:label list}. In this way, the user can decide what should be done with unused labels (e.g. attach them to variables, drop them, etc).
+{pstd}{bf:{ul:v}erbose} provides the user with more details on unused value labels by printing their contents with {inp:label list}. In this way, the user can decide what should be done with unused labels (e.g. attach them to variables, drop them, etc). 
 {p_end}
 
 {title:Examples}

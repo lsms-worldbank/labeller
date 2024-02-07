@@ -25,7 +25,7 @@
 
 {title:Description}
 
-{pstd}While Stata offers some tools for searching the content of variable labels (e.g. {inp:lookfor}), it does not have any methods for similarly searching the contents of value labels.
+{pstd}While Stata offers some tools for searching the content of variable labels (e.g. {inp:lookfor}), it does not have any methods for similarly searching the contents of value labels. 
 {p_end}
 
 {pstd}This command aims fill this gap by:
@@ -48,10 +48,10 @@
 {pstd}{bf:pattern}({it:string}) provides the text pattern to find in the contents of value labels. Rather be the traitional Stata glob pattern, this pattern is a sub-string or a regular expression.
 {p_end}
 
-{pstd}{bf:{ul:neg}ate} inverts the search, returning value labels that do {bf:not}match the pattern. In isolation, {inp:pattern({c 34}my_text{c 34})} looks for value labels containing {inp:{c 34}my_text{c 34}}. With {inp:negate}, {inp:pattern({c 34}my_search{c 34})} search looks instead for value labels that do not contain {inp:{c 34}my_text{c 34}}.
+{pstd}{bf:{ul:neg}ate} inverts the search, returning value labels that do {bf:not}match the pattern. In isolation, {inp:pattern({c 34}my_text{c 34})} looks for value labels containing {inp:{c 34}my_text{c 34}}. With {inp:negate}, {inp:pattern({c 34}my_search{c 34})} search looks instead for value labels that do not contain {inp:{c 34}my_text{c 34}}. 
 {p_end}
 
-{pstd}{bf:{ul:ver}bose} manages the how much output is printed. If the {inp:verbose} option is not provided, {inp:lbl_list_matching_vals} reports on whether any matches were found--and, if so, how many value labels match and how many variables the matching value labels describe. If the {inp:verbose} option is specified, the command will additionally print the contents of the matching value labels as a convenience.
+{pstd}{bf:{ul:ver}bose} manages the how much output is printed. If the {inp:verbose} option is not provided, {inp:lbl_list_matching_vals} reports on whether any matches were found--and, if so, how many value labels match and how many variables the matching value labels describe. If the {inp:verbose} option is specified, the command will additionally print the contents of the matching value labels as a convenience. 
 {p_end}
 
 {pstd}{bf:{ul:v}arlist}({it:varlist}) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With {bf:varlist}(), the scope of the search can be narrowed.

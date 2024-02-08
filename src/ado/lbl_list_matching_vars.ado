@@ -3,7 +3,7 @@ capture program drop    lbl_list_matching_vars
 
 qui {
 
-  syntax anything (name=pattern), [varlist(varlist) NEGate]
+  syntax anything (name=pattern), [Varlist(varlist) NEGate]
 
   version 14
 

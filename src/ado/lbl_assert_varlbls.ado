@@ -5,7 +5,7 @@ cap program drop   lbl_assert_have_varlbl
 
   version 14
 
-  syntax , Varlist(varlist)
+  syntax , [Varlist(varlist)]
 
   qui {
 

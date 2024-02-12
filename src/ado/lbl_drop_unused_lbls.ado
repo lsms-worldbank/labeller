@@ -1,11 +1,11 @@
-*! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   lbl_drop_unused_lbls
     program define lbl_drop_unused_lbls
 
 qui {
 
-  version /* ADD VERSION NUMBER HERE */
+version 14.1
 
   syntax , [Confirm]
 

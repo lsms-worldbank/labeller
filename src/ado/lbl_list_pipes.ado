@@ -1,11 +1,11 @@
-*! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   lbl_list_pipes
     program define lbl_list_pipes, rclass
 
 qui {
 
-    version 14
+version 14.1
 
     * Update the syntax. This is only a placeholder to make the command run
     syntax, [IGnore_pipes(string) OUTput_level(string) Varlist(varlist)]

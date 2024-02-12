@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.0 11FEB2024}{...}
+{* *! version 1.0 12FEB2024}{...}
 {hline}
 {pstd}help file for {hi:lbl_replace_pipe}{p_end}
 {hline}

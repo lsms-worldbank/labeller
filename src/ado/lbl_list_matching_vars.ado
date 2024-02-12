@@ -1,11 +1,15 @@
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
+
 capture program drop    lbl_list_matching_vars
         program define  lbl_list_matching_vars, rclass
 
 qui {
 
+version 14.1
+
   syntax anything (name=pattern), [Varlist(varlist) NEGate]
 
-  version 14
+
 
   * get list of all (matching) variables
   ds `varlist', has(varlabel)

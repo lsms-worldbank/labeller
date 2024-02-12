@@ -1,11 +1,11 @@
-*! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   lbl_use_meta
     program define lbl_use_meta, rclass
 
 qui {
 
-  version 14.1
+version 14.1
 
   * Update the syntax. This is only a placeholder to make the command run
   syntax, ///

@@ -1,7 +1,9 @@
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
+
 cap program drop   lbl_assert_no_long_varlbl
     program define lbl_assert_no_long_varlbl, rclass
 
-  version 14
+version 14.1
 
   syntax, [MAXlen(integer 80) Varlist(varlist)]
 

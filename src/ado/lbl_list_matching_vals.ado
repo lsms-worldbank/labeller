@@ -1,9 +1,9 @@
-*! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   lbl_list_matching_vals
     program define lbl_list_matching_vals, rclass
 
-    version 14
+version 14.1
 
     syntax, pattern(string) [NEGate VERbose Varlist(varlist)]
 

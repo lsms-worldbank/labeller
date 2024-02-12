@@ -1,12 +1,12 @@
 * This package file is generated in the adodown workflow. Do not edit directly.
 *** version
-v 0.0
+v 1.0
 *** name
 d labeller
 *** description
 d A packge with utility commands related to lables. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.
 *** stata
-d Version: Stata 14
+d Version: Stata 14.1
 *** author
 d Author: LSMS Worldbank
 *** contact

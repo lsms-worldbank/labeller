@@ -1,7 +1,7 @@
 {smcl}
-{* 01 Jan 1960}{...}
+{* *! version 0.0 11FEB2024}{...}
 {hline}
-{pstd}help file for {hi:lbl_assert_varlbls}{p_end}
+{pstd}help file for {hi:lbl_assert_have_varlbl}{p_end}
 {hline}
 
 {title:Title}

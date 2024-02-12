@@ -1,5 +1,5 @@
 {smcl}
-{* 01 Jan 1960}{...}
+{* *! version 0.0 11FEB2024}{...}
 {hline}
 {pstd}help file for {hi:lbl_use_meta}{p_end}
 {hline}
@@ -32,7 +32,7 @@
 {pstd}As a getter, this command retrieves metadata stored in {browse "https://www.stata.com/manuals/pchar.pdf":chars}. While intended to be used in combination with metadata added by the {browse "https://lsms-worldbank.github.io/selector/reference/sel_add_metadata.html":sel_add_metadata}, this command will work with any other {inp:char} value as well. 
 {p_end}
 
-{pstd}As a setter, this command can also set the value of data attributes using the the retrieved metadata. In the most basic case, it retrieves metadata and sets the value of a user-specified data attribute--for example, retrieving {inp:question_text} for a variable and applying that string to the variable label. In other cases, it can retrieve metadata and set the value of a data attribute using a template (see the {inp:template()} option below) -- for example, retrieving the {inp:answer_text} of a multi-select question and applying it to the variable label (e.g., {inp:{c 34}Water source: {c -(}META{c )-}{c 34}}). And in still other cases, it can effortlessly perform this operation in batch -- for example, identifying all questions derived from a multi-select question in Survey Solutions (through the {inp:varlist(asset_owned*)} option), retrieving their {inp:answer_text} metadata (through the {inp:from_meta()} option), and applying that metadata to the variable label through sensible string template (via {inp:apply_to({c 34}varlabel{c 34}) template({c 34}Asset: {c -(}META{c )-}{c 34})}). 
+{pstd}As a setter, this command can also set the value of data attributes using the the retrieved metadata. In the most basic case, it retrieves metadata and sets the value of a user-specified data attribute -- for example, retrieving {inp:question_text} for a variable and applying that string to the variable label. In other cases, it can retrieve metadata and set the value of a data attribute using a template (see the {inp:template()} option below) -- for example, retrieving the {inp:answer_text} of a multi-select question and applying it to the variable label (e.g., {inp:{c 34}Water source: {c -(}META{c )-}{c 34}}). And in still other cases, it can effortlessly perform this operation in batch -- for example, identifying all questions derived from a multi-select question in Survey Solutions (through the {inp:varlist(asset_owned*)} option), retrieving their {inp:answer_text} metadata (through the {inp:from_meta()} option), and applying that metadata to the variable label through sensible string template (via {inp:apply_to({c 34}varlabel{c 34}) template({c 34}Asset: {c -(}META{c )-}{c 34})}). 
 {p_end}
 
 {title:Options}

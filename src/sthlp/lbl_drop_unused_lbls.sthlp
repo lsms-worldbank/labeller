@@ -1,5 +1,5 @@
 {smcl}
-{* 01 Jan 1960}{...}
+{* *! version 0.0 11FEB2024}{...}
 {hline}
 {pstd}help file for {hi:lbl_drop_unused_lbls}{p_end}
 {hline}

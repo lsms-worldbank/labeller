@@ -5,25 +5,21 @@ v 0.0
 d labeller
 *** description
 d A packge with utility commands related to lables. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.
-d
 *** stata
 d Version: Stata 14
-d
 *** author
 d Author: LSMS Worldbank
 *** contact
 d Contact: lsms@worldbank.org
 *** url
 d URL: https://github.com/lsms-worldbank/labeller
-d
 *** date
 d Distribution-Date: 20231109
-d
 *** adofiles
 f ado/lbl_use_meta.ado
 f ado/lbl_drop_unused_lbls.ado
 f ado/lbl_list_unused_lbls.ado
-f ado/lbl_assert_varlbls.ado
+f ado/lbl_assert_have_varlbl.ado
 f ado/lbl_list_no_varlbl.ado
 f ado/lbl_replace_pipe.ado
 f ado/lbl_assert_no_pipes.ado
@@ -33,13 +29,12 @@ f ado/labeller.ado
 f ado/lbl_assert_no_long_varlbl.ado
 f ado/lbl_list_long_varlbl.ado
 f ado/lbl_list_matching_vars.ado
-
 *** helpfiles
 f sthlp/lbl_use_meta.sthlp
 f sthlp/lbl_drop_unused_lbls.sthlp
 f sthlp/lbl_list_unused_lbls.sthlp
 f sthlp/lbl_list_matching_vals.sthlp
-f sthlp/lbl_assert_varlbls.sthlp
+f sthlp/lbl_assert_have_varlbl.sthlp
 f sthlp/lbl_list_no_varlbl.sthlp
 f sthlp/lbl_assert_no_long_varlbl.sthlp
 f sthlp/lbl_list_long_varlbl.sthlp
@@ -48,9 +43,6 @@ f sthlp/lbl_assert_no_pipes.sthlp
 f sthlp/lbl_list_pipes.sthlp
 f sthlp/labeller.sthlp
 f sthlp/lbl_list_matching_vars.sthlp
-
-
 *** ancillaryfiles
-
 *** end
 e

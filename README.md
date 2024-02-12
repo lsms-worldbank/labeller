@@ -29,7 +29,7 @@ net install labeller, ///
   from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src")
 ```
 
-Note also: while this package does not require [selector](https://github.com/lsms-worldbank/selector), some commands in labeller do leverage the questionnaire metadata that selector adds to survey metadata. 
+Note also: while this package does not require [selector](https://github.com/lsms-worldbank/selector), some commands in labeller do leverage the questionnaire metadata that selector adds to survey metadata.
 
 ## Commands
 
@@ -38,7 +38,7 @@ Note also: while this package does not require [selector](https://github.com/lsm
 | [labeller](https://lsms-worldbank.github.io/labeller/reference/labeller.html) | Package command with utilities for the rest of the package
 | [lbl_assert_no_long_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_long_varlbl.html) | Assert that there is no variable in memory whose variable length exceeds the desired character length. |
 | [lbl_assert_no_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_pipes.html) | Asserts that no variable labels have any pipes |
-| [lbl_assert_varlbls](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_varlbls.html) | List variables without a variable label. |
+| [lbl_assert_have_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_have_varlbl.html) | List variables without a variable label. |
 | [lbl_list_long_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_varlbl.html) | List variables whose variable label is longer than the desired character length. |
 | [lbl_list_matching_vars](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_vars.html) | Identify variables whose label matches a pattern. |
 | [lbl_list_matching_vals](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_vals.html) | List value labels whose labels match a pattern. |
@@ -48,7 +48,7 @@ Note also: while this package does not require [selector](https://github.com/lsm
 
 ## Usage
 
-More details on 
+More details on
 
 - [What](#what) objects labeller manages
 - [How](#how) it manages those objects

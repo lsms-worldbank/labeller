@@ -1,4 +1,4 @@
-*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
+*! version 1.0 20240212 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   lbl_assert_no_long_varlbl
     program define lbl_assert_no_long_varlbl, rclass

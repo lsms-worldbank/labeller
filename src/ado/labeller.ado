@@ -1,4 +1,4 @@
-*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
+*! version 1.0 20240212 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   labeller
     program define labeller, rclass
@@ -8,7 +8,7 @@ qui {
 
     * UPDATE THESE LOCALS FOR EACH NEW VERSION PUBLISHED
   	local version "1.0"
-    local versionDate "20231109" 
+    local versionDate "20240212" 
 
   	syntax [anything]
 

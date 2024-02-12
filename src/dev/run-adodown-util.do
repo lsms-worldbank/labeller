@@ -10,5 +10,6 @@
   cap ado uninstall adodown
   net install   adodown, from("C:\Users\wb462869\github\adodown\src") replace
   
-  ad_publish , adf("${clone}")
-
+  ad_publish , adf("${clone}") ssczip
+  
+  

@@ -3,7 +3,7 @@
 cap program drop   lbl_list_no_varlbl
     program define lbl_list_no_varlbl, rclass
 
-version 14.1
+    version 14.1
 
   syntax, [Varlist(varlist)]
 

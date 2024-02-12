@@ -5,7 +5,7 @@ cap program drop   lbl_replace_pipe
 
 qui {
 
-version 14.1
+    version 14.1
 
     * Update the syntax. This is only a placeholder to make the command run
     syntax, pipe(string) REPlacement(string) [TRUNcate(string) OUTput_level(string) missing_ok Varlist(varlist)]

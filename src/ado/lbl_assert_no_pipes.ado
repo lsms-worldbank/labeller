@@ -3,7 +3,7 @@
 cap program drop   lbl_assert_no_pipes
     program define lbl_assert_no_pipes
 qui {
-version 14.1
+    version 14.1
 
     * Update the syntax. This is only a placeholder to make the command run
     syntax, [IGnore_pipes(string) OUTput_level(string) Varlist(varlist)]

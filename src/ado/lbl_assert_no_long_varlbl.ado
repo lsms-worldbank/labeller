@@ -3,7 +3,7 @@
 cap program drop   lbl_assert_no_long_varlbl
     program define lbl_assert_no_long_varlbl, rclass
 
-version 14.1
+    version 14.1
 
   syntax, [MAXlen(integer 80) Varlist(varlist)]
 

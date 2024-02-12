@@ -3,7 +3,7 @@
 cap program drop   lbl_list_matching_vals
     program define lbl_list_matching_vals, rclass
 
-version 14.1
+    version 14.1
 
     syntax, pattern(string) [NEGate VERbose Varlist(varlist)]
 

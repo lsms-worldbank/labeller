@@ -5,7 +5,7 @@ capture program drop    lbl_list_matching_vars
 
 qui {
 
-version 14.1
+    version 14.1
 
   syntax anything (name=pattern), [Varlist(varlist) NEGate]
 

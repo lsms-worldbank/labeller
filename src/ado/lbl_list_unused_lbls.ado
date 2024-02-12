@@ -5,7 +5,7 @@ cap program drop   lbl_list_unused_lbls
 
 qui {
 
-version 14.1
+    version 14.1
 
   syntax , [Verbose]
 

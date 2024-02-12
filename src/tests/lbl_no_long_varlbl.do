@@ -12,8 +12,8 @@ global test_fldr "${src_fldr}/tests"
 global data_fldr "${test_fldr}/testdata"
 
 * Set up a dev environement for testing locally
-cap mkdir    "${tests}/dev-env"
-repado using "${tests}/dev-env"
+cap mkdir    "${test_fldr}/dev-env"
+repado using "${test_fldr}/dev-env"
 
 cap net uninstall labeller
 net install labeller, from("${src_fldr}") replace

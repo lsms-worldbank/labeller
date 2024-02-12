@@ -1,5 +1,5 @@
 {smcl}
-{* 01 Jan 1960}{...}
+{* *! version 1.0 12FEB2024}{...}
 {hline}
 {pstd}help file for {hi:lbl_list_pipes}{p_end}
 {hline}
@@ -25,10 +25,10 @@
 {title:Description}
 
 {pstd}Data collected with Survey Solutions (SuSo) commonly have pipes
-in the format {inp:%pipename%} in the variable label.
+in the format {inp:%pipename%} in the variable label. 
 This command detects SuSo pipes in variable labels and outputs them.
-The pipes can then be replaced with the {inp:lbl_replace_pipe} command that
-is also a part of the {inp:labeller} package.
+The pipes can then be replaced with the {inp:lbl_replace_pipe} command that 
+is also a part of the {inp:labeller} package. 
 {p_end}
 
 {title:Options}
@@ -43,8 +43,8 @@ List the pipe names in a single string in this format:
 {pstd}{bf:{ul:out}put_level}({it:string}) is an option that allows the user to
 set how verbose the output should be.
 The valid values for this option are
-{inp:minimal}, {inp:verbose}, and {inp:veryverbose}.
-The default is {inp:verbose}.
+{inp:minimal}, {inp:verbose}, and {inp:veryverbose}. 
+The default is {inp:verbose}. 
 {p_end}
 
 {pstd}{bf:{ul:v}arlist}({it:varlist}) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With {bf:varlist}(), the scope of the search can be narrowed.
@@ -52,9 +52,9 @@ The default is {inp:verbose}.
 
 {title:Examples}
 
-{pstd}This simple example first creates a data set where the pipe {inp:%unit%} is
-added to the variable label of the variable {inp:mpg}.
-Then the command {inp:lbl_list_pipes} is used to detect and output this pipe.
+{pstd}This simple example first creates a data set where the pipe {inp:%unit%} is 
+added to the variable label of the variable {inp:mpg}. 
+Then the command {inp:lbl_list_pipes} is used to detect and output this pipe. 
 {p_end}
 
 {input}{space 8}* Create example data

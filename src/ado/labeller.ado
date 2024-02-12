@@ -1,8 +1,10 @@
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
+
 cap program drop   labeller
     program define labeller, rclass
 
 qui {
-    version 14
+version 14.1
 
     * UPDATE THESE LOCALS FOR EACH NEW VERSION PUBLISHED
   	local version "1.0"

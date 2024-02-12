@@ -7,18 +7,8 @@
       global clone "C:\Users\wb393438\stata_funs\labeller\labeller"
   }
 
-  // ad_setup, adf("${clone}")  ///
-  //     name("labeller")             ///
-  //     description("A packge with utility commands related to lables. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.")      ///
-  //     author("LSMS Worldbank")           ///
-  //     contact("lsms@worldbank.org")          ///
-  //     url("https://github.com/lsms-worldbank/labeller") ///
-  //     github
+  cap ado uninstall adodown
+  net install   adodown, from("C:\Users\wb462869\github\adodown\src") replace
+  
+  ad_publish , adf("${clone}")
 
-  ad_command create lab_pipe, adf("${clone}") pkg("labeller")
-
-  ad_sthlp , adf("${clone}")
-
-ad_sthlp , adf("${clone}")
-
-//ad_command create reprun_dataline , adf("`repkit'") pkg(repkit)

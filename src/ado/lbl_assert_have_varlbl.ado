@@ -1,11 +1,11 @@
-*! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   lbl_assert_have_varlbl
     program define lbl_assert_have_varlbl, rclass
 
-  version 14
+version 14.1
 
-  syntax , Varlist(varlist)
+  syntax , [Varlist(varlist)]
 
   qui {
 

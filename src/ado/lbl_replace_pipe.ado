@@ -1,11 +1,11 @@
-*! version XX XXXXXXXXX ADAUTHORNAME ADCONTACTINFO
+*! version 1.0 20231109 LSMS Worldbank lsms@worldbank.org
 
 cap program drop   lbl_replace_pipe
     program define lbl_replace_pipe, rclass
 
 qui {
 
-    version 14
+version 14.1
 
     * Update the syntax. This is only a placeholder to make the command run
     syntax, pipe(string) REPlacement(string) [TRUNcate(string) OUTput_level(string) missing_ok Varlist(varlist)]

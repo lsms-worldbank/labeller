@@ -1,5 +1,5 @@
 {smcl}
-{* 01 Jan 1960}{...}
+{* *! version 1.0 12FEB2024}{...}
 {hline}
 {pstd}help file for {hi:lbl_assert_no_pipes}{p_end}
 {hline}
@@ -25,17 +25,17 @@
 {title:Description}
 
 {pstd}Data collected with SurveySolution (SuSo) commonly have pipes
-in the format {inp:%pipename%} in the variable label.
+in the format {inp:%pipename%} in the variable label. 
 This command tests if there are any such pipes
 in any labels in the dataset.
 If there are any pipes, then this command throws an error and lists those remaining pipes.
 {p_end}
 
 {pstd}This command is intended to be used in a workflow with the commands
-{inp:lbl_list_pipes} and {inp:lbl_replace_pipe} (both also in the {inp:labeller} package).
-After using {inp:lbl_replace_pipe} to replace pipes that were
-identified using {inp:lbl_replace_pipe},
-{inp:lbl_assert_no_pipes} can be used to test that all pipes
+{inp:lbl_list_pipes} and {inp:lbl_replace_pipe} (both also in the {inp:labeller} package). 
+After using {inp:lbl_replace_pipe} to replace pipes that were 
+identified using {inp:lbl_replace_pipe}, 
+{inp:lbl_assert_no_pipes} can be used to test that all pipes 
 have been addressed.
 {p_end}
 
@@ -54,7 +54,7 @@ List the pipe names in a single string in this format:
 {pstd}{bf:{ul:out}put_level}({it:string}) is an option that allows the user to
 set how verbose the output should be.
 The valid values for this option are
-{inp:minimal}, {inp:verbose}, and {inp:veryverbose}. The default is {inp:verbose}.
+{inp:minimal}, {inp:verbose}, and {inp:veryverbose}. The default is {inp:verbose}. 
 {p_end}
 
 {pstd}{bf:{ul:v}arlist}({it:varlist}) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With {bf:varlist}(), the scope of the search can be narrowed.
@@ -63,10 +63,10 @@ The valid values for this option are
 {title:Examples}
 
 {pstd}This simple example first creates a data set where
-the pipe {inp:%unit%} is added to the variable label of the variable {inp:mpg}.
-Then {inp:lbl_replace_pipe} is used to replace {inp:%unit%} in the label with
-the value {inp:miles per gallon}.
-Finally, {inp:lbl_assert_no_pipes} is used to confirm there are
+the pipe {inp:%unit%} is added to the variable label of the variable {inp:mpg}. 
+Then {inp:lbl_replace_pipe} is used to replace {inp:%unit%} in the label with 
+the value {inp:miles per gallon}. 
+Finally, {inp:lbl_assert_no_pipes} is used to confirm there are 
 no more pipes in any of the variable labels in the dataset.
 {p_end}
 

@@ -7,13 +7,14 @@ d 'LABELLER': module to manage labels during data cleaning
 d A package with utility commands related to labels. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.
 *** stata
 d Requires: Stata version 14.1
-*** author
-d Author: LSMS World Bank
 d
+*** author
+d Author: LSMS Team, World Bank
 *** contact
 d Contact: lsms@worldbank.org
 *** url
 d URL: https://github.com/lsms-worldbank/labeller
+d
 *** date
 d Distribution-Date: 20240212
 *** adofiles

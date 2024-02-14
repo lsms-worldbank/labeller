@@ -1,4 +1,4 @@
-*! version 1.0 20240212 LSMS Worldbank lsms@worldbank.org
+*! version 1.0 20240212 LSMS Team, World Bank lsms@worldbank.org
 
 cap program drop   labeller
     program define labeller, rclass

@@ -11,19 +11,35 @@ The goal of labeller is find, fix, an double-check common issues that arise when
 
 ##  Installation
 
-This package is not yet available on SSC, but can be installed from GitHub with the following commands.
+This package is installed from SSC. Installing from SSC will always install the most recent published and well-tested version of the package. This correspond to the version in the main branch on [the repo](https://github.com/lsms-worldbank/labeller).
 
-To get the latest stable version, run the following two commands:
-
+```stata
+ssc install labeller
 ```
-local tag "main"
+
+You can test for updates by using this code. If there are updates Stata will instruct you how to apply them.
+
+```stata
+adoupdate repkit
+```
+
+### Advanced use cases
+
+The installation methods below are advanced and we do not recommend the typical Stata user to install this package using either of these methods.
+
+#### Un-published versions
+If you need some yet to be published version of `labeller`, then you can use this code to install a version that is still in under development or testing. To install the version in a particular branch, set the local `tag` to the target branch you want to install from in this code:
+
+```stata
+local tag "dev"
 net install labeller, ///
   from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src")
 ```
 
-To target a particular release, set `tag` to your target release:
+#### Previous versions
+If you need to install a previously releases version of `labeller`, then you can use the following method. This can be useful, for example, during reproducibility verifications. To install the version in a particular release, set the local `tag` to the target release you want to install in this code:
 
-```
+```stata
 local tag "v1.0"
 net install labeller, ///
   from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src")
@@ -60,7 +76,7 @@ More details on
 
 #### Variable labels
 
-```
+```stata
 * missing
 lbl_list_no_varlbl
 
@@ -76,7 +92,7 @@ lbl_matches_vars "string to find"
 
 #### Value labels
 
-```
+```stata
 * unused
 lbl_list_unused_lbls, verbose
 
@@ -100,7 +116,7 @@ Provides functions for the full data documentation workflow:
 
 Step 1: Take stock of the problem's scope
 
-```
+```stata
 * list all pipes and all variables with those pipes
 lbl_list_pipe
 ```
@@ -109,7 +125,7 @@ lbl_list_pipe
 
 Step 2: Treat problems where they appear
 
-```
+```stata
 * replace "%rostertitle% with "[NAME]" in all variable labels
 lbl_replace_pipe, ///
   pipe("%rostertitle%") ///
@@ -120,7 +136,7 @@ lbl_replace_pipe, ///
 
 Step 3: Confirm that all problems have been resolved
 
-```
+```stata
 lbl_assert_no_pipes
 ```
 

@@ -5,6 +5,7 @@ v 1.0
 d 'LABELLER': module to manage labels during data cleaning
 *** description
 d A package with utility commands related to labels. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.
+d
 *** stata
 d Requires: Stata version 14.1
 d

@@ -2,9 +2,15 @@
 *** version
 v 1.0
 *** title
-d 'LABELLER': module to manage labels during data cleaning
+d 'LABELLER': module to manage variable and value labels during data cleaning and preparation
 *** description
-d A package with utility commands related to labels. Particularly, but not exclusively, in relation to data sets collected using SurveySolutions.
+d labeller helps find, fix, and verify common issues that arise when documenting data--particularly data captured with Survey Solutions. Overall, labeller lists labels that match a search criterion, fix labels with helper functions, and asserts that all issues have been addressed. For variable labels, labeller tackles labels that are too long, match a regular expression, or contain data collection artifacts (e.g., Survey Solutions' pipe operator). For data captured with Survey Solutions, labeller can also construct variable labels using questionnaire metadata (e.g., question text, answer options, etc.). For value labels, labeller handles labels that match a regular expression.
+d
+d KW: labels
+d KW: variable labels
+d KW: value labels
+d KW: Survey Solutions
+d KW: data management
 d
 *** stata
 d Requires: Stata version 14.1

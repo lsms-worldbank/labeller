@@ -6,7 +6,12 @@ d selector
 *** title
 d 'LABELLER': module to manage variable and value labels during data cleaning and preparation
 *** description
-d labeller helps find, fix, and verify common issues that arise when documenting data--particularly data captured with Survey Solutions. Overall, labeller lists labels that match a search criterion, fix labels with helper functions, and asserts that all issues have been addressed. For variable labels, labeller tackles labels that are too long, match a regular expression, or contain data collection artifacts (e.g., Survey Solutions' pipe operator). For data captured with Survey Solutions, labeller can also construct variable labels using questionnaire metadata (e.g., question text, answer options, etc.). For value labels, labeller handles labels that match a regular expression.
+d labeller helps find, fix, and verify common issues that arise when documenting data--particularly data captured with
+d Survey Solutions. Overall, labeller lists labels that match a search criterion, fix labels with helper functions, and
+d asserts that all issues have been addressed. For variable labels, labeller tackles labels that are too long, match a
+d regular expression, or contain data collection artifacts (e.g., Survey Solutions' pipe operator). For data captured
+d with Survey Solutions, labeller can also construct variable labels using questionnaire metadata (e.g., question text,
+d answer options, etc.). For value labels, labeller handles labels that match a regular expression.
 d
 d KW: labels
 d KW: variable labels

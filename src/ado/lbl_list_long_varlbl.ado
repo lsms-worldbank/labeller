@@ -1,4 +1,4 @@
-*! version 1.0 20240212 LSMS Team, World Bank lsms@worldbank.org
+*! version 1.0 20240216 LSMS Team, World Bank lsms@worldbank.org
 
 cap program drop   lbl_list_long_varlbl
     program define lbl_list_long_varlbl, rclass

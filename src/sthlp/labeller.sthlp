@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.0 14FEB2024}{...}
+{* *! version 1.0 16FEB2024}{...}
 {hline}
 {pstd}help file for {hi:labeller}{p_end}
 {hline}

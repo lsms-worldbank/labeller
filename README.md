@@ -11,41 +11,52 @@ The goal of labeller is find, fix, an double-check common issues that arise when
 
 ##  Installation
 
-This package is installed from SSC. Installing from SSC will always install the most recent published and well-tested version of the package. This correspond to the version in the main branch on [the repo](https://github.com/lsms-worldbank/labeller).
+To install the latest published version of the package: 
 
 ```stata
+* install the package from the SSC package repository
 ssc install labeller
 ```
 
-You can test for updates by using this code. If there are updates Stata will instruct you how to apply them.
+To update the package:
 
 ```stata
-adoupdate repkit
+* check for updates
+* if any are available, apply them
+adoupdate labeller
 ```
 
-### Advanced use cases
+If there are updates, Stata will instruct you how to apply them.
 
-The installation methods below are advanced and we do not recommend the typical Stata user to install this package using either of these methods.
+### Development version
 
-#### Un-published versions
-If you need some yet to be published version of `labeller`, then you can use this code to install a version that is still in under development or testing. To install the version in a particular branch, set the local `tag` to the target branch you want to install from in this code:
+The version of `labeller` on SSC corresponds to the code in the `main` branch of [the package's GitHub repository](https://github.com/lsms-worldbank/labeller).
+
+To get a bug fix or test bleeding-edge features, you can install code from other branches of the repository. To install the version in a particular branch:
 
 ```stata
+* set tag to be the name of the target branch
+* for example, the development branch, which contains code for the next release
 local tag "dev"
+* download the code from that GitHub branch
+* install the package
 net install labeller, ///
-  from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src")
+  from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src") replace
 ```
 
-#### Previous versions
+### Previous versions
+
 If you need to install a previously releases version of `labeller`, then you can use the following method. This can be useful, for example, during reproducibility verifications. To install the version in a particular release, set the local `tag` to the target release you want to install in this code:
 
 ```stata
+* set the tag to the name of the target release
+* for example v1.0, say, if the current version were v2.0
 local tag "v1.0"
+* download the code from that GitHub release
+* install the package
 net install labeller, ///
-  from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src")
+  from("https://raw.githubusercontent.com/lsms-worldbank/labeller/`tag'/src") replace
 ```
-
-Note also: while this package does not require [selector](https://github.com/lsms-worldbank/selector), some commands in labeller do leverage the questionnaire metadata that selector adds to survey metadata.
 
 ## Commands
 

@@ -1,10 +1,10 @@
 # Title
 
-__lbl_assert_var_have_lbl__ - List variables without a variable label.
+__lbl_assert_have_var_lbl__ - List variables without a variable label.
 
 # Syntax
 
-__lbl_assert_var_have_lbl__, [__**v**arlist__(_varlist_)]
+__lbl_assert_have_var_lbl__, [__**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -34,10 +34,10 @@ label variable var1 "Some label"
 label variable var4 "Another label"
 
 * assert that all variables have variable labels, globally
-lbl_assert_var_have_lbl
+lbl_assert_have_var_lbl
 
 * assert that all variables have variable labels, in the varlist
-lbl_assert_var_have_lbl var3 - var4
+lbl_assert_have_var_lbl var3 - var4
 ```
 
 # Feedback, bug reports and contributions

@@ -114,10 +114,10 @@ else {
 * ------------------------------------------------------------------------------
 
 * list variables with longer than max length
-capture lbl_assert_no_long_varlbl, maxlen(12)
+capture lbl_assert_no_long_var_lbl, maxlen(12)
 
 * test
-di as result "lbl_assert_no_long_varlbl errors if any vars have long lbls"
+di as result "lbl_assert_no_long_var_lbl errors if any vars have long lbls"
 if _rc == 0 {
     di as error "❌ Test failed"
     error 0

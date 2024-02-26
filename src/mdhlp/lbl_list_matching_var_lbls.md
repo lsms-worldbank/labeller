@@ -1,10 +1,10 @@
 # Title
 
-__lbl_list_matching_vars__ - Identify variables whose label matches a pattern.
+__lbl_list_matching_var_lbls__ - Identify variables whose label matches a pattern.
 
 # Syntax
 
-__lbl_list_matching_vars__ _regexstring_, [__**neg**ate__ __**v**arlist__(_varlist_)]
+__lbl_list_matching_var_lbls__ _regexstring_, [__**neg**ate__ __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -46,28 +46,28 @@ label variable var3 "3. label"
 label variable var4 "Fourth label"
 
 * find variables whose label contains "First"
-lbl_list_matching_vars "First"
+lbl_list_matching_var_lbls "First"
 ```
 
 ## Example 2: Regex search
 
 ```
 * find variables whose labels start with a number
-lbl_list_matching_vars "^[0-9]"
+lbl_list_matching_var_lbls "^[0-9]"
 ```
 
 ## Example 3: Restrict search to a variable list
 
 ```
 * find variables whose label starts with "F" in var1 - var3
-lbl_list_matching_vars "^F", varlist(var1 - var3)
+lbl_list_matching_var_lbls "^F", varlist(var1 - var3)
 ```
 
 ## Example 4: Return variables whose labels do not match
 
 ```
 * find variables whose labels do NOT start with a number
-lbl_list_matching_vars "^[0-9]", negate
+lbl_list_matching_var_lbls "^[0-9]", negate
 ```
 
 # Feedback, bug reports and contributions

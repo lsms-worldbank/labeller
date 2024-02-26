@@ -1,10 +1,10 @@
 # Title
 
-__lbl_list_long_varlbl__ - List variables whose variable label is longer than the desired character length.
+__lbl_list_long_var_lbl__ - List variables whose variable label is longer than the desired character length.
 
 # Syntax
 
-__lbl_list_long_varlbl__ , [__**max**len__(_integer_) __**v**arlist__(_varlist_)]
+__lbl_list_long_var_lbl__ , [__**max**len__(_integer_) __**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -47,10 +47,10 @@ label variable var4 "Another short label"
 label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 
 * list variables with longer than the default max length (80 characters)
-lbl_list_long_varlbl
+lbl_list_long_var_lbl
 
 * list variables with longer than the user-specified max length
-lbl_list_long_varlbl, maxlen(12)
+lbl_list_long_var_lbl, maxlen(12)
 ```
 
 # Feedback, bug reports and contributions

@@ -1,7 +1,7 @@
 *! version 1.0 20240216 LSMS Team, World Bank lsms@worldbank.org
 
-cap program drop   lbl_list_no_varlbl
-    program define lbl_list_no_varlbl, rclass
+cap program drop   lbl_list_no_var_lbl
+    program define lbl_list_no_var_lbl, rclass
 
     version 14.1
 

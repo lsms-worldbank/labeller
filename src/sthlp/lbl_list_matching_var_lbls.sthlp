@@ -1,17 +1,17 @@
 {smcl}
 {* *! version 1.0 16FEB2024}{...}
 {hline}
-{pstd}help file for {hi:lbl_list_matching_vars}{p_end}
+{pstd}help file for {hi:lbl_list_matching_var_lbls}{p_end}
 {hline}
 
 {title:Title}
 
-{phang}{bf:lbl_list_matching_vars} - Identify variables whose label matches a pattern.
+{phang}{bf:lbl_list_matching_var_lbls} - Identify variables whose label matches a pattern.
 {p_end}
 
 {title:Syntax}
 
-{phang}{bf:lbl_list_matching_vars} {it:regexstring}, [{bf:{ul:neg}ate} {bf:{ul:v}arlist}({it:varlist})]
+{phang}{bf:lbl_list_matching_var_lbls} {it:regexstring}, [{bf:{ul:neg}ate} {bf:{ul:v}arlist}({it:varlist})]
 {p_end}
 
 {synoptset 16}{...}
@@ -60,22 +60,22 @@
 {space 8}label variable var4 "Fourth label"
 {space 8}
 {space 8}* find variables whose label contains "First"
-{space 8}lbl_list_matching_vars "First"
+{space 8}lbl_list_matching_var_lbls "First"
 {text}
 {dlgtab:Example 2: Regex search}
 
 {input}{space 8}* find variables whose labels start with a number
-{space 8}lbl_list_matching_vars "^[0-9]"
+{space 8}lbl_list_matching_var_lbls "^[0-9]"
 {text}
 {dlgtab:Example 3: Restrict search to a variable list}
 
 {input}{space 8}* find variables whose label starts with "F" in var1 - var3
-{space 8}lbl_list_matching_vars "^F", varlist(var1 - var3)
+{space 8}lbl_list_matching_var_lbls "^F", varlist(var1 - var3)
 {text}
 {dlgtab:Example 4: Return variables whose labels do not match}
 
 {input}{space 8}* find variables whose labels do NOT start with a number
-{space 8}lbl_list_matching_vars "^[0-9]", negate
+{space 8}lbl_list_matching_var_lbls "^[0-9]", negate
 {text}
 {title:Feedback, bug reports and contributions}
 

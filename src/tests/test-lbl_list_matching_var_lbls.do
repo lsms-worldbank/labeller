@@ -44,7 +44,7 @@ label variable var4 "Fourth label"
 * ==============================================================================
 
 * find variables whose label contains "First"
-lbl_list_matching_vars "First"
+lbl_list_matching_var_lbls "First"
 local first_vars = r(varlist)
 local first_vars : list clean first_vars
 

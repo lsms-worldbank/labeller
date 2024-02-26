@@ -69,7 +69,7 @@ net install labeller, ///
 | [lbl_assert_no_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_pipes.html) | Asserts that no variable labels have any pipes |
 | [lbl_assert_have_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_have_varlbl.html) | List variables without a variable label. |
 | [lbl_list_long_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_varlbl.html) | List variables whose variable label is longer than the desired character length. |
-| [lbl_list_matching_vars](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_vars.html) | Identify variables whose label matches a pattern. |
+| [lbl_list_matching_var_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_var_lbls.html) | Identify variables whose label matches a pattern. |
 | [lbl_list_matching_vals](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_vals.html) | List value labels whose labels match a pattern. |
 | [lbl_list_no_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_varlbl.html) | List variables without a variable label. |
 | [lbl_list_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_list_pipes.html) | Lists pipes in variable labels from Survey Solutions. |

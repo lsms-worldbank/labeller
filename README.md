@@ -71,7 +71,7 @@ net install labeller, ///
 | [lbl_list_long_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_var_lbl.html) | List variables whose variable label is longer than the desired character length. |
 | [lbl_list_matching_var_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_var_lbls.html) | Identify variables whose label matches a pattern. |
 | [lbl_list_matching_val_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_val_lbls.html) | List value labels whose labels match a pattern. |
-| [lbl_list_no_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_varlbl.html) | List variables without a variable label. |
+| [lbl_list_no_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_var_lbl.html) | List variables without a variable label. |
 | [lbl_list_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_list_pipes.html) | Lists pipes in variable labels from Survey Solutions. |
 | [lbl_replace_pipe](https://lsms-worldbank.github.io/labeller/reference/lbl_replace_pipe.html) | Replaces pipes in variable labels with user-provided value |
 
@@ -91,7 +91,7 @@ More details on
 
 ```stata
 * missing
-lbl_list_no_varlbl
+lbl_list_no_var_lbl
 
 * too long
 lbl_list_long_var_lbl, maxlen(80)

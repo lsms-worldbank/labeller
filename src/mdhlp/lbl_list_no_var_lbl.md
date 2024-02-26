@@ -1,10 +1,10 @@
 # Title
 
-__lbl_list_no_varlbl__ - List variables without a variable label.
+__lbl_list_no_var_lbl__ - List variables without a variable label.
 
 # Syntax
 
-__lbl_list_no_varlbl__, [__**v**arlist__(_varlist_)]
+__lbl_list_no_var_lbl__, [__**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -34,10 +34,10 @@ label variable var1 "Some label"
 label variable var4 "Another label"
 
 * list variables without variable labels globally
-lbl_list_no_varlbl
+lbl_list_no_var_lbl
 
 * list variables without a label in the varlist
-lbl_list_no_varlbl, varlist(var3 - var4)
+lbl_list_no_var_lbl, varlist(var3 - var4)
 ```
 
 # Feedback, bug reports and contributions

@@ -70,7 +70,7 @@ net install labeller, ///
 | [lbl_assert_have_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_have_varlbl.html) | List variables without a variable label. |
 | [lbl_list_long_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_varlbl.html) | List variables whose variable label is longer than the desired character length. |
 | [lbl_list_matching_var_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_var_lbls.html) | Identify variables whose label matches a pattern. |
-| [lbl_list_matching_vals](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_vals.html) | List value labels whose labels match a pattern. |
+| [lbl_list_matching_val_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_val_lbls.html) | List value labels whose labels match a pattern. |
 | [lbl_list_no_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_varlbl.html) | List variables without a variable label. |
 | [lbl_list_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_list_pipes.html) | Lists pipes in variable labels from Survey Solutions. |
 | [lbl_replace_pipe](https://lsms-worldbank.github.io/labeller/reference/lbl_replace_pipe.html) | Replaces pipes in variable labels with user-provided value |
@@ -114,7 +114,7 @@ lbl_list_long_vallbl, max(100)
 
 * contains text
 * for example, French characters
-lbl_list_matching_vals, pattern("[àâäÀÂÄéèêëÉÈÊËîïôöÔÖùûüçÇ]")
+lbl_list_matching_val_lbls, pattern("[àâäÀÂÄéèêëÉÈÊËîïôöÔÖùûüçÇ]")
 ```
 
 ### How

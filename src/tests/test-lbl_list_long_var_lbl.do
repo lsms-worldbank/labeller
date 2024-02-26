@@ -75,14 +75,14 @@ local long_lbls_in_varlist = r(varlist)
 local long_lbls_in_varlist : list clean long_lbls_in_varlist
 
 * test
-capture assert "`long_lbls_in_varlist'" -- "var2 var3"
+capture assert "`long_lbls_in_varlist'" == "var2 var3"
 di as result "lbl_list_long_var_lbl lists variables with lengthy labels globally"
 if _rc != 0 {
-    di as error "❌ test failed"
+    di as error "❌ Test failed"
     error 0
 }
 else {
-    di as result "✅ test passed"
+    di as result "✅ Test passed"
 }
 
 * ------------------------------------------------------------------------------
@@ -95,14 +95,14 @@ local long_lbls_user = r(varlist)
 local long_lbls_user : list clean long_lbls_user
 
 * test
-capture assert "`long_lbls_user'" -- "var2 var3 var4 var5"
+capture assert "`long_lbls_user'" == "var2 var3 var4 var5"
 di as result "lbl_list_long_var_lbl lists variables with lengthy labels globally"
 if _rc != 0 {
-    di as error "❌ test failed"
+    di as error "❌ Test failed"
     error 0
 }
 else {
-    di as result "✅ test passed"
+    di as result "✅ Test passed"
 }
 
 * ==============================================================================

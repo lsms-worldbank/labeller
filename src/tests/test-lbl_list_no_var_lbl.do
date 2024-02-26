@@ -73,11 +73,11 @@ local vars_wo_lbl_in_varlist : list clean vars_wo_lbl_in_varlist
 capture assert "`vars_wo_lbl_in_varlist'" == "var3"
 di as result "vars_wo_lbl_in_varlist lists variables with without labels in varlist"
 if _rc != 0 {
-    di as error "❌ test failed"
+    di as error "❌ Test failed"
     error 0
 }
 else {
-    di as result "✅ test passed"
+    di as result "✅ Test passed"
 }
 
 * ==============================================================================

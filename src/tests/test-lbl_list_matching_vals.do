@@ -12,8 +12,8 @@ global test_fldr "${src_fldr}/tests"
 global data_fldr "${test_fldr}/testdata"
 
 * Set up a dev environement for testing locally
-cap mkdir    "${tests}/dev-env"
-repado using "${tests}/dev-env"
+cap mkdir    "${test_fldr}/dev-env"
+repado using "${test_fldr}/dev-env"
 
 cap net uninstall labeller
 net install labeller, from("${src_fldr}") replace
@@ -151,7 +151,6 @@ else {
 
 * expect output equivalent to: label list var2_lbl var4_lbl
 lbl_list_matching_vals, pattern("[Oo]ui") verbose
-
 
 * ------------------------------------------------------------------------------
 * Inverts list when negate specified

@@ -68,7 +68,7 @@ net install labeller, ///
 | [lbl_assert_no_long_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_long_varlbl.html) | Assert that there is no variable in memory whose variable length exceeds the desired character length. |
 | [lbl_assert_no_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_pipes.html) | Asserts that no variable labels have any pipes |
 | [lbl_assert_have_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_have_varlbl.html) | List variables without a variable label. |
-| [lbl_list_long_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_varlbl.html) | List variables whose variable label is longer than the desired character length. |
+| [lbl_list_long_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_var_lbl.html) | List variables whose variable label is longer than the desired character length. |
 | [lbl_list_matching_var_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_var_lbls.html) | Identify variables whose label matches a pattern. |
 | [lbl_list_matching_val_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_val_lbls.html) | List value labels whose labels match a pattern. |
 | [lbl_list_no_varlbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_varlbl.html) | List variables without a variable label. |
@@ -94,7 +94,7 @@ More details on
 lbl_list_no_varlbl
 
 * too long
-lbl_list_long_varlbl, maxlen(80)
+lbl_list_long_var_lbl, maxlen(80)
 
 * contains text...
 * ... SuSo pipes

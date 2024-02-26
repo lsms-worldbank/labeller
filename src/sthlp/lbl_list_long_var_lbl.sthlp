@@ -1,17 +1,17 @@
 {smcl}
 {* *! version 1.0 16FEB2024}{...}
 {hline}
-{pstd}help file for {hi:lbl_list_long_varlbl}{p_end}
+{pstd}help file for {hi:lbl_list_long_var_lbl}{p_end}
 {hline}
 
 {title:Title}
 
-{phang}{bf:lbl_list_long_varlbl} - List variables whose variable label is longer than the desired character length.
+{phang}{bf:lbl_list_long_var_lbl} - List variables whose variable label is longer than the desired character length.
 {p_end}
 
 {title:Syntax}
 
-{phang}{bf:lbl_list_long_varlbl} , [{bf:{ul:max}len}({it:integer}) {bf:{ul:v}arlist}({it:varlist})]
+{phang}{bf:lbl_list_long_var_lbl} , [{bf:{ul:max}len}({it:integer}) {bf:{ul:v}arlist}({it:varlist})]
 {p_end}
 
 {synoptset 16}{...}
@@ -63,10 +63,10 @@
 {space 8}label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 {space 8}
 {space 8}* list variables with longer than the default max length (80 characters)
-{space 8}lbl_list_long_varlbl
+{space 8}lbl_list_long_var_lbl
 {space 8}
 {space 8}* list variables with longer than the user-specified max length
-{space 8}lbl_list_long_varlbl, maxlen(12)
+{space 8}lbl_list_long_var_lbl, maxlen(12)
 {text}
 {title:Feedback, bug reports and contributions}
 

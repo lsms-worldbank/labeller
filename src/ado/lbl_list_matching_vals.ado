@@ -44,7 +44,7 @@ cap program drop   lbl_list_matching_vals
         else if (`r(N)' > 0) {
 
           * labels that match in whole data set
-          levelsof lname if ustrregexm(label, "`pattern'"), ///
+          levelsof lname if ustrregexm(label, `"`pattern'"'), ///
             local(val_lbls_w_matching_val) clean
 
           * construct list of matching variables

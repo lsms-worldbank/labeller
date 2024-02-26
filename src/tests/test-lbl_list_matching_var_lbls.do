@@ -50,7 +50,7 @@ local first_vars : list clean first_vars
 
 * test
 capture assert "`first_vars'" == "var1"
-di as result "lbl_list_matching_vars selects variables without regex"
+di as result "lbl_list_matching_var_lbls selects variables without regex"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -70,7 +70,7 @@ local have_num_labels : list clean have_num_labels
 
 * test
 capture assert "`have_num_labels'" == "var2 var3"
-di as result "lbl_list_matching_vars selects variables with regex"
+di as result "lbl_list_matching_var_lbls selects variables with regex"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -90,7 +90,7 @@ local matches_in_varlist : list clean matches_in_varlist
 
 * test
 capture assert "`matches_in_varlist'" == "var1"
-di as result "lbl_list_matching_vars selects variables in varlist"
+di as result "lbl_list_matching_var_lbls selects variables in varlist"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -110,7 +110,7 @@ local does_not_match : list clean does_not_match
 
 * test
 capture assert "`does_not_match'" == "var1 var4"
-di as result "lbl_list_matching_vars selects variables whose labels do not match"
+di as result "lbl_list_matching_var_lbls selects variables whose labels do not match"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0

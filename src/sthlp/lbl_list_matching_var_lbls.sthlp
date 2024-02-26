@@ -1,12 +1,12 @@
 {smcl}
 {* *! version 1.0 20240216}{...}
 {hline}
-{pstd}help file for {hi:lbl_list_matching_vars}{p_end}
+{pstd}help file for {hi:lbl_list_matching_var_lbls}{p_end}
 {hline}
 
 {title:Title}
 
-{phang}{bf:lbl_list_matching_vars} - Identify variables whose label matches a pattern.
+{phang}{bf:lbl_list_matching_var_lbls} - Identify variables whose label matches a pattern.
 {p_end}
 
 {title:Syntax}

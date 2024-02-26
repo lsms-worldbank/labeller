@@ -1,10 +1,10 @@
 # Title
 
-__lbl_list_unused_lbls__ - Lists value labels not attached to any variable.
+__lbl_list_unused_val_lbls__ - List value labels not attached to any variable.
 
 # Syntax
 
-__lbl_list_unused_lbls__ , [__**v**erbose__]
+__lbl_list_unused_val_lbls__ , [__**v**erbose__]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -15,7 +15,7 @@ __lbl_list_unused_lbls__ , [__**v**erbose__]
 When attached to variables, value labels are an essential part of data documentation. Left unused, they create clutter and, potentially, confusion.
 
 To tidy a data set, data producers should manage value label sets well. 
-But in order to tidy, one needs an inventory of the things that need tidying. To that end, `lbl_list_unused_lbls` lists all value label sets that are unused--in other words, that need to be either attached to a variable or dropped.
+But in order to tidy, one needs an inventory of the things that need tidying. To that end, `lbl_list_unused_val_lbls` lists all value label sets that are unused--in other words, that need to be either attached to a variable or dropped.
 
 # Options
 
@@ -38,7 +38,7 @@ label define v4 1 "evet" 2 "hayır", modify
 label values v1 v1
 
 * list the value labels not attached (aka unused)
-lbl_list_unused_lbls
+lbl_list_unused_val_lbls
 ```
 
 ## Example 2: List unused value labels and print their contents
@@ -46,7 +46,7 @@ lbl_list_unused_lbls
 ```
 * ... continuing from example 1
 * print the contents of the unused labels
-lbl_list_unused_lbls, verbose
+lbl_list_unused_val_lbls, verbose
 ```
 
 # Feedback, Bug Reports, and Contributions

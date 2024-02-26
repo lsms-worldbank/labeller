@@ -2,8 +2,8 @@
 if "`c(username)'" == "wb462869" {
     global clone "C:\Users\wb462869\github\labeller"
 }
-else if "`c(username)'" == "wb393438" {
-    global clone "C:\Users\wb393438\stata_funs\labeller\labeller"
+else if "`c(username)'" == "WB393438" {
+    global clone "C:\Users\WB393438\stata_funs\labeller\labeller"
 }
 
 * Set global to ado_fldr
@@ -51,13 +51,13 @@ save    `lbl_data', orphans
 use `lbl_data', clear
 
 * Show unused labels with and without verbose
-lbl_list_unused_lbls
+lbl_list_unused_val_lbls
 return list
 
-lbl_list_unused_lbls, verbose
+lbl_list_unused_val_lbls, verbose
 
 * drop the value labels not attached (aka unused)
-lbl_drop_unused_lbls
+lbl_drop_unused_val_lbls
 label list
 
 
@@ -71,12 +71,12 @@ use `lbl_data', clear
 local unused_expected "v3 v4"
 
 * capture result
-lbl_list_unused_lbls
+lbl_list_unused_val_lbls
 local unused_returned = r(names)
 local unused_returned : list clean unused_returned
 
 capture assert "`unused_returned'" == "`unused_expected'"
-di as result "lbl_list_unused_lbls finds unused variable labels"
+di as result "lbl_list_unused_val_lbls finds unused variable labels"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -95,14 +95,14 @@ use `lbl_data', clear
 local lbls_expected "v1"
 
 * drop unused labels
-lbl_drop_unused_lbls
+lbl_drop_unused_val_lbls
 
 * get remaining labels
 qui: label dir
 local lbls_found = r(names)
 
 capture assert "`lbls_found'" == "`lbls_expected'"
-di as result "lbl_drop_unused_lbls removes all unattached value labels"
+di as result "lbl_drop_unused_val_lbls removes all unattached value labels"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0

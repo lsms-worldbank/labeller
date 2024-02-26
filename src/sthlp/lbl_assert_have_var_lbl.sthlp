@@ -1,17 +1,17 @@
 {smcl}
-{* *! version 1.0 16FEB2024}{...}
+{* *! version 1.0 20240216}{...}
 {hline}
-{pstd}help file for {hi:lbl_assert_have_varlbl}{p_end}
+{pstd}help file for {hi:lbl_assert_have_var_lbl}{p_end}
 {hline}
 
 {title:Title}
 
-{phang}{bf:lbl_assert_var_have_lbl} - List variables without a variable label.
+{phang}{bf:lbl_assert_have_var_lbl} - List variables without a variable label.
 {p_end}
 
 {title:Syntax}
 
-{phang}{bf:lbl_assert_var_have_lbl}, [{bf:{ul:v}arlist}({it:varlist})]
+{phang}{bf:lbl_assert_have_var_lbl}, [{bf:{ul:v}arlist}({it:varlist})]
 {p_end}
 
 {synoptset 16}{...}
@@ -46,10 +46,10 @@
 {space 8}label variable var4 "Another label"
 {space 8}
 {space 8}* assert that all variables have variable labels, globally
-{space 8}lbl_assert_var_have_lbl
+{space 8}lbl_assert_have_var_lbl
 {space 8}
 {space 8}* assert that all variables have variable labels, in the varlist
-{space 8}lbl_assert_var_have_lbl var3 - var4
+{space 8}lbl_assert_have_var_lbl var3 - var4
 {text}
 {title:Feedback, bug reports and contributions}
 

@@ -1,7 +1,7 @@
 *! version 1.0 20240216 LSMS Team, World Bank lsms@worldbank.org
 
-capture program drop    lbl_list_matching_vars
-        program define  lbl_list_matching_vars, rclass
+capture program drop    lbl_list_matching_var_lbls
+        program define  lbl_list_matching_var_lbls, rclass
 
 qui {
 

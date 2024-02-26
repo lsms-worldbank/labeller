@@ -1,7 +1,7 @@
 *! version 1.0 20240216 LSMS Team, World Bank lsms@worldbank.org
 
-cap program drop   lbl_list_unused_lbls
-    program define lbl_list_unused_lbls, rclass
+cap program drop   lbl_list_unused_val_lbls
+    program define lbl_list_unused_val_lbls, rclass
 
 qui {
 

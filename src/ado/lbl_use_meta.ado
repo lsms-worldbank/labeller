@@ -20,6 +20,24 @@ qui {
   * Create a dummy that is one if multiple vars was passed in varlist()
   local multi_varlist = (`: list sizeof varlist' > 1)
 
+/*
+  ****************************
+  * Check whether any SuSo char is loaded
+
+  * check whether SuSo selectors attached to data set
+  * by looking for data-level char
+  local list_selector_chars : char _dta[selector_chars]
+
+  * issue error if this no chars attached
+  * NOTE: this only actuall checks for SuSo selector chars added by `selector`
+  if missing("`list_selector_chars'") {
+    noi di as text "{pstd}{red: Error}: No metadata found {p_end}"
+    noi di as text "{pstd}Use sel_add_metadata to add metadata to your data. {p_end}"
+    error 99
+    exit
+  }
+*/
+
   ****************************
   * Check char on varlist
 

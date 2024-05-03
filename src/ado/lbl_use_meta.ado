@@ -27,6 +27,13 @@ qui {
   ds `varlist', has(char `from_meta')
   local varlist_with_char "`r(varlist)'"
 
+  * if target metadata does not exist
+  if missing("`varlist_with_char'") {
+    noi di as text "{pstd}{red: Error}: No metadata named `from_meta' found for `varlist' {p_end}"
+    error 99
+    exit
+  }
+
   * List variables in varlist that did not have the char
   local varlist_without_char : list varlist - varlist_with_char
   * Out put a warning for variables that did not have

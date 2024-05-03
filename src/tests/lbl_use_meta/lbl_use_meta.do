@@ -97,3 +97,20 @@
         error 0
     }
 
+    * check that error issued if no chars found
+    * remove chars
+    local var_indices "1 2 3 4"
+    foreach var_index of local var_indices {
+        char region`var_index'[region]
+    }
+    char region2[other]
+
+    capture lbl_use_meta, varlist(region1) from_meta(region)
+    di as result "Error issued if no chars found"
+    if _rc != 0 {
+        di as result "✅ Test passed"
+    }
+    else {
+        di as error "❌ Test failed"
+        error 0
+    }

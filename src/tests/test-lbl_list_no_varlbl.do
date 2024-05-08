@@ -2,8 +2,8 @@
 if "`c(username)'" == "wb462869" {
     global clone "C:\Users\wb462869\github\labeller"
 }
-else if "`c(username)'" == "wb393438" {
-    global clone "C:\Users\wb393438\stata_funs\labeller\labeller"
+else if "`c(username)'" == "WB393438" {
+    global clone "C:\Users\WB393438\stata_funs\labeller\labeller"
 }
 
 * Set global to ado_fldr
@@ -12,8 +12,8 @@ global test_fldr "${src_fldr}/tests"
 global data_fldr "${test_fldr}/testdata"
 
 * Set up a dev environement for testing locally
-cap mkdir    "${tests}/dev-env"
-repado using "${tests}/dev-env"
+cap mkdir    "${test_fldr}/dev-env"
+repado using "${test_fldr}/dev-env"
 
 cap net uninstall labeller
 net install labeller, from("${src_fldr}") replace

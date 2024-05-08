@@ -7,7 +7,7 @@ qui {
 
     version 14.1
 
-  syntax anything (name=pattern), [Varlist(varlist) NEGate]
+  syntax, pattern(string) [Varlist(varlist) NEGate]
 
 
 
@@ -23,7 +23,7 @@ qui {
     local var_label : variable label `var'
 
     * determine whether the label matches the user-provided regex pattern
-    local lbl_matches = ustrregexm("`var_label'", `pattern')
+    local lbl_matches = ustrregexm(`"`var_label'"', `"`pattern'"')
 
     * include the variable name in list of variables with matching labels
     if (mi("`negate'") & (`lbl_matches' == 1)) {

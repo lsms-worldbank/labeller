@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 1.0 16FEB2024}{...}
+{* *! version 1.0 20240216}{...}
 {hline}
 {pstd}help file for {hi:lbl_list_matching_vals}{p_end}
 {hline}
@@ -45,7 +45,7 @@
 
 {title:Options}
 
-{pstd}{bf:pattern}({it:string}) provides the text pattern to find in the contents of value labels. Rather be the traitional Stata glob pattern, this pattern is a sub-string or a regular expression.
+{pstd}{bf:pattern}({it:string}) provides the text pattern to find in the contents of value labels. Rather than the traditional Stata glob pattern, this pattern is a sub-string or a regular expression.
 {p_end}
 
 {pstd}{bf:{ul:neg}ate} inverts the search, returning value labels that do {bf:not}match the pattern. In isolation, {inp:pattern({c 34}my_text{c 34})} looks for value labels containing {inp:{c 34}my_text{c 34}}. With {inp:negate}, {inp:pattern({c 34}my_search{c 34})} search looks instead for value labels that do not contain {inp:{c 34}my_text{c 34}}. 

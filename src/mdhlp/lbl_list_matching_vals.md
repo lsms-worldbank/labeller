@@ -30,7 +30,7 @@ This command can be particularly useful for checking that variable do (not) cont
 
 # Options
 
-__pattern__(_string_) provides the text pattern to find in the contents of value labels. Rather be the traitional Stata glob pattern, this pattern is a sub-string or a regular expression.
+__pattern__(_string_) provides the text pattern to find in the contents of value labels. Rather than the traditional Stata glob pattern, this pattern is a sub-string or a regular expression.
 
 __**neg**ate__ inverts the search, returning value labels that do __not__match the pattern. In isolation, `pattern("my_text")` looks for value labels containing `"my_text"`. With `negate`, `pattern("my_search")` search looks instead for value labels that do not contain `"my_text"`.
 

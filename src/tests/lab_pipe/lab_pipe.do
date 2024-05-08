@@ -3,8 +3,8 @@
     if "`c(username)'" == "wb462869" {
         global clone "C:\Users\wb462869\github\labeller"
     }
-    else if "`c(username)'" == "wb393438" {
-        global clone "C:\Users\wb393438\stata_funs\labeller\labeller"
+    else if "`c(username)'" == "WB393438" {
+        global clone "C:\Users\WB393438\stata_funs\labeller\labeller"
     }
 
     * Set global to ado_fldr

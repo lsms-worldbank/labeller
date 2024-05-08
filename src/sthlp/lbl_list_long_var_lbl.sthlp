@@ -1,17 +1,17 @@
 {smcl}
-{* *! version 1.0 16FEB2024}{...}
+{* *! version 1.0 20240216}{...}
 {hline}
-{pstd}help file for {hi:lbl_assert_no_long_varlbl}{p_end}
+{pstd}help file for {hi:lbl_list_long_var_lbl}{p_end}
 {hline}
 
 {title:Title}
 
-{phang}{bf:lbl_assert_no_long_varlbl} - Assert that there is no variable in memory whose variable length exceeds the desired character length.
+{phang}{bf:lbl_list_long_var_lbl} - List variables whose variable label is longer than the desired character length.
 {p_end}
 
 {title:Syntax}
 
-{phang}{bf:lbl_assert_no_long_varlbl} , [{bf:{ul:max}len}({it:integer}) {bf:{ul:v}arlist}({it:varlist}) ]
+{phang}{bf:lbl_list_long_var_lbl} , [{bf:{ul:max}len}({it:integer}) {bf:{ul:v}arlist}({it:varlist})]
 {p_end}
 
 {synoptset 16}{...}
@@ -23,18 +23,24 @@
 
 {title:Description}
 
-{pstd}This command assert that there is no variable in memory whose variable label length exceeds the desired character length.
+{pstd}When variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata{c 39}s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.
+{p_end}
+
+{pstd}To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., {inp:local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl}). 
+{p_end}
+
+{pstd}However, there is no base Stata operation for doing so in batch.
+{p_end}
+
+{pstd}This command provides just such a tool.
 {p_end}
 
 {pstd}By default, the command take the maximum length to be Stata{c 39}s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the {bf:{ul:max}len}({it:integer}) option.
 {p_end}
 
-{pstd}If there is at least one variable whose length exceeds the maximum length, the command will return an error and list the variables whose variable labels are too long.
-{p_end}
-
 {title:Options}
 
-{pstd}{bf:{ul:max}len}({it:integer}) sets the maximum length of variable labels.
+{pstd}{bf:{ul:max}len}({it:integer}) sets the maximum length of variable labels, beyond which a variable is listed by this command.
 {p_end}
 
 {pstd}{bf:{ul:v}arlist}({it:varlist}) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With {bf:varlist}(), the scope of the search can be narrowed.
@@ -56,11 +62,11 @@
 {space 8}label variable var4 "Another short label"
 {space 8}label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 {space 8}
-{space 8}* assert no variables with labels longer than default max length (80 characters)
-{space 8}lbl_assert_no_long_varlbl
+{space 8}* list variables with longer than the default max length (80 characters)
+{space 8}lbl_list_long_var_lbl
 {space 8}
-{space 8}* assert no variables with labels longer than user-specified max length (80 characters)
-{space 8}lbl_assert_no_long_varlbl, maxlen(12)
+{space 8}* list variables with longer than the user-specified max length
+{space 8}lbl_list_long_var_lbl, maxlen(12)
 {text}
 {title:Feedback, bug reports and contributions}
 

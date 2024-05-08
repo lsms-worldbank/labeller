@@ -53,7 +53,7 @@ label values var4 var4_lbl
 
 * expect vars: var2 var4
 * expect val lbls: var2_lbl var4_lbl
-lbl_list_matching_vals, pattern("[Oo]ui")
+lbl_list_matching_val_lbls, pattern("[Oo]ui")
 local vars_matched = r(varlist)
 local vars_matched : list clean vars_matched
 local val_lbls_matched = r(val_lbl_list)
@@ -87,7 +87,7 @@ else {
 
 * expect vars: var2
 * expect val lbls: var2_lbl
-lbl_list_matching_vals, pattern("[Oo]ui") varlist(var1 - var2)
+lbl_list_matching_val_lbls, pattern("[Oo]ui") varlist(var1 - var2)
 local vars_matched_in_varlist = r(varlist)
 local vars_matched_in_varlist : list clean vars_matched_in_varlist
 local val_lbls_matched = r(val_lbl_list)
@@ -121,7 +121,7 @@ else {
 
 * expect: no vars
 * informs no matches
-lbl_list_matching_vals, pattern("Evet")
+lbl_list_matching_val_lbls, pattern("Evet")
 local var_count = r(var_count)
 local lbl_count = r(lbl_count)
 
@@ -150,7 +150,7 @@ else {
 * ------------------------------------------------------------------------------
 
 * expect output equivalent to: label list var2_lbl var4_lbl
-lbl_list_matching_vals, pattern("[Oo]ui") verbose
+lbl_list_matching_val_lbls, pattern("[Oo]ui") verbose
 
 * ------------------------------------------------------------------------------
 * Inverts list when negate specified
@@ -158,7 +158,7 @@ lbl_list_matching_vals, pattern("[Oo]ui") verbose
 
 * expect variables: var1
 * expect values: var1_lbl
-lbl_list_matching_vals, pattern("[Oo]ui") negate
+lbl_list_matching_val_lbls, pattern("[Oo]ui") negate
 local vars_matched = r(varlist)
 local vars_matched : list clean vars_matched
 local val_lbls_matched = r(val_lbl_list)
@@ -196,7 +196,7 @@ label values var5 var1_lbl
 
 * expect variables: var1
 * expect values: var1_lbl
-lbl_list_matching_vals, pattern("[Oo]ui") negate varlist(var2 - var5)
+lbl_list_matching_val_lbls, pattern("[Oo]ui") negate varlist(var2 - var5)
 local vars_matched = r(varlist)
 local vars_matched : list clean vars_matched
 local val_lbls_matched = r(val_lbl_list)

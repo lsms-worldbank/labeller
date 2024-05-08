@@ -1,10 +1,10 @@
 # Title
 
-__lbl_drop_unused_lbls__ - Drop value labels not attached to any variable.
+__lbl_drop_unused_val_lbls__ - Drop value labels not attached to any variable.
 
 # Syntax
 
-__lbl_drop_unused_lbls__ , [__**c**onfirm__]
+__lbl_drop_unused_val_lbls__ , [__**c**onfirm__]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -14,7 +14,7 @@ __lbl_drop_unused_lbls__ , [__**c**onfirm__]
 
 When attached to variables, value labels are an essential part of data documentation. Left unused, they create clutter and, potentially, confusion.
 
-To eliminate any unattached value labels, drop them with `lbl_drop_unused_lbls`. To check for and inspect unattached value labels, use `lbl_list_unused_lbls`.
+To eliminate any unattached value labels, drop them with `lbl_drop_unused_val_lbls`. To check for and inspect unattached value labels, use `lbl_list_unused_val_lbls`.
 
 # Options
 
@@ -36,10 +36,10 @@ label values v1 v1
 
 * drop the value labels not attached (aka unused)
 * if in doubt, ask first
-lbl_drop_unused_lbls, confirm
+lbl_drop_unused_val_lbls, confirm
 n
 * if intrepid, drop without asking
-lbl_drop_unused_lbls
+lbl_drop_unused_val_lbls
 ```
 
 # Feedback, Bug Reports, and Contributions

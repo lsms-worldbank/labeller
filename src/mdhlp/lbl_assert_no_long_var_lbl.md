@@ -1,10 +1,10 @@
 # Title
 
-__lbl_assert_no_long_varlbl__ - Assert that there is no variable in memory whose variable length exceeds the desired character length.
+__lbl_assert_no_long_var_lbl__ - Assert that there is no variable in memory whose variable length exceeds the desired character length.
 
 # Syntax
 
-__lbl_assert_no_long_varlbl__ , [__**max**len__(_integer_) __**v**arlist__(_varlist_) ]
+__lbl_assert_no_long_var_lbl__ , [__**max**len__(_integer_) __**v**arlist__(_varlist_) ]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -43,10 +43,10 @@ label variable var4 "Another short label"
 label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 
 * assert no variables with labels longer than default max length (80 characters)
-lbl_assert_no_long_varlbl
+lbl_assert_no_long_var_lbl
 
 * assert no variables with labels longer than user-specified max length (80 characters)
-lbl_assert_no_long_varlbl, maxlen(12)
+lbl_assert_no_long_var_lbl, maxlen(12)
 ```
 
 # Feedback, bug reports and contributions

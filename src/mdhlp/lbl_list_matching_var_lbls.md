@@ -1,6 +1,6 @@
 # Title
 
-__lbl_list_matching_vars__ - Identify variables whose label matches a pattern.
+__lbl_list_matching_var_lbls__ - Identify variables whose label matches a pattern.
 
 # Syntax
 

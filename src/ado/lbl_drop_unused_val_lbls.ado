@@ -1,7 +1,7 @@
 *! version 1.0 20240216 LSMS Team, World Bank lsms@worldbank.org
 
-cap program drop   lbl_drop_unused_lbls
-    program define lbl_drop_unused_lbls
+cap program drop   lbl_drop_unused_val_lbls
+    program define lbl_drop_unused_val_lbls
 
 qui {
 
@@ -9,7 +9,7 @@ qui {
 
   syntax , [Confirm]
 
-    lbl_list_unused_lbls
+    lbl_list_unused_val_lbls
 
     * capture and count the list of unused variables
     local unused_labels   "`r(names)'"

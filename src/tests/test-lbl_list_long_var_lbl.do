@@ -50,13 +50,13 @@ label variable var5 "你好你好你好你好你好你好你好你好你好你�
 * ------------------------------------------------------------------------------
 
 * list variables with longer than max length
-lbl_list_long_varlbl
+lbl_list_long_var_lbl
 local long_lbls = r(varlist)
 local long_lbls : list clean long_lbls
 
 * test
 capture assert "`long_lbls'" == "var2 var3 var5"
-di as result "lbl_list_long_varlbl lists variables with lengthy labels globally"
+di as result "lbl_list_long_var_lbl lists variables with lengthy labels globally"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0
@@ -70,19 +70,19 @@ else {
 * ------------------------------------------------------------------------------
 
 * list variables with longer than max length
-lbl_list_long_varlbl, varlist(var1 - var3)
+lbl_list_long_var_lbl, varlist(var1 - var3)
 local long_lbls_in_varlist = r(varlist)
 local long_lbls_in_varlist : list clean long_lbls_in_varlist
 
 * test
-capture assert "`long_lbls_in_varlist'" -- "var2 var3"
-di as result "lbl_list_long_varlbl lists variables with lengthy labels globally"
+capture assert "`long_lbls_in_varlist'" == "var2 var3"
+di as result "lbl_list_long_var_lbl lists variables with lengthy labels globally"
 if _rc != 0 {
-    di as error "❌ test failed"
+    di as error "❌ Test failed"
     error 0
 }
 else {
-    di as result "✅ test passed"
+    di as result "✅ Test passed"
 }
 
 * ------------------------------------------------------------------------------
@@ -90,19 +90,19 @@ else {
 * ------------------------------------------------------------------------------
 
 * list variables with longer than max length
-lbl_list_long_varlbl, maxlen(12)
+lbl_list_long_var_lbl, maxlen(12)
 local long_lbls_user = r(varlist)
 local long_lbls_user : list clean long_lbls_user
 
 * test
-capture assert "`long_lbls_user'" -- "var2 var3 var4 var5"
-di as result "lbl_list_long_varlbl lists variables with lengthy labels globally"
+capture assert "`long_lbls_user'" == "var2 var3 var4 var5"
+di as result "lbl_list_long_var_lbl lists variables with lengthy labels globally"
 if _rc != 0 {
-    di as error "❌ test failed"
+    di as error "❌ Test failed"
     error 0
 }
 else {
-    di as result "✅ test passed"
+    di as result "✅ Test passed"
 }
 
 * ==============================================================================
@@ -114,10 +114,10 @@ else {
 * ------------------------------------------------------------------------------
 
 * list variables with longer than max length
-capture lbl_assert_no_long_varlbl, maxlen(12)
+capture lbl_assert_no_long_var_lbl, maxlen(12)
 
 * test
-di as result "lbl_assert_no_long_varlbl errors if any vars have long lbls"
+di as result "lbl_assert_no_long_var_lbl errors if any vars have long lbls"
 if _rc == 0 {
     di as error "❌ Test failed"
     error 0

@@ -1,10 +1,10 @@
 # Title
 
-__lbl_assert_var_have_lbl__ - List variables without a variable label.
+__lbl_list_no_var_lbl__ - List variables without a variable label.
 
 # Syntax
 
-__lbl_assert_var_have_lbl__, [__**v**arlist__(_varlist_)]
+__lbl_list_no_var_lbl__, [__**v**arlist__(_varlist_)]
 
 | _options_ | Description |
 |-----------|-------------|
@@ -14,7 +14,7 @@ __lbl_assert_var_have_lbl__, [__**v**arlist__(_varlist_)]
 
 For small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.
 
-This command does that. If any variables without variable labels are found, it returns and error and lists which variables are missing variable labels. If all variables have variable labels, it reports this fact. In this way, the user knows whether action is needed, and for which variables.
+This command does that.  If any variables without variable labels are found, it lists them. If all variables have variable labels, it says so. That way, the user knows whether action is needed, and for which variables.
 
 # Options
 
@@ -33,11 +33,11 @@ gen var4 = .
 label variable var1 "Some label"
 label variable var4 "Another label"
 
-* assert that all variables have variable labels, globally
-lbl_assert_var_have_lbl
+* list variables without variable labels globally
+lbl_list_no_var_lbl
 
-* assert that all variables have variable labels, in the varlist
-lbl_assert_var_have_lbl var3 - var4
+* list variables without a label in the varlist
+lbl_list_no_var_lbl, varlist(var3 - var4)
 ```
 
 # Feedback, bug reports and contributions

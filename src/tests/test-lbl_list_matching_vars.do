@@ -44,7 +44,7 @@ label variable var4 "Fourth label"
 * ==============================================================================
 
 * find variables whose label contains "First"
-lbl_list_matching_vars "First"
+lbl_list_matching_vars, pattern("First")
 local first_vars = r(varlist)
 local first_vars : list clean first_vars
 
@@ -64,7 +64,7 @@ else {
 * ==============================================================================
 
 * find variables whose labels start with a number
-lbl_list_matching_vars "^[0-9]"
+lbl_list_matching_vars, pattern("^[0-9]")
 local have_num_labels = r(varlist)
 local have_num_labels : list clean have_num_labels
 
@@ -84,7 +84,7 @@ else {
 * ==============================================================================
 
 * find variables whose label starts with "F" in `var1 - var3`
-lbl_list_matching_vars "^F", varlist(var1 - var3)
+lbl_list_matching_vars, pattern("^F") varlist(var1 - var3)
 local matches_in_varlist = r(varlist)
 local matches_in_varlist : list clean matches_in_varlist
 
@@ -104,13 +104,36 @@ else {
 * ==============================================================================
 
 * find variables whose labels do NOT start with a number
-lbl_list_matching_vars "^[0-9]", negate
+lbl_list_matching_vars, pattern("^[0-9]") negate
 local does_not_match = r(varlist)
 local does_not_match : list clean does_not_match
 
 * test
 capture assert "`does_not_match'" == "var1 var4"
 di as result "lbl_list_matching_vars selects variables whose labels do not match"
+if _rc != 0 {
+    di as error "❌ Test failed"
+    error 0
+}
+else {
+    di as result "✅ Test passed"
+}
+
+* ==============================================================================
+* Can handle a pattern containing a quote
+* ==============================================================================
+
+* modify label of first variable to contain double quotes
+label variable var1 `"My "label" contains double quotes"'
+
+* find variable label with double quotes
+lbl_list_matching_vars, pattern(`""label""')
+local w_dbl_quotes = r(varlist)
+local w_dbl_quotes : list clean w_dbl_quotes
+
+* test
+capture assert "`w_dbl_quotes'" == "var1"
+di as result "Can handle a pattern containing a quote"
 if _rc != 0 {
     di as error "❌ Test failed"
     error 0

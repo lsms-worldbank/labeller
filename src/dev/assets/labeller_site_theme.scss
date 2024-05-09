@@ -1,0 +1,31 @@
+/*-- scss:defaults --*/
+
+// nav bar
+$navbar-bg: black;
+$navbar-fg: #88ff55;
+// body
+$body-bg: #343a40;
+$body-color: white;
+// font color
+$link-color: #a6e3a1;
+$code-block-bg: black;
+
+/*-- scss:rules --*/
+
+h1, h2, h3, h4, h1>code {
+  color: #88ff55;
+  text-shadow: 1px 1px 2px black, 0 0 1em #88ff55, 0 0 0.2em #88ff55;
+}
+
+// set package title's background color to the page's
+h1 > code {
+  background-color: $body-bg;
+}
+
+// use Stata IDE colors 
+p > code, pre > code {
+  // background
+  background-color: #252526 !important;
+  // results
+  color: #b4ffb4;
+}

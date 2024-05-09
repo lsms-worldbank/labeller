@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller - lbl_list_pipes</title>
+<title>labeller - lbl_list_long_var_lbl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,7 +103,7 @@ ul.task-list{list-style: none;}
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, Bug Reports, and Contributions</a></li>
+  <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, bug reports and contributions</a></li>
   <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Authors</a></li>
   </ul>
 </nav>
@@ -113,7 +113,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">lbl_list_pipes</h1>
+<h1 class="title">lbl_list_long_var_lbl</h1>
 </div>
 
 
@@ -129,11 +129,11 @@ ul.task-list{list-style: none;}
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_pipes</strong> - Lists pipes in variable labels from Survey Solutions</p>
+<p><strong>lbl_list_long_var_lbl</strong> - List variables whose variable label is longer than the desired character length.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_pipes</strong> , [<strong><strong>ig</strong>nore_pipes</strong>(<em>string</em>) <strong><strong>out</strong>put_level</strong>(<em>string</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_list_long_var_lbl</strong> , [<strong><strong>max</strong>len</strong>(<em>integer</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -147,14 +147,10 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><strong>ig</strong>nore_pipes</strong>(<em>string</em>)</td>
-<td>List of pipe names to be ignored</td>
+<td><strong><strong>max</strong>len</strong>(<em>integer</em>)</td>
+<td>Maximum character length allowed.</td>
 </tr>
 <tr class="even">
-<td><strong><strong>out</strong>put_level</strong>(<em>string</em>)</td>
-<td>Toggle verbosity level in output</td>
-</tr>
-<tr class="odd">
 <td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
 <td>Restrict the scope of variables to consider</td>
 </tr>
@@ -163,28 +159,41 @@ ul.task-list{list-style: none;}
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>Data collected with Survey Solutions (SuSo) commonly have pipes in the format <code>%pipename%</code> in the variable label. This command detects SuSo pipes in variable labels and outputs them. The pipes can then be replaced with the <code>lbl_replace_pipe</code> command that is also a part of the <code>labeller</code> package.</p>
+<p>When variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata’s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.</p>
+<p>To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., <code>local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl</code>).</p>
+<p>However, there is no base Stata operation for doing so in batch.</p>
+<p>This command provides just such a tool.</p>
+<p>By default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the <strong><strong>max</strong>len</strong>(<em>integer</em>) option.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
-<p><strong><strong>ig</strong>nore_pipes</strong>(<em>string</em>) is an option where the user can list pipes that should not be included in the output. List the pipe names in a single string in this format:</p>
-<pre><code>lbl_list_pipes, ignore_pipes("pipe1 pipe2")</code></pre>
-<p><strong><strong>out</strong>put_level</strong>(<em>string</em>) is an option that allows the user to set how verbose the output should be. The valid values for this option are <code>minimal</code>, <code>verbose</code>, and <code>veryverbose</code>. The default is <code>verbose</code>.</p>
+<p><strong><strong>max</strong>len</strong>(<em>integer</em>) sets the maximum length of variable labels, beyond which a variable is listed by this command.</p>
 <p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
 </section>
 <section id="examples" class="level1">
 <h1>Examples</h1>
-<p>This simple example first creates a data set where the pipe <code>%unit%</code> is added to the variable label of the variable <code>mpg</code>. Then the command <code>lbl_list_pipes</code> is used to detect and output this pipe.</p>
-<pre><code>* Create example data
-sysuse auto, clear
-label variable mpg "Mileage (%unit%)"
+<pre><code>* create set of variables
+gen var1 = .
+gen var2 = .
+gen var3 = .
+gen var4 = .
+gen var5 = .
 
-* List the pipes in the data
-lbl_list_pipes, output_level(veryverbose)
-</code></pre>
+* apply variables
+label variable var1 "Short label"
+label variable var2 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label variable var3 "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+label variable var4 "Another short label"
+label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
+
+* list variables with longer than the default max length (80 characters)
+lbl_list_long_var_lbl
+
+* list variables with longer than the user-specified max length
+lbl_list_long_var_lbl, maxlen(12)</code></pre>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
-<h1>Feedback, Bug Reports, and Contributions</h1>
+<h1>Feedback, bug reports and contributions</h1>
 <p>Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.</p>
 <p>Please provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.</p>
 <p>PRs with suggestions for improvements are also greatly appreciated.</p>

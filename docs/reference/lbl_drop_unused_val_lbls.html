@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller - lbl_list_pipes</title>
+<title>labeller - lbl_drop_unused_val_lbls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">lbl_list_pipes</h1>
+<h1 class="title">lbl_drop_unused_val_lbls</h1>
 </div>
 
 
@@ -129,11 +129,11 @@ ul.task-list{list-style: none;}
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_pipes</strong> - Lists pipes in variable labels from Survey Solutions</p>
+<p><strong>lbl_drop_unused_val_lbls</strong> - Drop value labels not attached to any variable.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_pipes</strong> , [<strong><strong>ig</strong>nore_pipes</strong>(<em>string</em>) <strong><strong>out</strong>put_level</strong>(<em>string</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_drop_unused_val_lbls</strong> , [<strong><strong>c</strong>onfirm</strong>]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -147,41 +147,40 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><strong>ig</strong>nore_pipes</strong>(<em>string</em>)</td>
-<td>List of pipe names to be ignored</td>
-</tr>
-<tr class="even">
-<td><strong><strong>out</strong>put_level</strong>(<em>string</em>)</td>
-<td>Toggle verbosity level in output</td>
-</tr>
-<tr class="odd">
-<td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
-<td>Restrict the scope of variables to consider</td>
+<td><strong><strong>c</strong>onfirm</strong></td>
+<td>Prompts user before removing any unused value labels</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>Data collected with Survey Solutions (SuSo) commonly have pipes in the format <code>%pipename%</code> in the variable label. This command detects SuSo pipes in variable labels and outputs them. The pipes can then be replaced with the <code>lbl_replace_pipe</code> command that is also a part of the <code>labeller</code> package.</p>
+<p>When attached to variables, value labels are an essential part of data documentation. Left unused, they create clutter and, potentially, confusion.</p>
+<p>To eliminate any unattached value labels, drop them with <code>lbl_drop_unused_val_lbls</code>. To check for and inspect unattached value labels, use <code>lbl_list_unused_val_lbls</code>.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
-<p><strong><strong>ig</strong>nore_pipes</strong>(<em>string</em>) is an option where the user can list pipes that should not be included in the output. List the pipe names in a single string in this format:</p>
-<pre><code>lbl_list_pipes, ignore_pipes("pipe1 pipe2")</code></pre>
-<p><strong><strong>out</strong>put_level</strong>(<em>string</em>) is an option that allows the user to set how verbose the output should be. The valid values for this option are <code>minimal</code>, <code>verbose</code>, and <code>veryverbose</code>. The default is <code>verbose</code>.</p>
-<p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
+<p><strong><strong>c</strong>onfirm</strong> lists unused value labels and confirms whether the user indeed wants to drop them. When prompted, the user should type <code>y</code> for yes or <code>n</code> for no. With this response, the command will perform the appropriate action.</p>
 </section>
 <section id="examples" class="level1">
 <h1>Examples</h1>
-<p>This simple example first creates a data set where the pipe <code>%unit%</code> is added to the variable label of the variable <code>mpg</code>. Then the command <code>lbl_list_pipes</code> is used to detect and output this pipe.</p>
-<pre><code>* Create example data
-sysuse auto, clear
-label variable mpg "Mileage (%unit%)"
+<pre><code>* create one variable
+gen v1 = .
 
-* List the pipes in the data
-lbl_list_pipes, output_level(veryverbose)
-</code></pre>
+* define more than one value label set
+label define v1 1 "yes" 2 "no", modify
+label define v3 1 "oui" 2 "non", modify
+label define v4 1 "evet" 2 "hayır", modify
+
+* attach one value label, but not the others
+label values v1 v1
+
+* drop the value labels not attached (aka unused)
+* if in doubt, ask first
+lbl_drop_unused_val_lbls, confirm
+n
+* if intrepid, drop without asking
+lbl_drop_unused_val_lbls</code></pre>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
 <h1>Feedback, Bug Reports, and Contributions</h1>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller - lbl_list_long_varlbl.md</title>
+<title>labeller – lbl_list_matching_val_lbls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,23 +18,23 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../images/logo.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,8 +64,8 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../index.html">
-    <img src="../images/logo.png" alt="">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/logo.png" alt="">
     <span class="navbar-title">labeller</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -74,17 +74,8 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../reference/index.html">Reference</a>
+    <a class="nav-link" href="../../reference/index.html">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -111,7 +102,12 @@ ul.task-list{list-style: none;}
   <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a></li>
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-contain-a-pattern" id="toc-example-1-contain-a-pattern" class="nav-link" data-scroll-target="#example-1-contain-a-pattern">Example 1: contain a pattern</a></li>
+  <li><a href="#example-2-do-not-contain-a-pattern" id="toc-example-2-do-not-contain-a-pattern" class="nav-link" data-scroll-target="#example-2-do-not-contain-a-pattern">Example 2: do not contain a pattern</a></li>
+  <li><a href="#example-3-contain-only-a-certain-set-of-characters" id="toc-example-3-contain-only-a-certain-set-of-characters" class="nav-link" data-scroll-target="#example-3-contain-only-a-certain-set-of-characters">Example 3: contain only a certain set of characters</a></li>
+  </ul></li>
   <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, bug reports and contributions</a></li>
   <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Authors</a></li>
   </ul>
@@ -120,29 +116,15 @@ ul.task-list{list-style: none;}
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">lbl_list_long_varlbl.md</h1>
-</div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_long_varlbl</strong> - List variables whose variable label is longer than the desired character length.</p>
+<p><strong>lbl_list_matching_val_lbls</strong> - List value labels whose labels match a pattern.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_long_varlbl</strong> , [<strong><strong>max</strong>len</strong>(<em>integer</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_list_matching_val_lbls</strong>, <strong>pattern</strong>(<em>string</em>) [<strong><strong>neg</strong>ate</strong> <strong><strong>ver</strong>bose</strong> <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -156,8 +138,16 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><strong>max</strong>len</strong>(<em>integer</em>)</td>
-<td>Maximum character length allowed.</td>
+<td><strong>pattern</strong>(<em>string</em>)</td>
+<td>Pattern to find in an answer option. Provide either a substring or a regular expression.</td>
+</tr>
+<tr class="even">
+<td><strong><strong>neg</strong>ate</strong></td>
+<td>Inverts the search, returning value labels that do __not__match the pattern.</td>
+</tr>
+<tr class="odd">
+<td><strong><strong>ver</strong>bose</strong></td>
+<td>Print out labels that match query. Output corresponds to <code>label list lblnames</code>.</td>
 </tr>
 <tr class="even">
 <td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
@@ -168,44 +158,87 @@ ul.task-list{list-style: none;}
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>When variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata’s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.</p>
-<p>To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., <code>local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl</code>).</p>
-<p>However, there is no base Stata operation for doing so in batch.</p>
-<p>This command provides just such a tool.</p>
-<p>By default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the <strong><strong>max</strong>len</strong>(<em>integer</em>) option.</p>
+<p>While Stata offers some tools for searching the content of variable labels (e.g.&nbsp;<code>lookfor</code>), it does not have any methods for similarly searching the contents of value labels.</p>
+<p>This command aims fill this gap by:</p>
+<ul>
+<li>Searching labels in value labels for a pattern</li>
+<li>Identifying variable labels that contain labels of interest</li>
+<li>Compiling variables that have these labels of interest attached</li>
+</ul>
+<p>This command can be particularly useful for checking that variable do (not) contain patterns of interest. Consider for example:</p>
+<ul>
+<li>Confirming that value labels contain (e.g., no)</li>
+<li>Identifying value labels that deviate from standards</li>
+</ul>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
-<p><strong><strong>max</strong>len</strong>(<em>integer</em>) sets the maximum length of variable labels, beyond which a variable is listed by this command.</p>
+<p><strong>pattern</strong>(<em>string</em>) provides the text pattern to find in the contents of value labels. Rather than the traditional Stata glob pattern, this pattern is a sub-string or a regular expression.</p>
+<p><strong><strong>neg</strong>ate</strong> inverts the search, returning value labels that do __not__match the pattern. In isolation, <code>pattern("my_text")</code> looks for value labels containing <code>"my_text"</code>. With <code>negate</code>, <code>pattern("my_search")</code> search looks instead for value labels that do not contain <code>"my_text"</code>.</p>
+<p><strong><strong>ver</strong>bose</strong> manages the how much output is printed. If the <code>verbose</code> option is not provided, <code>lbl_list_matching_val_lbls</code> reports on whether any matches were found–and, if so, how many value labels match and how many variables the matching value labels describe. If the <code>verbose</code> option is specified, the command will additionally print the contents of the matching value labels as a convenience.</p>
 <p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
 </section>
 <section id="examples" class="level1">
 <h1>Examples</h1>
-<pre><code>* create set of variables
+<section id="example-1-contain-a-pattern" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-contain-a-pattern">Example 1: contain a pattern</h2>
+<pre><code>* create some fake data
 gen var1 = .
 gen var2 = .
 gen var3 = .
 gen var4 = .
-gen var5 = .
 
-* apply variables
-label variable var1 "Short label"
-label variable var2 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-label variable var3 "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-label variable var4 "Another short label"
-label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
+* create some value labels
+label define var1_lbl 1 "Yes" 2 "No"
+label define var2_lbl 1 "Oui" 2 "Non" 3 "Oui, oui"
+label define var4_lbl 1 "Oui" 2 "Non"
 
-* list variables with longer than the default max length (80 characters)
-lbl_list_long_varlbl
+* apply those labels to some, but not all, variables
+label values var1 var1_lbl
+label values var2 var2_lbl
+label values var4 var4_lbl
 
-* list variables with longer than the user-specified max length
-lbl_list_long_varlbl, maxlen(12)</code></pre>
+* find value labels with "Oui" and/or "oui" in at least one constituent label
+lbl_list_matching_val_lbls, pattern("[Oo]ui")
+
+* find value labels and print out the contents of the label, for convenience
+* i.e., to avoid the next step that many users might logically make:
+* [label list matching_lbl]
+lbl_list_matching_val_lbls, pattern("[Oo]ui") verbose</code></pre>
+</section>
+<section id="example-2-do-not-contain-a-pattern" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-do-not-contain-a-pattern">Example 2: do not contain a pattern</h2>
+<pre><code>* find value labels that do not contain a certain pattern
+* for example, no "Oui"/"oui" in yes/no labels from a French-language survey
+lbl_list_matching_val_lbls, pattern("[Oo]ui") negate</code></pre>
+</section>
+<section id="example-3-contain-only-a-certain-set-of-characters" class="level2">
+<h2 class="anchored" data-anchor-id="example-3-contain-only-a-certain-set-of-characters">Example 3: contain only a certain set of characters</h2>
+<pre><code>* create some value labels
+label drop _all
+* var1_lbl var2_lbl var4_lbl
+label define var1_lbl 1 "YES" 2 "NO"
+label define var2_lbl 1 "Yes" 2 "No"
+label define var3_lbl 1 "yes" 2 "no"
+label define var4_lbl 1 "Où" 2 "Là"
+
+* attach them to variables created above
+label values var1 var1_lbl
+label values var2 var2_lbl
+label values var3 var3_lbl
+label values var4 var4_lbl
+
+* contains no lower-case characters
+lbl_list_matching_val_lbls, pattern("[:lower:]") negate
+
+* contains no French characters
+lbl_list_matching_val_lbls, pattern("[àâäÀÂÄéèêëÉÈÊËîïôöÔÖùûüçÇ]") negate
+</code></pre>
+</section>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
 <h1>Feedback, bug reports and contributions</h1>
-<p>Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.</p>
-<p>Please provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.</p>
-<p>PRs with suggestions for improvements are also greatly appreciated.</p>
+<p>Read more about these commands on <a href="https://github.com/lsms-worldbank/labeller">this repo</a> where this package is developed. Please provide any feedback by <a href="https://github.com/lsms-worldbank/labeller/issues">opening an issue</a>. PRs with suggestions for improvements are also greatly appreciated.</p>
 </section>
 <section id="authors" class="level1">
 <h1>Authors</h1>

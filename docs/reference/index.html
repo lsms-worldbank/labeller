@@ -31,10 +31,10 @@ ul.task-list{list-style: none;}
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,15 +76,6 @@ ul.task-list{list-style: none;}
   <li class="nav-item">
     <a class="nav-link active" href="../reference/index.html" aria-current="page">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -103,7 +94,23 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#variable-labels" id="toc-variable-labels" class="nav-link active" data-scroll-target="#variable-labels">Variable labels</a>
+  <ul class="collapse">
+  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a></li>
+  <li><a href="#length" id="toc-length" class="nav-link" data-scroll-target="#length">Length</a></li>
+  <li><a href="#existence" id="toc-existence" class="nav-link" data-scroll-target="#existence">Existence</a></li>
+  <li><a href="#inspection-and-manipulation" id="toc-inspection-and-manipulation" class="nav-link" data-scroll-target="#inspection-and-manipulation">Inspection and manipulation</a></li>
+  </ul></li>
+  <li><a href="#value-labels" id="toc-value-labels" class="nav-link" data-scroll-target="#value-labels">Value labels</a>
+  <ul class="collapse">
+  <li><a href="#inspection-and-manipulation-1" id="toc-inspection-and-manipulation-1" class="nav-link" data-scroll-target="#inspection-and-manipulation-1">Inspection and manipulation</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -124,6 +131,11 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<section id="variable-labels" class="level2">
+<h2 class="anchored" data-anchor-id="variable-labels">Variable labels</h2>
+<section id="pipes" class="level3">
+<h3 class="anchored" data-anchor-id="pipes">Pipes</h3>
+<p>Find and replace text substitution markers (e.g., <code>%rostertitle%</code>)</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -133,38 +145,6 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="../reference/labeller.html">labeller</a></td>
-<td>Package command with utilities for the rest of the package</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/lbl_assert_no_long_varlbl.html">lbl_assert_no_long_varlbl</a></td>
-<td>Assert that there is no variable in memory whose variable length exceeds the desired character length.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/lbl_assert_no_pipes.html">lbl_assert_no_pipes</a></td>
-<td>Asserts that no variable labels have any pipes</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/lbl_assert_varlbls.html">lbl_assert_varlbls</a></td>
-<td>List variables without a variable label.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/lbl_list_long_varlbl.html">lbl_list_long_varlbl</a></td>
-<td>List variables whose variable label is longer than the desired character length.</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/lbl_list_matching_vals.html">lbl_list_matching_vals</a></td>
-<td>List value labels whose labels match a pattern.</td>
-</tr>
-<tr class="odd">
-<td><a href="../reference/lbl_list_matching_vars.html">lbl_list_matching_vars</a></td>
-<td>Identify variables whose label matches a pattern.</td>
-</tr>
-<tr class="even">
-<td><a href="../reference/lbl_list_no_varlbl.html">lbl_list_no_varlbl</a></td>
-<td>List variables without a variable label.</td>
-</tr>
-<tr class="odd">
 <td><a href="../reference/lbl_list_pipes.html">lbl_list_pipes</a></td>
 <td>Lists pipes in variable labels from Survey Solutions</td>
 </tr>
@@ -172,10 +152,111 @@ ul.task-list{list-style: none;}
 <td><a href="../reference/lbl_replace_pipe.html">lbl_replace_pipe</a></td>
 <td>Replaces pipes in variable labels with user-provided value</td>
 </tr>
+<tr class="odd">
+<td><a href="../reference/lbl_assert_no_pipes.html">lbl_assert_no_pipes</a></td>
+<td>Asserts that no variable labels have any pipes</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="length" class="level3">
+<h3 class="anchored" data-anchor-id="length">Length</h3>
+<p>Identify labels that might be potentially truncated.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../reference/lbl_list_long_var_lbl.html">lbl_list_long_var_lbl</a></td>
+<td>List variables whose variable label is longer than the desired character length.</td>
+</tr>
+<tr class="even">
+<td><a href="../reference/lbl_assert_no_long_var_lbl.html">lbl_assert_no_long_var_lbl</a></td>
+<td>Assert that there is no variable in memory whose variable length exceeds the desired character length.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="existence" class="level3">
+<h3 class="anchored" data-anchor-id="existence">Existence</h3>
+<p>Check for variables without variable labels</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../reference/lbl_list_no_var_lbl.html">lbl_list_no_var_lbl</a></td>
+<td>List variables without a variable label.</td>
+</tr>
+<tr class="even">
+<td><a href="../reference/lbl_assert_have_var_lbl.html">lbl_assert_have_var_lbl</a></td>
+<td>List variables without a variable label.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="inspection-and-manipulation" class="level3">
+<h3 class="anchored" data-anchor-id="inspection-and-manipulation">Inspection and manipulation</h3>
+<p>Find labels with desired content; modify labels with Designer metadata</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../reference/lbl_list_matching_var_lbls.html">lbl_list_matching_var_lbls</a></td>
+<td>Identify variables whose label matches a pattern.</td>
+</tr>
+<tr class="even">
+<td><a href="../reference/lbl_use_meta.html">lbl_use_meta</a></td>
+<td>This command accesses metadata and, optionally, uses it to set the value of data attributes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="value-labels" class="level2">
+<h2 class="anchored" data-anchor-id="value-labels">Value labels</h2>
+<section id="inspection-and-manipulation-1" class="level3">
+<h3 class="anchored" data-anchor-id="inspection-and-manipulation-1">Inspection and manipulation</h3>
+<p>Find labels with desired content; find and drop unused labels</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../reference/lbl_list_matching_val_lbls.html">lbl_list_matching_val_lbls</a></td>
+<td>List value labels whose labels match a pattern.</td>
+</tr>
+<tr class="even">
+<td><a href="../reference/lbl_list_unused_val_lbls.html">lbl_list_unused_val_lbls</a></td>
+<td>List value labels not attached to any variable.</td>
+</tr>
+<tr class="odd">
+<td><a href="../reference/lbl_drop_unused_val_lbls.html">lbl_drop_unused_val_lbls</a></td>
+<td>Drop value labels not attached to any variable.</td>
+</tr>
 </tbody>
 </table>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

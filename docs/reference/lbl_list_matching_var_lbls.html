@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller – lbl_list_matching_vars</title>
+<title>labeller - lbl_list_matching_var_lbls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,23 +18,23 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../images/logo.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,8 +64,8 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-    <img src="../../images/logo.png" alt="">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../images/logo.png" alt="">
     <span class="navbar-title">labeller</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -74,17 +74,8 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../reference/index.html">Reference</a>
+    <a class="nav-link" href="../reference/index.html">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -126,15 +117,29 @@ ul.task-list{list-style: none;}
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">lbl_list_matching_var_lbls</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_matching_vars</strong> - Identify variables whose label matches a pattern.</p>
+<p><strong>lbl_list_matching_var_lbls</strong> - Identify variables whose label matches a pattern.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_matching_vars</strong> <em>regexstring</em>, [<strong><strong>neg</strong>ate</strong> <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_list_matching_vars</strong> <strong>pattern</strong>(<em>string</em>), [<strong><strong>neg</strong>ate</strong> <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -148,10 +153,14 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
+<td><strong>pattern</strong></td>
+<td>Provides to find in the variable label. Provide either a substring or a regular expression.</td>
+</tr>
+<tr class="even">
 <td><strong><strong>neg</strong>ate</strong></td>
 <td>Returns variables whose label does <strong>not</strong> match</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
 <td>Restrict the scope of variables to consider</td>
 </tr>
@@ -160,7 +169,7 @@ ul.task-list{list-style: none;}
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>Stata provides relatively few and mostly imperfect tools for searching variable labels for a matching string. The <a href="https://www.stata.com/manuals13/dlabel.pdf">label</a> tools to not offer any methods for querying the variable labels. The <a href="https://www.stata.com/manuals/dlookfor.pdf">lookfor</a> command, while the nearest match, falls short in a few ways. First, it searches over both variable names and variable labels. Second, it does not provide a means for restricting the scope of search to a variable list. And third, it fails to provide a means for inverting the search (i.e., returning everything that does not match).</p>
+<p>Stata provides relatively few and mostly imperfect tools for searching variable labels for a matching string. The <a href="https://www.stata.com/manuals13/dlabel.pdf">label</a> tools do not offer any methods for querying the variable labels. The <a href="https://www.stata.com/manuals/dlookfor.pdf">lookfor</a> command, while the nearest match, falls short in a few ways. First, it searches over both variable names and variable labels. Second, it does not provide a means for restricting the scope of search to a variable list. And third, it fails to provide a means for inverting the search (i.e., returning everything that does not match).</p>
 <p>This function to fill the gap the following gaps:</p>
 <ul>
 <li>Search over variable labels only</li>
@@ -171,6 +180,7 @@ ul.task-list{list-style: none;}
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
+<p><strong>pattern</strong>(<em>string</em>) provides the text pattern to find in the contents of variable labels. Rather than the traditional Stata glob pattern, this pattern is a sub-string or a regular expression.</p>
 <p><strong><strong>neg</strong>ate</strong> inverts the match. Rather than return variables with matching variable labels, this option returns variables whose variable label do not match.</p>
 <p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
 </section>
@@ -191,22 +201,22 @@ label variable var3 "3. label"
 label variable var4 "Fourth label"
 
 * find variables whose label contains "First"
-lbl_list_matching_vars "First"</code></pre>
+lbl_list_matching_vars, pattern("First")</code></pre>
 </section>
 <section id="example-2-regex-search" class="level2">
 <h2 class="anchored" data-anchor-id="example-2-regex-search">Example 2: Regex search</h2>
 <pre><code>* find variables whose labels start with a number
-lbl_list_matching_vars "^[0-9]"</code></pre>
+lbl_list_matching_vars, pattern("^[0-9]")</code></pre>
 </section>
 <section id="example-3-restrict-search-to-a-variable-list" class="level2">
 <h2 class="anchored" data-anchor-id="example-3-restrict-search-to-a-variable-list">Example 3: Restrict search to a variable list</h2>
 <pre><code>* find variables whose label starts with "F" in var1 - var3
-lbl_list_matching_vars "^F", varlist(var1 - var3)</code></pre>
+lbl_list_matching_vars, pattern("^F") varlist(var1 - var3)</code></pre>
 </section>
 <section id="example-4-return-variables-whose-labels-do-not-match" class="level2">
 <h2 class="anchored" data-anchor-id="example-4-return-variables-whose-labels-do-not-match">Example 4: Return variables whose labels do not match</h2>
 <pre><code>* find variables whose labels do NOT start with a number
-lbl_list_matching_vars "^[0-9]", negate</code></pre>
+lbl_list_matching_vars, pattern("^[0-9]") negate</code></pre>
 </section>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">

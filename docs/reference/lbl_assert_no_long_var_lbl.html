@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller – lbl_list_no_varlbl</title>
+<title>labeller - lbl_assert_no_long_var_lbl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,23 +18,23 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../images/logo.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,8 +64,8 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-    <img src="../../images/logo.png" alt="">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../images/logo.png" alt="">
     <span class="navbar-title">labeller</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -74,17 +74,8 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../reference/index.html">Reference</a>
+    <a class="nav-link" href="../reference/index.html">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -120,15 +111,29 @@ ul.task-list{list-style: none;}
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">lbl_assert_no_long_var_lbl</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_no_varlbl</strong> - List variables without a variable label.</p>
+<p><strong>lbl_assert_no_long_var_lbl</strong> - Assert that there is no variable in memory whose variable length exceeds the desired character length.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_no_varlbl</strong>, [<strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_assert_no_long_var_lbl</strong> , [<strong><strong>max</strong>len</strong>(<em>integer</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>) ]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -142,6 +147,10 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
+<td><strong><strong>max</strong>len</strong>(<em>integer</em>)</td>
+<td>Maximum character length allowed.</td>
+</tr>
+<tr class="even">
 <td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
 <td>Restrict the scope of variables to consider</td>
 </tr>
@@ -150,11 +159,13 @@ ul.task-list{list-style: none;}
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>For small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.</p>
-<p>This command does that. If any variables without variable labels are found, it lists them. If all variables have variable labels, it says so. That way, the user knows whether action is needed, and for which variables.</p>
+<p>This command assert that there is no variable in memory whose variable label length exceeds the desired character length.</p>
+<p>By default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the <strong><strong>max</strong>len</strong>(<em>integer</em>) option.</p>
+<p>If there is at least one variable whose length exceeds the maximum length, the command will return an error and list the variables whose variable labels are too long.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
+<p><strong><strong>max</strong>len</strong>(<em>integer</em>) sets the maximum length of variable labels.</p>
 <p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
 </section>
 <section id="examples" class="level1">
@@ -164,16 +175,20 @@ gen var1 = .
 gen var2 = .
 gen var3 = .
 gen var4 = .
+gen var5 = .
 
-* apply variable labels to only some variables
-label variable var1 "Some label"
-label variable var4 "Another label"
+* apply variables
+label variable var1 "Short label"
+label variable var2 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label variable var3 "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+label variable var4 "Another short label"
+label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 
-* list variables without variable labels globally
-lbl_list_no_varlbl
+* assert no variables with labels longer than default max length (80 characters)
+lbl_assert_no_long_var_lbl
 
-* list variables without a label in the varlist
-lbl_list_no_varlbl, varlist(var3 - var4)</code></pre>
+* assert no variables with labels longer than user-specified max length (80 characters)
+lbl_assert_no_long_var_lbl, maxlen(12)</code></pre>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
 <h1>Feedback, bug reports and contributions</h1>

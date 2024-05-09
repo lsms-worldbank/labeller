@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller – lbl_assert_varlbls</title>
+<title>labeller – lbl_list_long_var_lbl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,10 +31,10 @@ ul.task-list{list-style: none;}
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,15 +76,6 @@ ul.task-list{list-style: none;}
   <li class="nav-item">
     <a class="nav-link" href="../../reference/index.html">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -124,11 +115,11 @@ ul.task-list{list-style: none;}
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_assert_var_have_lbl</strong> - List variables without a variable label.</p>
+<p><strong>lbl_list_long_var_lbl</strong> - List variables whose variable label is longer than the desired character length.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_assert_var_have_lbl</strong>, [<strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_list_long_var_lbl</strong> , [<strong><strong>max</strong>len</strong>(<em>integer</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -142,6 +133,10 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
+<td><strong><strong>max</strong>len</strong>(<em>integer</em>)</td>
+<td>Maximum character length allowed.</td>
+</tr>
+<tr class="even">
 <td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
 <td>Restrict the scope of variables to consider</td>
 </tr>
@@ -150,11 +145,15 @@ ul.task-list{list-style: none;}
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>For small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.</p>
-<p>This command does that. If any variables without variable labels are found, it returns and error and lists which variables are missing variable labels. If all variables have variable labels, it reports this fact. In this way, the user knows whether action is needed, and for which variables.</p>
+<p>When variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata’s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.</p>
+<p>To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., <code>local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl</code>).</p>
+<p>However, there is no base Stata operation for doing so in batch.</p>
+<p>This command provides just such a tool.</p>
+<p>By default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the <strong><strong>max</strong>len</strong>(<em>integer</em>) option.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
+<p><strong><strong>max</strong>len</strong>(<em>integer</em>) sets the maximum length of variable labels, beyond which a variable is listed by this command.</p>
 <p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
 </section>
 <section id="examples" class="level1">
@@ -164,16 +163,20 @@ gen var1 = .
 gen var2 = .
 gen var3 = .
 gen var4 = .
+gen var5 = .
 
-* apply variable labels to only some variables
-label variable var1 "Some label"
-label variable var4 "Another label"
+* apply variables
+label variable var1 "Short label"
+label variable var2 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label variable var3 "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+label variable var4 "Another short label"
+label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 
-* assert that all variables have variable labels, globally
-lbl_assert_var_have_lbl
+* list variables with longer than the default max length (80 characters)
+lbl_list_long_var_lbl
 
-* assert that all variables have variable labels, in the varlist
-lbl_assert_var_have_lbl var3 - var4</code></pre>
+* list variables with longer than the user-specified max length
+lbl_list_long_var_lbl, maxlen(12)</code></pre>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
 <h1>Feedback, bug reports and contributions</h1>

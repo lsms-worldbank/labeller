@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller – lbl_list_long_varlbl</title>
+<title>labeller – lbl_list_unused_val_lbls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,10 +31,10 @@ ul.task-list{list-style: none;}
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,15 +76,6 @@ ul.task-list{list-style: none;}
   <li class="nav-item">
     <a class="nav-link" href="../../reference/index.html">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -111,8 +102,12 @@ ul.task-list{list-style: none;}
   <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a></li>
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, bug reports and contributions</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-list-unused-value-labels" id="toc-example-1-list-unused-value-labels" class="nav-link" data-scroll-target="#example-1-list-unused-value-labels">Example 1: List unused value labels</a></li>
+  <li><a href="#example-2-list-unused-value-labels-and-print-their-contents" id="toc-example-2-list-unused-value-labels-and-print-their-contents" class="nav-link" data-scroll-target="#example-2-list-unused-value-labels-and-print-their-contents">Example 2: List unused value labels and print their contents</a></li>
+  </ul></li>
+  <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, Bug Reports, and Contributions</a></li>
   <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Authors</a></li>
   </ul>
 </nav>
@@ -124,11 +119,11 @@ ul.task-list{list-style: none;}
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_long_varlbl</strong> - List variables whose variable label is longer than the desired character length.</p>
+<p><strong>lbl_list_unused_val_lbls</strong> - List value labels not attached to any variable.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_long_varlbl</strong> , [<strong><strong>max</strong>len</strong>(<em>integer</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_list_unused_val_lbls</strong> , [<strong><strong>v</strong>erbose</strong>]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -142,53 +137,48 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><strong>max</strong>len</strong>(<em>integer</em>)</td>
-<td>Maximum character length allowed.</td>
-</tr>
-<tr class="even">
-<td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
-<td>Restrict the scope of variables to consider</td>
+<td><strong><strong>v</strong>erbose</strong></td>
+<td>Prints the contents of unused value labels with <code>label list</code>.</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>When variable labels are too long, Stata truncates them to the first 80 characters of the string provided. This situation might arise for data exported from Survey Solutions. If provided, Survey Solutions uses the Variable label field in Designer, whose length is capped at 80 characters (in line with Stata’s limits). If no label is specified in that field, Survey Solutions uses the Question text field, whose length maximum length is 2,000 characters. In the latter case, Survey Solutions uses the first 80 characters of the question text as its label.</p>
-<p>To detect possible cases of truncation, data producers can check the length of each variable label individually (e.g., <code>local var_lbl : variable label my_var; local lbl_len : ustrlen local var_lbl</code>).</p>
-<p>However, there is no base Stata operation for doing so in batch.</p>
-<p>This command provides just such a tool.</p>
-<p>By default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the <strong><strong>max</strong>len</strong>(<em>integer</em>) option.</p>
+<p>When attached to variables, value labels are an essential part of data documentation. Left unused, they create clutter and, potentially, confusion.</p>
+<p>To tidy a data set, data producers should manage value label sets well. But in order to tidy, one needs an inventory of the things that need tidying. To that end, <code>lbl_list_unused_val_lbls</code> lists all value label sets that are unused–in other words, that need to be either attached to a variable or dropped.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
-<p><strong><strong>max</strong>len</strong>(<em>integer</em>) sets the maximum length of variable labels, beyond which a variable is listed by this command.</p>
-<p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
+<p><strong><strong>v</strong>erbose</strong> provides the user with more details on unused value labels by printing their contents with <code>label list</code>. In this way, the user can decide what should be done with unused labels (e.g.&nbsp;attach them to variables, drop them, etc).</p>
 </section>
 <section id="examples" class="level1">
 <h1>Examples</h1>
-<pre><code>* create set of variables
-gen var1 = .
-gen var2 = .
-gen var3 = .
-gen var4 = .
-gen var5 = .
+<section id="example-1-list-unused-value-labels" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-list-unused-value-labels">Example 1: List unused value labels</h2>
+<pre><code>* create one variable
+gen v1 = .
 
-* apply variables
-label variable var1 "Short label"
-label variable var2 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-label variable var3 "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-label variable var4 "Another short label"
-label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
+* define more than one value label set
+label define v1 1 "yes" 2 "no", modify
+label define v3 1 "oui" 2 "non", modify
+label define v4 1 "evet" 2 "hayır", modify
 
-* list variables with longer than the default max length (80 characters)
-lbl_list_long_varlbl
+* attach one value label, but not the others
+label values v1 v1
 
-* list variables with longer than the user-specified max length
-lbl_list_long_varlbl, maxlen(12)</code></pre>
+* list the value labels not attached (aka unused)
+lbl_list_unused_val_lbls</code></pre>
+</section>
+<section id="example-2-list-unused-value-labels-and-print-their-contents" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-list-unused-value-labels-and-print-their-contents">Example 2: List unused value labels and print their contents</h2>
+<pre><code>* ... continuing from example 1
+* print the contents of the unused labels
+lbl_list_unused_val_lbls, verbose</code></pre>
+</section>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
-<h1>Feedback, bug reports and contributions</h1>
+<h1>Feedback, Bug Reports, and Contributions</h1>
 <p>Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.</p>
 <p>Please provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.</p>
 <p>PRs with suggestions for improvements are also greatly appreciated.</p>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller - lbl_list_matching_vars.md</title>
+<title>labeller – lbl_assert_no_long_var_lbl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,23 +18,23 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../images/logo.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,8 +64,8 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../index.html">
-    <img src="../images/logo.png" alt="">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/logo.png" alt="">
     <span class="navbar-title">labeller</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -74,17 +74,8 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../reference/index.html">Reference</a>
+    <a class="nav-link" href="../../reference/index.html">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -111,13 +102,7 @@ ul.task-list{list-style: none;}
   <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a></li>
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
-  <ul class="collapse">
-  <li><a href="#example-1-simple-search" id="toc-example-1-simple-search" class="nav-link" data-scroll-target="#example-1-simple-search">Example 1: Simple search</a></li>
-  <li><a href="#example-2-regex-search" id="toc-example-2-regex-search" class="nav-link" data-scroll-target="#example-2-regex-search">Example 2: Regex search</a></li>
-  <li><a href="#example-3-restrict-search-to-a-variable-list" id="toc-example-3-restrict-search-to-a-variable-list" class="nav-link" data-scroll-target="#example-3-restrict-search-to-a-variable-list">Example 3: Restrict search to a variable list</a></li>
-  <li><a href="#example-4-return-variables-whose-labels-do-not-match" id="toc-example-4-return-variables-whose-labels-do-not-match" class="nav-link" data-scroll-target="#example-4-return-variables-whose-labels-do-not-match">Example 4: Return variables whose labels do not match</a></li>
-  </ul></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, bug reports and contributions</a></li>
   <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Authors</a></li>
   </ul>
@@ -126,29 +111,15 @@ ul.task-list{list-style: none;}
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">lbl_list_matching_vars.md</h1>
-</div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_matching_vars</strong> - Identify variables whose label matches a pattern.</p>
+<p><strong>lbl_assert_no_long_var_lbl</strong> - Assert that there is no variable in memory whose variable length exceeds the desired character length.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_matching_vars</strong> <em>regexstring</em>, [<strong><strong>neg</strong>ate</strong> <strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_assert_no_long_var_lbl</strong> , [<strong><strong>max</strong>len</strong>(<em>integer</em>) <strong><strong>v</strong>arlist</strong>(<em>varlist</em>) ]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -162,8 +133,8 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><strong>neg</strong>ate</strong></td>
-<td>Returns variables whose label does <strong>not</strong> match</td>
+<td><strong><strong>max</strong>len</strong>(<em>integer</em>)</td>
+<td>Maximum character length allowed.</td>
 </tr>
 <tr class="even">
 <td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
@@ -174,58 +145,42 @@ ul.task-list{list-style: none;}
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>Stata provides relatively few and mostly imperfect tools for searching variable labels for a matching string. The <a href="https://www.stata.com/manuals13/dlabel.pdf">label</a> tools to not offer any methods for querying the variable labels. The <a href="https://www.stata.com/manuals/dlookfor.pdf">lookfor</a> command, while the nearest match, falls short in a few ways. First, it searches over both variable names and variable labels. Second, it does not provide a means for restricting the scope of search to a variable list. And third, it fails to provide a means for inverting the search (i.e., returning everything that does not match).</p>
-<p>This function to fill the gap the following gaps:</p>
-<ul>
-<li>Search over variable labels only</li>
-<li>Specify search through (regex) patterns</li>
-<li>Restrict search to an (optionally) user-provided variable list</li>
-<li>Invert search to identify variables whose variables do not match</li>
-</ul>
+<p>This command assert that there is no variable in memory whose variable label length exceeds the desired character length.</p>
+<p>By default, the command take the maximum length to be Stata’s maximum length for labels: 80 characters. If desired, the command can specify an alternative length through the <strong><strong>max</strong>len</strong>(<em>integer</em>) option.</p>
+<p>If there is at least one variable whose length exceeds the maximum length, the command will return an error and list the variables whose variable labels are too long.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
-<p><strong><strong>neg</strong>ate</strong> inverts the match. Rather than return variables with matching variable labels, this option returns variables whose variable label do not match.</p>
+<p><strong><strong>max</strong>len</strong>(<em>integer</em>) sets the maximum length of variable labels.</p>
 <p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
 </section>
 <section id="examples" class="level1">
 <h1>Examples</h1>
-<section id="example-1-simple-search" class="level2">
-<h2 class="anchored" data-anchor-id="example-1-simple-search">Example 1: Simple search</h2>
-<pre><code>* create a set of variables
+<pre><code>* create set of variables
 gen var1 = .
 gen var2 = .
 gen var3 = .
 gen var4 = .
+gen var5 = .
 
 * apply variables
-label variable var1 "First label"
-label variable var2 "2. label"
-label variable var3 "3. label"
-label variable var4 "Fourth label"
+label variable var1 "Short label"
+label variable var2 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label variable var3 "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+label variable var4 "Another short label"
+label variable var5 "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
 
-* find variables whose label contains "First"
-lbl_list_matching_vars "First"</code></pre>
-</section>
-<section id="example-2-regex-search" class="level2">
-<h2 class="anchored" data-anchor-id="example-2-regex-search">Example 2: Regex search</h2>
-<pre><code>* find variables whose labels start with a number
-lbl_list_matching_vars "^[0-9]"</code></pre>
-</section>
-<section id="example-3-restrict-search-to-a-variable-list" class="level2">
-<h2 class="anchored" data-anchor-id="example-3-restrict-search-to-a-variable-list">Example 3: Restrict search to a variable list</h2>
-<pre><code>* find variables whose label starts with "F" in var1 - var3
-lbl_list_matching_vars "^F", varlist(var1 - var3)</code></pre>
-</section>
-<section id="example-4-return-variables-whose-labels-do-not-match" class="level2">
-<h2 class="anchored" data-anchor-id="example-4-return-variables-whose-labels-do-not-match">Example 4: Return variables whose labels do not match</h2>
-<pre><code>* find variables whose labels do NOT start with a number
-lbl_list_matching_vars "^[0-9]", negate</code></pre>
-</section>
+* assert no variables with labels longer than default max length (80 characters)
+lbl_assert_no_long_var_lbl
+
+* assert no variables with labels longer than user-specified max length (80 characters)
+lbl_assert_no_long_var_lbl, maxlen(12)</code></pre>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
 <h1>Feedback, bug reports and contributions</h1>
-<p>Read more about these commands on <a href="https://github.com/lsms-worldbank/labeller">this repo</a> where this package is developed. Please provide any feedback by <a href="https://github.com/lsms-worldbank/labeller/issues">opening an issue</a>. PRs with suggestions for improvements are also greatly appreciated.</p>
+<p>Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.</p>
+<p>Please provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.</p>
+<p>PRs with suggestions for improvements are also greatly appreciated.</p>
 </section>
 <section id="authors" class="level1">
 <h1>Authors</h1>

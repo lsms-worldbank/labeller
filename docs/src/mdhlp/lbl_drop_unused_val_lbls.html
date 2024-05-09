@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labeller - lbl_list_no_varlbl.md</title>
+<title>labeller – lbl_drop_unused_val_lbls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,23 +18,23 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../images/logo.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,8 +64,8 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../index.html">
-    <img src="../images/logo.png" alt="">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/logo.png" alt="">
     <span class="navbar-title">labeller</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -74,17 +74,8 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../reference/index.html">Reference</a>
+    <a class="nav-link" href="../../reference/index.html">Reference</a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
-        <li>
-    <a class="dropdown-item" href="../articles/README.qmd">
- <span class="dropdown-text"></span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -112,7 +103,7 @@ ul.task-list{list-style: none;}
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, bug reports and contributions</a></li>
+  <li><a href="#feedback-bug-reports-and-contributions" id="toc-feedback-bug-reports-and-contributions" class="nav-link" data-scroll-target="#feedback-bug-reports-and-contributions">Feedback, Bug Reports, and Contributions</a></li>
   <li><a href="#authors" id="toc-authors" class="nav-link" data-scroll-target="#authors">Authors</a></li>
   </ul>
 </nav>
@@ -120,29 +111,15 @@ ul.task-list{list-style: none;}
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">lbl_list_no_varlbl.md</h1>
-</div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
 
 <section id="title" class="level1">
 <h1>Title</h1>
-<p><strong>lbl_list_no_varlbl</strong> - List variables without a variable label.</p>
+<p><strong>lbl_drop_unused_val_lbls</strong> - Drop value labels not attached to any variable.</p>
 </section>
 <section id="syntax" class="level1">
 <h1>Syntax</h1>
-<p><strong>lbl_list_no_varlbl</strong>, [<strong><strong>v</strong>arlist</strong>(<em>varlist</em>)]</p>
+<p><strong>lbl_drop_unused_val_lbls</strong> , [<strong><strong>c</strong>onfirm</strong>]</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
@@ -156,41 +133,43 @@ ul.task-list{list-style: none;}
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><strong>v</strong>arlist</strong>(<em>varlist</em>)</td>
-<td>Restrict the scope of variables to consider</td>
+<td><strong><strong>c</strong>onfirm</strong></td>
+<td>Prompts user before removing any unused value labels</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="description" class="level1">
 <h1>Description</h1>
-<p>For small data sets, visual inspection can identify variables without a variable label. For larger data sets (or repeat encounters with data sets), it is better to have a tool variables, if any, that remain without a variable label.</p>
-<p>This command does that. If any variables without variable labels are found, it lists them. If all variables have variable labels, it says so. That way, the user knows whether action is needed, and for which variables.</p>
+<p>When attached to variables, value labels are an essential part of data documentation. Left unused, they create clutter and, potentially, confusion.</p>
+<p>To eliminate any unattached value labels, drop them with <code>lbl_drop_unused_val_lbls</code>. To check for and inspect unattached value labels, use <code>lbl_list_unused_val_lbls</code>.</p>
 </section>
 <section id="options" class="level1">
 <h1>Options</h1>
-<p><strong><strong>v</strong>arlist</strong>(<em>varlist</em>) restricts the scope of the search to the user-provided variable list. By default, the command searches for matches in all variables in memory. With <strong>varlist</strong>(), the scope of the search can be narrowed.</p>
+<p><strong><strong>c</strong>onfirm</strong> lists unused value labels and confirms whether the user indeed wants to drop them. When prompted, the user should type <code>y</code> for yes or <code>n</code> for no. With this response, the command will perform the appropriate action.</p>
 </section>
 <section id="examples" class="level1">
 <h1>Examples</h1>
-<pre><code>* create set of variables
-gen var1 = .
-gen var2 = .
-gen var3 = .
-gen var4 = .
+<pre><code>* create one variable
+gen v1 = .
 
-* apply variable labels to only some variables
-label variable var1 "Some label"
-label variable var4 "Another label"
+* define more than one value label set
+label define v1 1 "yes" 2 "no", modify
+label define v3 1 "oui" 2 "non", modify
+label define v4 1 "evet" 2 "hayır", modify
 
-* list variables without variable labels globally
-lbl_list_no_varlbl
+* attach one value label, but not the others
+label values v1 v1
 
-* list variables without a label in the varlist
-lbl_list_no_varlbl, varlist(var3 - var4)</code></pre>
+* drop the value labels not attached (aka unused)
+* if in doubt, ask first
+lbl_drop_unused_val_lbls, confirm
+n
+* if intrepid, drop without asking
+lbl_drop_unused_val_lbls</code></pre>
 </section>
 <section id="feedback-bug-reports-and-contributions" class="level1">
-<h1>Feedback, bug reports and contributions</h1>
+<h1>Feedback, Bug Reports, and Contributions</h1>
 <p>Read more about the commands in this package at https://github.com/lsms-worldbank/labeller.</p>
 <p>Please provide any feedback by opening an issue at https://github.com/lsms-worldbank/labeller/issues.</p>
 <p>PRs with suggestions for improvements are also greatly appreciated.</p>

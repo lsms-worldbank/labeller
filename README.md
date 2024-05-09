@@ -62,21 +62,54 @@ net install labeller, ///
 
 ## Commands
 
+### Variable labels
+
+### Pipes
+
+Find and replace text substitution markers (e.g., `%rostertitle%`)
+
 | Command | Description |
 | --- | --- |
-| [labeller](https://lsms-worldbank.github.io/labeller/reference/labeller.html) | Package command with utilities for the rest of the package
-| [lbl_assert_no_long_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_long_var_lbl.html) | Assert that there is no variable in memory whose variable length exceeds the desired character length. |
-| [lbl_assert_no_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_pipes.html) | Asserts that no variable labels have any pipes |
-| [lbl_assert_have_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_have_var_lbl.html) | List variables without a variable label. |
-| [lbl_list_long_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_var_lbl.html) | List variables whose variable label is longer than the desired character length. |
-| [lbl_list_matching_var_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_var_lbls.html) | Identify variables whose label matches a pattern. |
-| [lbl_list_matching_val_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_val_lbls.html) | List value labels whose labels match a pattern. |
-| [lbl_list_no_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_var_lbl.html) | List variables without a variable label. |
 | [lbl_list_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_list_pipes.html) | Lists pipes in variable labels from Survey Solutions. |
 | [lbl_replace_pipe](https://lsms-worldbank.github.io/labeller/reference/lbl_replace_pipe.html) | Replaces pipes in variable labels with user-provided value |
+| [lbl_assert_no_pipes](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_pipes.html) | Asserts that no variable labels have any pipes |
+
+### Length
+
+Identify labels that might be potentially truncated.
+
+| Command | Description |
+| --- | --- |
+| [lbl_list_long_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_long_var_lbl.html) | List variables whose variable label is longer than the desired character length. |
+| [lbl_assert_no_long_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_no_long_var_lbl.html) | Assert that there is no variable in memory whose variable length exceeds the desired character length. |
+
+### Existence
+
+Check for variables without variable labels
+
+| Command | Description |
+| --- | --- |
+| [lbl_list_no_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_list_no_var_lbl.html) | List variables without a variable label. |
+| [lbl_assert_have_var_lbl](https://lsms-worldbank.github.io/labeller/reference/lbl_assert_have_var_lbl.html) | List variables without a variable label. |
+
+### Inspection and manipulation
+
+Find labels with desired content; modify labels with Designer metadata
+
+| Command | Description |
+| --- | --- |
+| [lbl_list_matching_var_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_var_lbls.html) | Identify variables whose label matches a pattern. |
+| [lbl_use_meta](https://lsms-worldbank.github.io/labeller/reference/lbl_use_meta.html) | Accesses variable metadata and, optionally, uses it to set the value of data attributes. |
+
+### Value labels
+
+Find labels with desired content; find and drop unused labels
+
+| Command | Description |
+| --- | --- |
+| [lbl_list_matching_val_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_matching_val_lbls.html) | List value labels whose labels match a pattern. |
 | [lbl_list_unused_val_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_list_unused_val_lbls.html) | List value labels not attached to any variable. |
 | [lbl_drop_unused_val_lbls](https://lsms-worldbank.github.io/labeller/reference/lbl_drop_unused_val_lbls.html) | Drop value labels not attached to any variable. |
-| [lbl_use_meta](https://lsms-worldbank.github.io/labeller/reference/lbl_use_meta.html) | Accesses variable metadata and, optionally, uses it to set the value of data attributes. |
 
 ## Usage
 

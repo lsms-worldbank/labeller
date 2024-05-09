@@ -13,7 +13,7 @@ Note also: while this package does not require [selector](https://github.com/lsm
 
 ##  Installation
 
-To install the latest published version of the package: 
+<!-- To install the latest published version of the package: 
 
 ```stata
 * install the package from the SSC package repository
@@ -28,18 +28,22 @@ To update the package:
 adoupdate labeller
 ```
 
-If there are updates, Stata will instruct you how to apply them.
+If there are updates, Stata will instruct you how to apply them. -->
 
 ### Development version
 
-The version of `labeller` on SSC corresponds to the code in the `main` branch of [the package's GitHub repository](https://github.com/lsms-worldbank/labeller).
 
-To get a bug fix or test bleeding-edge features, you can install code from other branches of the repository. To install the version in a particular branch:
+<!-- The version of `labeller` on SSC corresponds to the code in the `main` branch of [the package's GitHub repository](https://github.com/lsms-worldbank/labeller). -->
+
+To get a bug fix, a version not yet published on SSC, or test bleeding-edge features, you can install code from other branches of the repository. The current release is version 0.5.
+
+To install the version in a particular branch:
 
 ```stata
 * set tag to be the name of the target branch
 * for example, the development branch, which contains code for the next release
 local tag "dev"
+* alternatively, v0.5, which contains the code for the current pre-SSC release.
 * download the code from that GitHub branch
 * install the package
 net install labeller, ///

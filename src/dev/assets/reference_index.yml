@@ -1,0 +1,30 @@
+reference:
+- title: "Variable labels"
+- subtitle: "Pipes"
+  desc: "Find and replace text substitution markers (e.g., `%rostertitle%`)"
+  contents:
+  - lbl_list_pipes
+  - lbl_replace_pipe
+  - lbl_assert_no_pipes
+- subtitle: "Length"
+  desc: "Identify labels that might be potentially truncated."
+  contents:
+  - lbl_list_long_var_lbl
+  - lbl_assert_no_long_var_lbl
+- subtitle: "Existence"
+  desc: "Check for variables without variable labels"
+  contents:
+  - lbl_list_no_var_lbl
+  - lbl_assert_have_var_lbl
+- subtitle: "Inspection and manipulation"
+  desc: "Find labels with desired content; modify labels with Designer metadata"
+  contents:
+  - lbl_list_matching_var_lbls
+  - lbl_use_meta
+- title: "Value labels"
+- subtitle: "Inspection and manipulation"
+  desc: "Find labels with desired content; find and drop unused labels"
+  contents:
+  - lbl_list_matching_val_lbls
+  - lbl_list_unused_val_lbls
+  - lbl_drop_unused_val_lbls
